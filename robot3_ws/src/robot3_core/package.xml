@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+  <name>robot3_core</name>
+  <version>0.0.1</version>
+  <description>Central boot and launch package for robot3 system</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime launch dependencies -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch</exec_depend>
+
+  <!-- Packages we need to launch -->
+  <exec_depend>robot3_battery</exec_depend>
+  <exec_depend>robot3_sensors</exec_depend>
+  <exec_depend>robot3_ui</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>

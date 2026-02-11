@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot3_msgs</name>
+  <version>0.0.2</version>
+  <description>Custom message definitions for robot3</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache License 2.0</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Message generation -->
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <!-- Dependencies used inside .msg files -->
+  <depend>std_msgs</depend>
+
+  <!-- Required for message packages -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+</package>

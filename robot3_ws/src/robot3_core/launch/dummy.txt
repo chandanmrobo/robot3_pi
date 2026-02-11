@@ -1,0 +1,112 @@
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, ExecuteProcess, SetEnvironmentVariable
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from ament_index_python.packages import get_package_share_directory
+import os
+
+
+def generate_launch_description():
+
+    battery_pkg = os.path.join(
+        get_package_share_directory('robot3_battery'),
+        'launch', 'battery.launch.py'
+    )
+
+    sensors_pkg = os.path.join(
+        get_package_share_directory('robot3_sensors'),
+        'launch', 'sensors.launch.py'
+    )
+
+    ui_pkg = os.path.join(
+        get_package_share_directory('robot3_ui'),
+        'launch', 'ui.launch.py'
+    )
+
+    movements_pkg = os.path.join(
+        get_package_share_directory('robot3_movements'),
+        'launch', 'movements.launch.py'
+    )
+
+    seeds_pkg = os.path.join(
+        get_package_share_directory('robot3_seeds'),
+        'launch', 'seeds.launch.py'
+    )
+
+    soil_check_pkg = os.path.join(
+        get_package_share_directory('robot3_soil_check'),
+        'launch', 'soil_check.launch.py'
+    )
+
+    detection_bridge_pkg = os.path.join(
+        get_package_share_directory('robot3_detection_bridge'),
+        'launch', 'detection_bridge.launch.py'
+    )
+
+    dashboard_pkg = os.path.join(
+        get_package_share_directory('robot3_dashboard'),
+        'launch', 'dashboard.launch.py'
+    )
+
+    # Path to Cyclone DDS configuration file
+    cyclonedds_config = os.path.join(os.path.expanduser('~'), 'robot3_ws', 'cyclonedds.xml')
+
+    #  MICRO-ROS AGENT (ESP32 Bridge)
+    micro_ros_agent = ExecuteProcess(
+        cmd=['micro-ros-agent', 'udp4', '--port', '8888', '-v6'],
+        output='screen',
+        name='micro_ros_agent'
+    )
+
+    return LaunchDescription([
+        # Set ROS_DOMAIN_ID for all nodes
+        SetEnvironmentVariable('ROS_DOMAIN_ID', '0'),
+        
+        # Disable localhost-only mode
+        SetEnvironmentVariable('ROS_LOCALHOST_ONLY', '0'),
+        
+        # Use Cyclone DDS configuration file
+        SetEnvironmentVariable('CYCLONEDDS_URI', 'file://' + cyclonedds_config),
+        
+        # Micro-ROS Agent (MUST START FIRST)
+        micro_ros_agent,
+
+        # Battery monitoring
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(battery_pkg)
+        ),
+
+        # Sensors
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(sensors_pkg)
+        ),
+
+        # UI server
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(ui_pkg)
+        ),
+
+        # Movement control
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(movements_pkg)
+        ),
+
+        # Seed dispenser
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(seeds_pkg)
+        ),
+
+        # Soil checker
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(soil_check_pkg)
+        ),
+
+        # Detection bridge
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(detection_bridge_pkg)
+        ),
+
+        # Dashboard logger
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(dashboard_pkg)
+        ),
+    ])
