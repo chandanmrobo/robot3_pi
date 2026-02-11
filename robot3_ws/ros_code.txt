@@ -1,0 +1,3654 @@
+package: home/chandan/robot3_ws/src/robot3_battery
+
+files:
+
+/home/chandan/robot3_ws/src/robot3_battery/launch/battery.launch.py
+code:
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+
+    robot1 = Node(
+        package='robot3_battery',
+        executable='battery_node',
+        name='robot1_battery_node',
+        parameters=[
+            {"robot_id": 1},
+            {"voltage_topic": "/robot1/battery_voltage"},
+            {"status_topic": "/robot1/battery_status"}
+        ],
+        output='screen'
+    )
+
+    robot2 = Node(
+        package='robot3_battery',
+        executable='battery_node',
+        name='robot2_battery_node',
+        parameters=[
+            {"robot_id": 2},
+            {"voltage_topic": "/robot2/battery_voltage"},
+            {"status_topic": "/robot2/battery_status"}
+        ],
+        output='screen'
+    )
+
+    return LaunchDescription([
+        robot1,
+        robot2
+    ])
+
+
+resource file:
+/home/chandan/robot3_ws/src/robot3_battery/resource/robot3_battery
+robot3_battery
+
+/home/chandan/robot3_ws/src/robot3_battery/robot3_battery
+/home/chandan/robot3_ws/src/robot3_battery/robot3_battery/__pycache__
+/home/chandan/robot3_ws/src/robot3_battery/robot3_battery/__init__.py
+# empty this is a no waste file but need to exist dont delete
+
+/home/chandan/robot3_ws/src/robot3_battery/robot3_battery/battery_log.py
+import datetime
+import os
+
+LOG_FILE = os.path.expanduser("~/battery_log.txt")
+
+def write_log(text):
+    try:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"[{datetime.datetime.now()}] {text}\n")
+    except Exception as e:
+        print(f"Error writing battery log: {e}")
+
+/home/chandan/robot3_ws/src/robot3_battery/robot3_battery/battery_node.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import Float32
+from robot3_msgs.msg import BatteryStatus
+
+from robot3_battery.battery_utils import voltage_to_percent
+
+
+class BatteryNode(Node):
+    def __init__(self):
+        # Use unique node name per robot
+        super().__init__('battery_node_main')
+
+        # Declare parameters
+        self.declare_parameter("robot_id", 1)
+        self.declare_parameter("voltage_topic", "/robot1/battery_voltage")
+        self.declare_parameter("status_topic", "/robot1/battery_status")
+
+        # Load parameters
+        self.robot_id = self.get_parameter("robot_id").value
+        voltage_topic = self.get_parameter("voltage_topic").value
+        status_topic = self.get_parameter("status_topic").value
+
+        # ROS2 Subscriber: Voltage input
+        self.sub_voltage = self.create_subscription(
+            Float32,
+            voltage_topic,
+            self.cb_voltage,
+            10
+        )
+
+        # ROS2 Publisher: Battery status output
+        self.pub_status = self.create_publisher(
+            BatteryStatus,
+            status_topic,
+            10
+        )
+
+        self.get_logger().info(
+            f"BatteryNode for Robot {self.robot_id} started\n"
+            f"  Listening on:  {voltage_topic}\n"
+            f"  Publishing to: {status_topic}"
+        )
+
+    # --------------------------------------------------------------
+    # VOLTAGE → PERCENT → STATUS
+    # --------------------------------------------------------------
+    def cb_voltage(self, msg):
+        voltage = float(msg.data)
+
+        # Convert voltage to %
+        percent = voltage_to_percent(voltage)
+
+        # LOW battery <= 30%
+        low_flag = percent <= 30
+
+        # Prepare BatteryStatus message
+        status = BatteryStatus()
+        status.voltage = voltage
+        status.percent = float(percent)
+        status.low_flag = low_flag
+
+        # Publish status
+        self.pub_status.publish(status)
+
+
+# --------------------------------------------------------------
+# MAIN
+# --------------------------------------------------------------
+def main():
+    rclpy.init()
+    node = BatteryNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+
+/home/chandan/robot3_ws/src/robot3_battery/robot3_battery/battery_utils.py
+# robot3_battery/robot3_battery/battery_utils.py
+
+from typing import List, Tuple
+
+def voltage_to_percent(v: float, cells: int = 4) -> float:
+    """
+    Convert Li-ion pack voltage to % using interpolation table.
+    """
+    if v <= 0:
+        return 0.0
+
+    per_cell = v / float(cells)
+
+    table: List[Tuple[float, float]] = [
+        (4.20, 100.0),
+        (3.90, 75.0),
+        (3.70, 50.0),
+        (3.50, 25.0),
+        (3.20, 0.0),
+    ]
+
+    if per_cell >= table[0][0]:
+        return 100.0
+    if per_cell <= table[-1][0]:
+        return 0.0
+
+    for i in range(len(table) - 1):
+        v_hi, p_hi = table[i]
+        v_lo, p_lo = table[i+1]
+
+        if v_hi >= per_cell >= v_lo:
+            if v_hi == v_lo:
+                return float(p_lo)
+            t = (per_cell - v_lo) / (v_hi - v_lo)
+            percent = p_lo + t * (p_hi - p_lo)
+            return float(max(0.0, min(100.0, percent)))
+
+    return 0.0
+
+/home/chandan/robot3_ws/src/robot3_battery/test
+/home/chandan/robot3_ws/src/robot3_battery/package.xml
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot3_battery</name>
+  <version>0.0.1</version>
+  <description>Battery monitoring for robot3</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>robot3_msgs</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+
+/home/chandan/robot3_ws/src/robot3_battery/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_battery
+
+[install]
+install_scripts=$base/lib/robot3_battery
+
+/home/chandan/robot3_ws/src/robot3_battery/setup.py
+from setuptools import setup, find_packages
+
+package_name = 'robot3_battery'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=find_packages(),
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+
+        ('share/' + package_name, ['package.xml']),
+
+        ('share/' + package_name + '/launch',
+            ['launch/battery.launch.py']),
+
+        ('share/' + package_name + '/resource',
+            ['resource/' + package_name]),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=False,
+    maintainer='chandan',
+    maintainer_email='chandan@example.com',
+    description='Battery monitor for robot3',
+    license='Apache-2.0',
+    entry_points={
+        'console_scripts': [
+            'battery_node = robot3_battery.battery_node:main',
+        ],
+    },
+)
+
+
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_camera
+
+files:
+config:
+/home/chandan/robot3_ws/src/robot3_camera/config
+/home/chandan/robot3_ws/src/robot3_camera/config/camera_params.yaml
+camera:
+  topic: "/robot2/camera/image_raw"
+  use_compressed: true
+
+processing:
+  width: 640
+  height: 480
+  jpeg_quality: 85
+  brightness_alpha: 1.2 # contrast factor
+  brightness_beta: 20 # brightness offset
+
+streaming:
+  ui_host: "127.0.0.1"
+  ui_port: 9090
+  max_fps: 15
+
+/home/chandan/robot3_ws/src/robot3_camera/launch
+/home/chandan/robot3_ws/src/robot3_camera/launch/camera.launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='robot3_camera',
+            executable='camera_node',
+            name='robot3_camera_node',
+            output='screen',
+            parameters=[{
+                'camera_topic': '/robot2/camera/image_raw',
+                'use_compressed': True
+            }]
+        )
+    ])
+
+/home/chandan/robot3_ws/src/robot3_camera/resource
+/home/chandan/robot3_ws/src/robot3_camera/resource/robot3_camera
+robot3_camera
+
+/home/chandan/robot3_ws/src/robot3_camera/robot3_camera
+/home/chandan/robot3_ws/src/robot3_camera/robot3_camera/__init__.py
+# robot3_camera package initialization
+
+/home/chandan/robot3_ws/src/robot3_camera/robot3_camera/camera_node.py
+#!/usr/bin/env python3
+"""
+robot3_camera/robot3_camera/camera_node.py
+FIXED VERSION:
+- Fallback if ui_server not ready
+- Proper frame timestamp/timebase for aiortc
+- Handles both raw and compressed image topics
+"""
+
+import rclpy
+from rclpy.node import Node
+
+import cv2
+import numpy as np
+from cv_bridge import CvBridge
+from sensor_msgs.msg import Image, CompressedImage
+
+from aiortc import MediaStreamTrack
+from av import VideoFrame
+import asyncio
+import time
+from fractions import Fraction
+
+
+# ============================================================
+# IMPORT UI SERVER (with fallback)
+# ============================================================
+try:
+    from robot3_ui.ui_server import attach_camera_track
+    UI_SERVER_AVAILABLE = True
+except ImportError:
+    UI_SERVER_AVAILABLE = False
+    print("[camera_node] WARNING: ui_server not available - track will not attach")
+
+
+# ============================================================
+# IMPORT VIDEO PROCESSOR
+# ============================================================
+try:
+    from .video_processor import process_frame
+except ImportError:
+    from video_processor import process_frame
+
+
+# ============================================================
+# WebRTC Video Track (aiortc)
+# ============================================================
+class CameraVideoTrack(MediaStreamTrack):
+    """
+    Custom MediaStreamTrack that outputs video frames.
+    """
+    kind = "video"
+    
+    def __init__(self):
+        super().__init__()
+        self.frame_queue = asyncio.Queue(maxsize=2)
+        self._timestamp = 0
+    
+    async def recv(self):
+        """
+        Called by aiortc to get next video frame.
+        MUST return VideoFrame with valid pts/time_base.
+        """
+        frame = await self.frame_queue.get()
+        return frame
+    
+    def push_frame(self, img_bgr):
+        """
+        Convert ndarray → VideoFrame and push to queue.
+        
+        Args:
+            img_bgr: BGR image (ndarray) from OpenCV
+        """
+        try:
+            # Convert BGR → VideoFrame
+            vf = VideoFrame.from_ndarray(img_bgr, format="bgr24")
+            
+            # CRITICAL: Set valid timestamp
+            now_ms = int(time.time() * 1000)
+            vf.pts = now_ms
+            vf.time_base = Fraction(1, 1000)  # 1ms timebase
+            
+            # Non-blocking push
+            try:
+                self.frame_queue.put_nowait(vf)
+            except asyncio.QueueFull:
+                pass  # Drop frame if queue full
+                
+        except Exception as e:
+            print(f"[camera_node] Error pushing frame: {e}")
+
+
+# ============================================================
+# ROS CAMERA NODE
+# ============================================================
+class CameraNode(Node):
+    def __init__(self):
+        super().__init__('camera_node')
+        
+        self.get_logger().info("Robot3 Camera Node (WebRTC Mode) Started")
+        
+        self.bridge = CvBridge()
+        
+        # Create WebRTC track
+        self.track = CameraVideoTrack()
+        
+        # Attach track to UI server
+        if UI_SERVER_AVAILABLE:
+            try:
+                attach_camera_track(self.track)
+                self.get_logger().info("Camera track attached to ui_server")
+            except Exception as e:
+                self.get_logger().error(f"Failed to attach camera track: {e}")
+        else:
+            self.get_logger().warn("ui_server not available - running in standalone mode")
+        
+        # Parameters
+        self.declare_parameter("camera_topic", "/robot2/camera/image_raw")
+        self.declare_parameter("use_compressed", True)
+        
+        topic_base = self.get_parameter("camera_topic").value
+        use_compressed = self.get_parameter("use_compressed").value
+        
+        # Subscribe to camera topic
+        if use_compressed:
+            topic = topic_base + "/compressed"
+            self.subscription = self.create_subscription(
+                CompressedImage, topic, self.compressed_callback, 10
+            )
+            self.get_logger().info(f"Subscribed to compressed topic: {topic}")
+        else:
+            self.subscription = self.create_subscription(
+                Image, topic_base, self.raw_callback, 10
+            )
+            self.get_logger().info(f"Subscribed to raw topic: {topic_base}")
+    
+    # --------------------------------------------------------
+    # RAW IMAGE CALLBACK
+    # --------------------------------------------------------
+    def raw_callback(self, msg: Image):
+        """Handle raw sensor_msgs/Image."""
+        try:
+            frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            self.process_and_send(frame)
+        except Exception as e:
+            self.get_logger().error(f"Raw image decode error: {e}")
+    
+    # --------------------------------------------------------
+    # COMPRESSED IMAGE CALLBACK
+    # --------------------------------------------------------
+    def compressed_callback(self, msg: CompressedImage):
+        """Handle sensor_msgs/CompressedImage."""
+        try:
+            # Decode JPEG bytes → BGR ndarray
+            np_arr = np.frombuffer(msg.data, np.uint8)
+            frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
+            
+            if frame is None:
+                self.get_logger().warn("Failed to decode compressed image")
+                return
+            
+            self.process_and_send(frame)
+            
+        except Exception as e:
+            self.get_logger().error(f"Compressed image decode error: {e}")
+    
+    # --------------------------------------------------------
+    # PROCESS + SEND TO WEBRTC
+    # --------------------------------------------------------
+    def process_and_send(self, frame):
+        """
+        Process frame (resize, enhance) and push to WebRTC track.
+        
+        Args:
+            frame: BGR image (ndarray)
+        """
+        try:
+            # Apply video processing (resize, brightness, etc.)
+            processed = process_frame(frame)
+            
+            # Push to WebRTC track
+            self.track.push_frame(processed)
+            
+        except Exception as e:
+            self.get_logger().error(f"Frame processing error: {e}")
+
+
+# ============================================================
+# MAIN
+# ============================================================
+def main(args=None):
+    rclpy.init(args=args)
+    node = CameraNode()
+    
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+
+/home/chandan/robot3_ws/src/robot3_camera/robot3_camera/streamer.py
+# streamer.py (WebRTC version)
+# ------------------------------------------------------------
+# This module previously sent Base64 frames using Socket.IO.
+# In WebRTC mode, frame streaming is handled directly inside
+# camera_node.py through aiortc MediaStreamTrack.
+#
+# This file is kept only as a placeholder to avoid import errors.
+# ------------------------------------------------------------
+
+def send_frame_to_ui(frame):
+    """
+    Deprecated function. No longer used.
+
+    WebRTC streaming is handled inside camera_node.py
+    using the CameraVideoTrack → attach_camera_track() → ui_server.py.
+    """
+    pass
+
+
+/home/chandan/robot3_ws/src/robot3_camera/robot3_camera/video_processor.py
+import cv2
+import numpy as np
+
+def process_frame(frame):
+    """
+    Input: frame (ndarray) — may be None, grayscale, or float.
+    Output: contiguous uint8 BGR ndarray sized 640x480.
+    """
+    try:
+        # Handle missing frame
+        if frame is None:
+            return np.zeros((480, 640, 3), dtype=np.uint8)
+
+        # Convert float frames to uint8
+        if frame.dtype != np.uint8:
+            frame = np.clip(frame, 0, 255).astype(np.uint8)
+
+        # If single-channel, convert to BGR
+        if len(frame.shape) == 2:
+            frame = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
+
+        # Safe resize: preserve aspect ratio by fitting into 640x480 if needed
+        target_w, target_h = 640, 480
+        h, w = frame.shape[:2]
+        if (w, h) != (target_w, target_h):
+            # choose interpolation method
+            interp = cv2.INTER_AREA if (w > target_w or h > target_h) else cv2.INTER_LINEAR
+            frame = cv2.resize(frame, (target_w, target_h), interpolation=interp)
+
+        # Brightness/contrast enhancement (fast, low CPU)
+        adjusted = cv2.convertScaleAbs(frame, alpha=1.2, beta=20)
+
+        # Ensure contiguous memory for downstream (aiortc/av)
+        return np.ascontiguousarray(adjusted)
+
+    except Exception as e:
+        # On error, return a black frame rather than crashing the pipeline
+        try:
+            print(f"[video_processor] Error processing frame: {e}")
+        except Exception:
+            pass
+        return np.zeros((480, 640, 3), dtype=np.uint8)
+
+/home/chandan/robot3_ws/src/robot3_camera/test
+/home/chandan/robot3_ws/src/robot3_camera/LICENSE
+/home/chandan/robot3_ws/src/robot3_camera/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>robot3_camera</name>
+  <version>0.1.0</version>
+  <description>Camera processing and streaming pipeline for Robot 2 video feed.</description>
+
+  <maintainer email="chandan.m.reddy21@gmail.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Core dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- ROS2 runtime dependencies -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>image_transport</exec_depend>
+  <exec_depend>compressed_image_transport</exec_depend>
+
+  <!-- Python dependencies -->
+  <exec_depend>python3-opencv</exec_depend>
+
+  <!-- Testing -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+
+/home/chandan/robot3_ws/src/robot3_camera/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_camera
+[install]
+install_scripts=$base/lib/robot3_camera
+
+/home/chandan/robot3_ws/src/robot3_camera/setup.py
+from setuptools import find_packages, setup
+
+package_name = 'robot3_camera'
+
+setup(
+    name=package_name,
+    version='0.2.0',  # Version bump - removed streamer
+    packages=find_packages(exclude=['test']),
+    data_files=[
+        ('share/ament_index/resource_index/packages', [
+            'resource/' + package_name
+        ]),
+        ('share/' + package_name, [
+            'package.xml',
+        ]),
+        ('share/' + package_name + '/launch', [
+            'launch/camera.launch.py',
+        ]),
+        ('share/' + package_name + '/config', [
+            'config/camera_params.yaml',
+        ]),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='chandan',
+    maintainer_email='chandan.m.reddy21@gmail.com',
+    description='ROS2 camera processing with WebRTC streaming (no streamer.py)',
+    license='Apache-2.0',
+    extras_require={
+        'test': ['pytest'],
+    },
+    entry_points={
+        'console_scripts': [
+            'camera_node = robot3_camera.camera_node:main',
+        ],
+    },
+)
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_core
+files:
+
+launch:
+/home/chandan/robot3_ws/src/robot3_core/launch/core.launch.py
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from ament_index_python.packages import get_package_share_directory
+import os
+
+
+def generate_launch_description():
+
+    battery_pkg = os.path.join(
+        get_package_share_directory('robot3_battery'),
+        'launch', 'battery.launch.py'
+    )
+
+    sensors_pkg = os.path.join(
+        get_package_share_directory('robot3_sensors'),
+        'launch', 'sensors.launch.py'
+    )
+
+    ui_pkg = os.path.join(
+        get_package_share_directory('robot3_ui'),
+        'launch', 'ui.launch.py'
+    )
+
+    movements_pkg = os.path.join(
+        get_package_share_directory('robot3_movements'),
+        'launch', 'movements.launch.py'
+    )
+
+    seeds_pkg = os.path.join(
+        get_package_share_directory('robot3_seeds'),
+        'launch', 'seeds.launch.py'
+    )
+
+    soil_check_pkg = os.path.join(
+        get_package_share_directory('robot3_soil_check'),
+        'launch', 'soil_check.launch.py'
+    )
+
+    detection_bridge_pkg = os.path.join(
+        get_package_share_directory('robot3_detection_bridge'),
+        'launch', 'detection_bridge.launch.py'
+    )
+
+    # ✅ ADD DASHBOARD LAUNCH
+    dashboard_pkg = os.path.join(
+        get_package_share_directory('robot3_dashboard'),
+        'launch', 'dashboard.launch.py'
+    )
+
+    return LaunchDescription([
+        # Battery monitoring
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(battery_pkg)
+        ),
+
+        # Sensors
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(sensors_pkg)
+        ),
+
+        # UI server (handles camera internally - NO camera_node needed!)
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(ui_pkg)
+        ),
+
+        # Movement control
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(movements_pkg)
+        ),
+
+        # Seed dispenser
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(seeds_pkg)
+        ),
+
+        # Soil checker
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(soil_check_pkg)
+        ),
+
+        # Detection bridge
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(detection_bridge_pkg)
+        ),
+
+        # ✅ DASHBOARD LOGGER (NEW)
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(dashboard_pkg)
+        ),
+    ])
+
+
+
+/home/chandan/robot3_ws/src/robot3_core/resource
+/home/chandan/robot3_ws/src/robot3_core/robot3_core
+robot3_core
+
+/home/chandan/robot3_ws/src/robot3_core/robot3_core/__init__.py
+#needed file for ros2
+
+/home/chandan/robot3_ws/src/robot3_core/test
+/home/chandan/robot3_ws/src/robot3_core/LICENSE
+/home/chandan/robot3_ws/src/robot3_core/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+  <name>robot3_core</name>
+  <version>0.0.1</version>
+  <description>Central boot and launch package for robot3 system</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime launch dependencies -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>launch</exec_depend>
+
+  <!-- Packages we need to launch -->
+  <exec_depend>robot3_battery</exec_depend>
+  <exec_depend>robot3_sensors</exec_depend>
+  <exec_depend>robot3_ui</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
+
+/home/chandan/robot3_ws/src/robot3_core/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_core
+[install]
+install_scripts=$base/lib/robot3_core
+
+/home/chandan/robot3_ws/src/robot3_core/setup.py
+from setuptools import find_packages, setup
+
+package_name = 'robot3_core'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=find_packages(exclude=['test']),
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+
+        ('share/' + package_name, ['package.xml']),
+
+        # Install launch file
+        ('share/' + package_name + '/launch',
+            ['launch/core.launch.py']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='chandan',
+    maintainer_email='chandan@example.com',
+    description='Central launch package for robot3 (battery + sensors + UI)',
+    license='Apache-2.0',
+    extras_require={
+        'test': ['pytest'],
+    },
+    entry_points={
+        'console_scripts': [
+        ],
+    },
+)
+
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_detection_bridge
+
+files:
+launch:
+/home/chandan/robot3_ws/src/robot3_detection_bridge/launch
+/home/chandan/robot3_ws/src/robot3_detection_bridge/launch/detection_bridge.launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+
+    detection_bridge = Node(
+        package='robot3_detection_bridge',
+        executable='detection_bridge_node',
+        name='robot3_detection_bridge',
+        output='screen'
+    )
+    detection_mode_bridge = Node(
+        package='robot3_detection_bridge',
+        executable='detection_mode_bridge',
+        name='robot3_detection_mode_bridge',
+        output='screen'
+    )
+
+    return LaunchDescription([
+        detection_bridge,
+        detection_mode_bridge
+    ])
+
+/home/chandan/robot3_ws/src/robot3_detection_bridge/resource
+/home/chandan/robot3_ws/src/robot3_detection_bridge/resource/robot3_detection_bridge
+robot3_detection_bridge
+
+/home/chandan/robot3_ws/src/robot3_detection_bridge/robot3_detection_bridge
+/home/chandan/robot3_ws/src/robot3_detection_bridge/robot3_detection_bridge/__pycache__
+/home/chandan/robot3_ws/src/robot3_detection_bridge/robot3_detection_bridge/__init__.py
+#this is only for ros2 to work needed file
+
+/home/chandan/robot3_ws/src/robot3_detection_bridge/robot3_detection_bridge/detection_bridge_node.py
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+
+class DetectionBridge(Node):
+    def __init__(self):
+        super().__init__("robot3_detection_bridge")
+
+        self.get_logger().info("Robot3 Detection Bridge Started")
+
+        # ------------------------------------------------------
+        # SUBSCRIBE to Robot 2 detection topics
+        # (replace topic names with your actual Robot2 topics)
+        # ------------------------------------------------------
+        self.sub_plant = self.create_subscription(
+            String,
+            "/robot2/plant_disease",
+            self.cb_plant,
+            10
+        )
+
+        self.sub_bird = self.create_subscription(
+            String,
+            "/robot2/bird_status",
+            self.cb_bird,
+            10
+        )
+
+        # ------------------------------------------------------
+        # PUBLISH to UI server (ui_server.py listens here)
+        # ------------------------------------------------------
+        self.pub_ui_plant = self.create_publisher(
+            String,
+            "/ui/plant_detection",
+            10
+        )
+
+        self.pub_ui_bird = self.create_publisher(
+            String,
+            "/ui/bird_detection",
+            10
+        )
+
+    # ----------------------------------------------------------
+    # ROBOT 2 → ROBOT 3 CALLBACKS
+    # ----------------------------------------------------------
+    def cb_plant(self, msg: String):
+        """Forward plant disease result to UI server."""
+        out = String()
+        out.data = msg.data
+        self.pub_ui_plant.publish(out)
+
+        self.get_logger().info(f"Forwarded PLANT detection: {msg.data}")
+
+    def cb_bird(self, msg: String):
+        """Forward bird/crow detection result to UI server."""
+        out = String()
+        out.data = msg.data
+        self.pub_ui_bird.publish(out)
+
+        self.get_logger().info(f"Forwarded BIRD detection: {msg.data}")
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = DetectionBridge()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+
+/home/chandan/robot3_ws/src/robot3_detection_bridge/robot3_detection_bridge/detection_mode_bridge.py
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class DetectionModeBridge(Node):
+    """
+    Separate minimal bridge:
+      UI → /ui/detection_mode
+      Robot2 ← /robot2/detection_mode
+    """
+
+    def __init__(self):
+        super().__init__("detection_mode_bridge")
+
+        self.get_logger().info("Detection Mode Bridge started")
+
+        # Subscribe to UI mode (plant / bird)
+        self.sub_ui_mode = self.create_subscription(
+            String,
+            "/ui/detection_mode",
+            self.cb_ui_mode,
+            10
+        )
+
+        # Publish to robot_2
+        self.pub_robot2_mode = self.create_publisher(
+            String,
+            "/robot2/detection_mode",
+            10
+        )
+
+    # -------------------------------------------------
+
+    def cb_ui_mode(self, msg: String):
+        mode = msg.data.strip()
+
+        # Validate mode
+        if mode not in ("plant", "bird"):
+            self.get_logger().warn(f"Invalid detection mode received: {mode}")
+            return
+
+        # Log and forward
+        self.get_logger().info(f"Forwarding mode to robot2: {mode}")
+
+        out_msg = String()
+        out_msg.data = mode
+        self.pub_robot2_mode.publish(out_msg)
+
+# -----------------------------------------------------
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = DetectionModeBridge()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == "__main__":
+    main()
+
+/home/chandan/robot3_ws/src/robot3_detection_bridge/test
+/home/chandan/robot3_ws/src/robot3_detection_bridge/LICENSE
+/home/chandan/robot3_ws/src/robot3_detection_bridge/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+  <name>robot3_detection_bridge</name>
+  <version>0.0.2</version>
+  <description>Bridge for Robot2 detection and UI commands.</description>
+
+  <maintainer email="chandan.m.reddy21@gmail.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- Testing (optional) -->
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
+
+/home/chandan/robot3_ws/src/robot3_detection_bridge/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_detection_bridge
+[install]
+install_scripts=$base/lib/robot3_detection_bridge
+
+/home/chandan/robot3_ws/src/robot3_detection_bridge/setup.py
+from setuptools import setup
+
+package_name = 'robot3_detection_bridge'
+
+setup(
+    name=package_name,
+    version='0.0.2',
+    packages=[package_name],
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+
+        ('share/' + package_name, ['package.xml']),
+
+        # Launch folder (if you add one later)
+        ('share/' + package_name + '/launch',
+            ['launch/detection_bridge.launch.py']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='chandan',
+    maintainer_email='chandan.m.reddy21@gmail.com',
+    description='Forward Robot2 detection to UI & UI detection mode to Robot2',
+    license='Apache-2.0',
+    entry_points={
+        'console_scripts': [
+            # Existing bridge
+            'detection_bridge_node = robot3_detection_bridge.detection_bridge_node:main',
+
+            # ⭐ NEW bridge for plant/bird mode
+            'detection_mode_bridge = robot3_detection_bridge.detection_mode_bridge:main',
+        ],
+    },
+)
+
+
+
+
+
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_movements
+files:
+launch:
+/home/chandan/robot3_ws/src/robot3_movements/launch
+/home/chandan/robot3_ws/src/robot3_movements/launch/movements.launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+
+    movement_node = Node(
+        package='robot3_movements',
+        executable='movement_node',
+        name='robot3_movement_node',
+        output='screen'
+    )
+
+    return LaunchDescription([
+        movement_node
+    ])
+
+/home/chandan/robot3_ws/src/robot3_movements/resource
+/home/chandan/robot3_ws/src/robot3_movements/resource/robot3_movements
+robot3_movements
+
+/home/chandan/robot3_ws/src/robot3_movements/robot3_movements
+/home/chandan/robot3_ws/src/robot3_movements/robot3_movements/__pycache__
+/home/chandan/robot3_ws/src/robot3_movements/robot3_movements/__init__.py
+# robot3_movements package
+
+/home/chandan/robot3_ws/src/robot3_movements/robot3_movements/movement_node.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+
+from robot3_movements.movement_utils import get_command
+
+
+class MovementNode(Node):
+    def __init__(self):
+        super().__init__("robot3_movement_node")
+
+        # Publishers for robot1 and robot2
+        self.pub_r1 = self.create_publisher(String, "/robot1/move_cmd", 10)
+        self.pub_r2 = self.create_publisher(String, "/robot2/move_cmd", 10)
+
+        # Subscription from UI (robot1 + robot2)
+        self.sub_ui = self.create_subscription(
+            String,
+            "/ui/move_cmd",
+            self.ui_callback,
+            10
+        )
+
+        self.get_logger().info("MovementNode started — listening to /ui/move_cmd")
+
+    # --------------------------------------------------------------
+    # Receive UI command → publish to robot topics
+    # --------------------------------------------------------------
+    def ui_callback(self, msg: String):
+
+        """
+        Expected UI command format:
+            "r1_up" / "r1_left" / "r1_stop"
+            "r2_down" / "r2_right" / "r2_stop"
+        """
+
+        data = msg.data.strip()
+
+        # Robot 1 command
+        if data.startswith("r1_"):
+            action = data.replace("r1_", "")
+            cmd = get_command(action)
+
+            out = String()
+            out.data = cmd
+            self.pub_r1.publish(out)
+
+            self.get_logger().info(f"Robot1 → {cmd}")
+
+        # Robot 2 command
+        elif data.startswith("r2_"):
+            action = data.replace("r2_", "")
+            cmd = get_command(action)
+
+            out = String()
+            out.data = cmd
+            self.pub_r2.publish(out)
+
+            self.get_logger().info(f"Robot2 → {cmd}")
+
+
+def main():
+    rclpy.init()
+    node = MovementNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+
+/home/chandan/robot3_ws/src/robot3_movements/robot3_movements/movement_utils.py
+# robot3_movements/movement_utils.py
+
+def get_command(action: str) -> str:
+    """
+    Convert UI button action (up/down/left/right/stop)
+    into the ESP32 command strings.
+    """
+
+    mapping = {
+        "up": "forward",
+        "down": "backward",
+        "left": "left",
+        "right": "right",
+        "stop": "stop"
+    }
+
+    # return the mapped command or default to stop
+    return mapping.get(action, "stop")
+
+
+/home/chandan/robot3_ws/src/robot3_movements/test
+/home/chandan/robot3_ws/src/robot3_movements/package.xml
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot3_movements</name>
+  <version>0.0.1</version>
+  <description>Movement command publisher for Robot 1 and Robot 2</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime dependencies -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- Testing (optional) -->
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
+
+/home/chandan/robot3_ws/src/robot3_movements/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_movements
+
+[install]
+install_scripts=$base/lib/robot3_movements
+
+/home/chandan/robot3_ws/src/robot3_movements/setup.py
+from setuptools import setup, find_packages
+
+package_name = 'robot3_movements'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=find_packages(),
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+
+        ('share/' + package_name, ['package.xml']),
+
+        ('share/' + package_name + '/launch',
+            ['launch/movements.launch.py']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=False,
+    maintainer='chandan',
+    maintainer_email='chandan@example.com',
+    description='Movement command publisher for robot1 and robot2',
+    license='Apache-2.0',
+    entry_points={
+        'console_scripts': [
+        'movement_node = robot3_movements.movement_node:main',
+        ],
+    },
+)
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_msgs
+files:
+launch:
+/home/chandan/robot3_ws/src/robot3_msgs
+/home/chandan/robot3_ws/src/robot3_msgs/msg
+/home/chandan/robot3_ws/src/robot3_msgs/msg/BatteryStatus.msg
+float32 voltage
+float32 percent
+bool low_flag
+
+/home/chandan/robot3_ws/src/robot3_msgs/msg/DHT11.msg
+float32 temperature
+float32 humidity
+
+/home/chandan/robot3_ws/src/robot3_msgs/msg/SoilMoisture.msg
+float32 moisture
+
+/home/chandan/robot3_ws/src/robot3_msgs/resource
+/home/chandan/robot3_ws/src/robot3_msgs/resource/robot3_msgs
+robot3_msgs
+
+/home/chandan/robot3_ws/src/robot3_msgs/CMakeLists.txt
+cmake_minimum_required(VERSION 3.8)
+project(robot3_msgs)
+
+# Necessary for generating messages
+find_package(ament_cmake REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(std_msgs REQUIRED)
+
+# Message files
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/BatteryStatus.msg"
+  "msg/DHT11.msg"
+  "msg/SoilMoisture.msg"
+  DEPENDENCIES std_msgs
+)
+
+ament_export_dependencies(rosidl_default_runtime)
+
+ament_package()
+
+/home/chandan/robot3_ws/src/robot3_msgs/package.xml
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot3_msgs</name>
+  <version>0.0.2</version>
+  <description>Custom message definitions for robot3</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache License 2.0</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Message generation -->
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <!-- Dependencies used inside .msg files -->
+  <depend>std_msgs</depend>
+
+  <!-- Required for message packages -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+</package>
+
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_seeds
+files:
+launch:
+/home/chandan/robot3_ws/src/robot3_seeds/launch
+/home/chandan/robot3_ws/src/robot3_seeds/launch/seeds.launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+
+    seed_node = Node(
+        package='robot3_seeds',
+        executable='seed_node',
+        name='robot3_seed_node',
+        output='screen',
+        emulate_tty=True
+    )
+
+    return LaunchDescription([
+        seed_node
+    ])
+
+/home/chandan/robot3_ws/src/robot3_seeds/resource
+/home/chandan/robot3_ws/src/robot3_seeds/resource/robot3_seeds
+robot3_seeds
+
+/home/chandan/robot3_ws/src/robot3_seeds/robot3_seeds
+/home/chandan/robot3_ws/src/robot3_seeds/robot3_seeds/__pycache__
+/home/chandan/robot3_ws/src/robot3_seeds/robot3_seeds/__init__.py
+# required init file for Python package
+
+/home/chandan/robot3_ws/src/robot3_seeds/robot3_seeds/seed_node.py
+# robot3_seeds/seed_node.py
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String, Bool
+import json
+from datetime import datetime
+
+
+def get_timestamp():
+    """Return current time in HH:MM:SS format"""
+    return datetime.now().strftime("%H:%M:%S")
+
+
+class SeedNode(Node):
+    def __init__(self):
+        super().__init__("robot3_seed_node")
+
+        # ---------------------------------------------------------
+        # INTERNAL COUNTERS
+        # ---------------------------------------------------------
+        self.total_seed_count = 0
+
+        # AUTO MODE - starts disabled
+        self.is_auto_enabled = False
+        self.seed_gap_sec = 5  # default (React default 5 cm → 5 sec)
+        self.auto_timer = None
+
+        # ---------------------------------------------------------
+        # SUBSCRIPTIONS
+        # ---------------------------------------------------------
+
+        # Manual Seed Commands from UI
+        self.sub_ui = self.create_subscription(
+            String, "/ui/seed_cmd", self.ui_callback, 10
+        )
+
+        # React Settings – seed gap update
+        self.sub_gap = self.create_subscription(
+            String, "/ui/settings_seed_gap", self.cb_update_gap, 10
+        )
+
+        # ---------------------------------------------------------
+        # PUBLISHERS
+        # ---------------------------------------------------------
+
+        # Hardware seed command to ESP32
+        self.pub_seed = self.create_publisher(
+            String, "/robot1/seed_cmd", 10
+        )
+
+        # Dashboard event publisher
+        self.pub_dashboard = self.create_publisher(
+            String, "/dashboard/seed_event", 10
+        )
+
+        self.get_logger().info(
+            f"[{get_timestamp()}] SeedNode started – auto disabled, default gap = {self.seed_gap_sec}s"
+        )
+
+    # ---------------------------------------------------------
+    # UPDATE SEED GAP (AUTO DISPENSE INTERVAL)
+    # ---------------------------------------------------------
+    def cb_update_gap(self, msg: String):
+        try:
+            new_gap = int(msg.data)
+            if new_gap <= 0:
+                raise ValueError
+        except:
+            self.get_logger().warn(f"[{get_timestamp()}] Invalid seed gap received: {msg.data}")
+            return
+
+        self.seed_gap_sec = new_gap
+        self.get_logger().info(f"[{get_timestamp()}] Updated AUTO seed gap to {self.seed_gap_sec} sec")
+
+        # Reset auto timer ONLY if auto mode is currently running
+        if self.is_auto_enabled and self.auto_timer:
+            self.auto_timer.cancel()
+            self.auto_timer = self.create_timer(self.seed_gap_sec, self.auto_dispense)
+
+    # ---------------------------------------------------------
+    # UI → SEED COMMAND HANDLER (manual + mode switching)
+    # ---------------------------------------------------------
+    def ui_callback(self, msg: String):
+        action = msg.data.strip()
+
+        # -----------------------------------------------------
+        # HANDLE MODE SWITCHING
+        # -----------------------------------------------------
+        if action == "seed_mode_auto":
+            self.enable_auto_mode()
+            return
+
+        if action == "seed_mode_manual":
+            self.disable_auto_mode()
+            return
+
+        # -----------------------------------------------------
+        # HANDLE MANUAL DISPENSE (works independent of settings)
+        # -----------------------------------------------------
+        if action == "seed_dispense_once":
+            self.do_dispense(manual=True)
+            return
+
+        # -----------------------------------------------------
+        # FORWARD OTHER COMMANDS
+        # -----------------------------------------------------
+        out = String()
+        out.data = action
+        self.pub_seed.publish(out)
+
+        self.get_logger().info(f"[{get_timestamp()}] SeedNode: UI action '{action}' forwarded")
+
+    # ---------------------------------------------------------
+    # AUTO MODE ENABLE / DISABLE
+    # ---------------------------------------------------------
+    def enable_auto_mode(self):
+        if self.is_auto_enabled:
+            return  # Already enabled
+            
+        self.is_auto_enabled = True
+        self.get_logger().info(f"[{get_timestamp()}] SeedNode: AUTO mode ENABLED")
+
+        # Cancel any existing timer
+        if self.auto_timer:
+            self.auto_timer.cancel()
+
+        # Start new auto timer
+        self.auto_timer = self.create_timer(self.seed_gap_sec, self.auto_dispense)
+
+    def disable_auto_mode(self):
+        if not self.is_auto_enabled:
+            return  # Already disabled
+            
+        self.is_auto_enabled = False
+        self.get_logger().info(f"[{get_timestamp()}] SeedNode: AUTO mode DISABLED")
+
+        # Stop auto timer
+        if self.auto_timer:
+            self.auto_timer.cancel()
+            self.auto_timer = None
+
+    # ---------------------------------------------------------
+    # AUTO DISPENSE CALLBACK (only runs when auto enabled)
+    # ---------------------------------------------------------
+    def auto_dispense(self):
+        if not self.is_auto_enabled:
+            return
+
+        self.do_dispense(manual=False)
+
+    # ---------------------------------------------------------
+    # DO DISPENSE (manual or auto)
+    # ---------------------------------------------------------
+    def do_dispense(self, manual: bool):
+        # Send to ESP32
+        out = String()
+        out.data = "dispense_once"
+        self.pub_seed.publish(out)
+
+        # Update total count
+        self.total_seed_count += 1
+
+        # Prepare dashboard event
+        event = {
+            "count": 1,
+            "totalCount": self.total_seed_count,
+            "mode": "manual" if manual else "auto"
+        }
+
+        msg = String()
+        msg.data = json.dumps(event)
+        self.pub_dashboard.publish(msg)
+
+        mode_txt = "MANUAL" if manual else "AUTO"
+        self.get_logger().info(
+            f"[{get_timestamp()}] {mode_txt} seed dispense → total = {self.total_seed_count}"
+        )
+
+
+# ---------------------------------------------------------
+# MAIN
+# ---------------------------------------------------------
+def main():
+    rclpy.init()
+    node = SeedNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+
+/home/chandan/robot3_ws/src/robot3_seeds/robot3_seeds/seed_utils.py
+# robot3_seeds/seed_utils.py
+
+def get_seed_command(action: str) -> str:
+    """
+    Convert UI action into seed dispenser command strings.
+    """
+
+    mapping = {
+        "seed_power_on": "power_on",
+        "seed_mode_auto": "auto",
+        "seed_mode_manual": "manual",
+        "seed_dispense_once": "dispense_once"
+    }
+
+    return mapping.get(action, "none")
+
+/home/chandan/robot3_ws/src/robot3_seeds/test
+/home/chandan/robot3_ws/src/robot3_seeds/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+  <name>robot3_seeds</name>
+  <version>0.0.1</version>
+  <description>Seed dispenser control package for Robot 3</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime dependencies -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- Tests -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
+
+/home/chandan/robot3_ws/src/robot3_seeds/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_seeds
+
+[install]
+install_scripts=$base/lib/robot3_seeds
+
+/home/chandan/robot3_ws/src/robot3_seeds/setup.py
+from setuptools import setup, find_packages
+import os
+
+package_name = 'robot3_seeds'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=find_packages(),
+    data_files=[
+        # Register package with ament index
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+
+        # Install package.xml
+        ('share/' + package_name, ['package.xml']),
+
+        # Install launch file
+        (os.path.join('share', package_name, 'launch'),
+            ['launch/seeds.launch.py']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=False,
+    maintainer='chandan',
+    maintainer_email='chandan@example.com',
+    description='Seed dispenser control package for Robot 3',
+    license='Apache-2.0',
+    entry_points={
+        'console_scripts': [
+            'seed_node = robot3_seeds.seed_node:main',
+        ],
+    },
+)
+
+
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_sensors
+files:
+launch:
+/home/chandan/robot3_ws/src/robot3_sensors
+/home/chandan/robot3_ws/src/robot3_sensors/launch
+/home/chandan/robot3_ws/src/robot3_sensors/launch/sensors.launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+
+    sensor_node = Node(
+        package='robot3_sensors',
+        executable='sensor_node',
+        name='robot1_sensor_node',
+        output='screen',
+        parameters=[
+            {"temp_topic": "/robot1/dht11_temperature"},
+            {"hum_topic": "/robot1/dht11_humidity"},
+            {"soil_topic": "/robot1/soil_moisture"}
+        ]
+    )
+
+    return LaunchDescription([
+        sensor_node
+    ])
+
+/home/chandan/robot3_ws/src/robot3_sensors/resource
+/home/chandan/robot3_ws/src/robot3_sensors/resource/robot3_sensors
+robot3_sensors
+
+/home/chandan/robot3_ws/src/robot3_sensors/robot3_sensors
+/home/chandan/robot3_ws/src/robot3_sensors/robot3_sensors/__pycache__
+/home/chandan/robot3_ws/src/robot3_sensors/robot3_sensors/__init__.py
+# robot3_sensors package
+
+/home/chandan/robot3_ws/src/robot3_sensors/robot3_sensors/sensor_log.py
+import datetime
+import os
+
+# Separate sensor log file (avoid conflict with UI log file)
+LOG_FILE = os.path.expanduser("~/robot3_sensor_log.txt")
+
+
+def write_log_once(text: str):
+    """
+    Writes a log entry only if the same text was not logged before.
+    Prevents duplicate spam.
+    """
+    timestamped = f"[{datetime.datetime.now()}] {text}"
+
+    # Ensure file exists
+    if not os.path.exists(LOG_FILE):
+        open(LOG_FILE, "w").close()
+
+    # Check if this entry already exists
+    with open(LOG_FILE, "r") as f:
+        if text in f.read():
+            return
+
+    # Write new entry
+    with open(LOG_FILE, "a") as f:
+        f.write(timestamped + "\n")
+
+/home/chandan/robot3_ws/src/robot3_sensors/robot3_sensors/sensor_node.py
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import Float32
+
+from robot3_msgs.msg import DHT11
+from robot3_msgs.msg import SoilMoisture
+
+from robot3_sensors.sensor_log import write_log_once
+
+# Change detection threshold
+CHANGE_THRESHOLD = 0.2
+
+
+class SensorNode(Node):
+    def __init__(self):
+        super().__init__("sensor_node_robot1")
+
+        self.robot_id = 1
+
+        # Declare parameters
+        self.declare_parameter("temp_topic", "/robot1/dht11_temperature")
+        self.declare_parameter("hum_topic", "/robot1/dht11_humidity")
+        self.declare_parameter("soil_topic", "/robot1/soil_moisture")
+
+        # Load parameters
+        temp_topic = self.get_parameter("temp_topic").value
+        hum_topic = self.get_parameter("hum_topic").value
+        soil_topic = self.get_parameter("soil_topic").value
+
+        # Create subscriptions
+        self.sub_temp = self.create_subscription(Float32, temp_topic, self.cb_temp, 10)
+        self.sub_hum = self.create_subscription(Float32, hum_topic, self.cb_hum, 10)
+        self.sub_soil = self.create_subscription(Float32, soil_topic, self.cb_soil, 10)
+
+        # Create publishers
+        self.pub_dht = self.create_publisher(DHT11, "/robot1/dht11_status", 10)
+        self.pub_soil = self.create_publisher(SoilMoisture, "/robot1/soil_status", 10)
+
+        # Last received values — used for change detection
+        self.last_temp = None
+        self.last_hum = None
+        self.last_soil = None
+
+        self.get_logger().info(
+            f"SensorNode Robot 1 started:\n"
+            f"  Temp topic: {temp_topic}\n"
+            f"  Humidity topic: {hum_topic}\n"
+            f"  Soil topic: {soil_topic}"
+        )
+
+    # ==================================================================
+    # TEMPERATURE
+    # ==================================================================
+    def cb_temp(self, msg):
+        val = float(msg.data)
+
+        # First time OR changed
+        if self.last_temp is None or abs(val - self.last_temp) >= CHANGE_THRESHOLD:
+            self.last_temp = val
+
+            # Log once per change
+            write_log_once(f"Robot_1 temperature updated: {val:.1f}°C")
+
+            # Publish DHT combined message
+            self.publish_dht()
+
+    # ==================================================================
+    # HUMIDITY
+    # ==================================================================
+    def cb_hum(self, msg):
+        val = float(msg.data)
+
+        if self.last_hum is None or abs(val - self.last_hum) >= CHANGE_THRESHOLD:
+            self.last_hum = val
+
+            write_log_once(f"Robot_1 humidity updated: {val:.1f}%")
+
+            self.publish_dht()
+
+    # ==================================================================
+    # SOIL MOISTURE
+    # ==================================================================
+    def cb_soil(self, msg):
+        val = float(msg.data)
+
+        if self.last_soil is None or abs(val - self.last_soil) >= CHANGE_THRESHOLD:
+            self.last_soil = val
+
+            write_log_once(f"Robot_1 soil moisture updated: {val:.1f}%")
+
+            # Publish soil message
+            out = SoilMoisture()
+            out.moisture = val
+            self.pub_soil.publish(out)
+
+            # Also refresh DHT (UI sensor panel updates together)
+            self.publish_dht()
+
+    # ==================================================================
+    # ALWAYS SEND LATEST VALUES WHEN ANY SENSOR CHANGES
+    # ==================================================================
+    def publish_dht(self):
+        msg = DHT11()
+        msg.temperature = float(self.last_temp) if self.last_temp is not None else 0.0
+        msg.humidity   = float(self.last_hum)  if self.last_hum  is not None else 0.0
+        self.pub_dht.publish(msg)
+
+
+def main():
+    rclpy.init()
+    node = SensorNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+
+/home/chandan/robot3_ws/src/robot3_sensors/robot3_sensors/sensor_utils.py
+def is_changed(previous: float, current: float, threshold: float = 0.5) -> bool:
+    """
+    True if new value differs enough to be considered a real change.
+    Prevents UI/log spam.
+    """
+    if previous is None:
+        return True
+
+    return abs(current - previous) >= threshold
+
+
+/home/chandan/robot3_ws/src/robot3_sensors/test
+/home/chandan/robot3_ws/src/robot3_sensors/LICENSE
+/home/chandan/robot3_ws/src/robot3_sensors/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+  <name>robot3_sensors</name>
+  <version>0.0.1</version>
+  <description>Sensor monitoring for Robot3 (DHT11 + Soil Moisture)</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime dependencies -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>robot3_msgs</exec_depend>
+
+  <!-- Tests -->
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
+
+/home/chandan/robot3_ws/src/robot3_sensors/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_sensors
+[install]
+install_scripts=$base/lib/robot3_sensors
+
+/home/chandan/robot3_ws/src/robot3_sensors/setup.py
+from setuptools import find_packages, setup
+
+package_name = 'robot3_sensors'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=find_packages(),
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+
+        ('share/' + package_name, ['package.xml']),
+
+        # Install launch file
+        ('share/' + package_name + '/launch',
+            ['launch/sensors.launch.py']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=False,
+    maintainer='chandan',
+    maintainer_email='chandan@example.com',
+    description='Sensor monitoring package for robot3 (DHT11 + Soil Moisture)',
+    license='Apache-2.0',
+    extras_require={
+        'test': ['pytest'],
+    },
+    entry_points={
+        'console_scripts': [
+            'sensor_node = robot3_sensors.sensor_node:main',
+        ],
+    },
+)
+
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_soil_check
+files:
+launch:
+
+/home/chandan/robot3_ws/src/robot3_soil_check/launch
+/home/chandan/robot3_ws/src/robot3_soil_check/launch/soil_check.launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+
+    soil_check_node = Node(
+        package='robot3_soil_check',
+        executable='soil_check_node',
+        name='soil_check_node',
+        output='screen'
+    )
+
+    return LaunchDescription([
+        soil_check_node
+    ])
+
+/home/chandan/robot3_ws/src/robot3_soil_check/resource
+/home/chandan/robot3_ws/src/robot3_soil_check/resource/robot3_soil_check
+robot3_soil_check
+
+/home/chandan/robot3_ws/src/robot3_soil_check/robot3_soil_check
+/home/chandan/robot3_ws/src/robot3_soil_check/robot3_soil_check/__pycache__
+/home/chandan/robot3_ws/src/robot3_soil_check/robot3_soil_check/__init__.py
+#file needed to make robot3_soil_check a package
+
+/home/chandan/robot3_ws/src/robot3_soil_check/robot3_soil_check/soil_check_node.py
+# robot3_soil_check/soil_check_node.py
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String, Float32, Bool
+import json
+from datetime import datetime
+
+
+def get_timestamp():
+    """Return current time in HH:MM:SS format"""
+    return datetime.now().strftime("%H:%M:%S")
+
+
+class SoilCheckNode(Node):
+    def __init__(self):
+        super().__init__("soil_check_node")
+
+        # ---------------------------------------------------------
+        # AUTO MODE - starts enabled by default
+        # ---------------------------------------------------------
+        self.is_auto_enabled = True
+        self.auto_interval_sec = 5  # default 5 seconds
+        self.auto_timer = self.create_timer(self.auto_interval_sec, self.auto_check)
+
+        # ---------------------------------------------------------
+        # SUBSCRIPTIONS (UI manual + ESP response + settings)
+        # ---------------------------------------------------------
+        self.sub_ui = self.create_subscription(
+            String,
+            "/ui/check_soil_moisture",
+            self.cb_ui_request,
+            10
+        )
+
+        self.sub_interval = self.create_subscription(
+            String,
+            "/ui/settings_soil_interval",
+            self.cb_update_interval,
+            10
+        )
+        
+        # Subscribe to soil mode changes (auto/manual)
+        self.sub_mode = self.create_subscription(
+            String,
+            "/ui/soil_mode",
+            self.cb_mode_change,
+            10
+        )
+
+        self.sub_esp_soil = self.create_subscription(
+            Float32,
+            "/robot1/soil_moisture",
+            self.cb_esp_response,
+            10
+        )
+
+        # ---------------------------------------------------------
+        # PUBLISHERS
+        # ---------------------------------------------------------
+        self.pub_esp = self.create_publisher(
+            String,
+            "/robot1/check_soil_moisture",
+            10
+        )
+
+        self.pub_forward = self.create_publisher(
+            Float32,
+            "/robot1/soil_moisture",
+            10
+        )
+
+        # Event to dashboard
+        self.pub_dashboard = self.create_publisher(
+            String,
+            "/dashboard/soil_event",
+            10
+        )
+
+        self.get_logger().info(
+            f"[{get_timestamp()}] SoilCheckNode started with auto interval = {self.auto_interval_sec} sec (AUTO mode ON)"
+        )
+
+    # ---------------------------------------------------------
+    # MODE CHANGE HANDLER (auto/manual)
+    # ---------------------------------------------------------
+    def cb_mode_change(self, msg: String):
+        mode = msg.data.strip().lower()
+        
+        if mode == "auto":
+            self.enable_auto_mode()
+        elif mode == "manual":
+            self.disable_auto_mode()
+        else:
+            self.get_logger().warn(f"[{get_timestamp()}] Unknown soil mode: {mode}")
+
+    # ---------------------------------------------------------
+    # ENABLE AUTO MODE
+    # ---------------------------------------------------------
+    def enable_auto_mode(self):
+        if self.is_auto_enabled:
+            return  # Already enabled
+            
+        self.is_auto_enabled = True
+        self.get_logger().info(f"[{get_timestamp()}] Soil check: AUTO mode ENABLED")
+        
+        # Cancel existing timer and create new one
+        if self.auto_timer:
+            self.auto_timer.cancel()
+        self.auto_timer = self.create_timer(self.auto_interval_sec, self.auto_check)
+
+    # ---------------------------------------------------------
+    # DISABLE AUTO MODE
+    # ---------------------------------------------------------
+    def disable_auto_mode(self):
+        if not self.is_auto_enabled:
+            return  # Already disabled
+            
+        self.is_auto_enabled = False
+        self.get_logger().info(f"[{get_timestamp()}] Soil check: AUTO mode DISABLED")
+        
+        # Stop auto timer
+        if self.auto_timer:
+            self.auto_timer.cancel()
+            self.auto_timer = None
+
+    # ---------------------------------------------------------
+    # AUTO SOIL CHECK (only runs when auto enabled)
+    # ---------------------------------------------------------
+    def auto_check(self):
+        if not self.is_auto_enabled:
+            return
+            
+        out = String()
+        out.data = "check"
+        self.pub_esp.publish(out)
+        self.get_logger().info(f"[{get_timestamp()}] AUTO soil check triggered")
+
+    # ---------------------------------------------------------
+    # UPDATE AUTO INTERVAL FROM UI SETTINGS
+    # ---------------------------------------------------------
+    def cb_update_interval(self, msg: String):
+        try:
+            new_interval = int(msg.data)
+            if new_interval <= 0:
+                raise ValueError
+        except:
+            self.get_logger().warn(f"[{get_timestamp()}] Invalid interval received: {msg.data}")
+            return
+
+        self.auto_interval_sec = new_interval
+        self.get_logger().info(
+            f"[{get_timestamp()}] Updated auto soil-check interval to {self.auto_interval_sec} seconds"
+        )
+
+        # Reset timer ONLY if auto mode is currently running
+        if self.is_auto_enabled and self.auto_timer:
+            self.auto_timer.cancel()
+            self.auto_timer = self.create_timer(self.auto_interval_sec, self.auto_check)
+
+    # ---------------------------------------------------------
+    # MANUAL UI REQUEST
+    # ---------------------------------------------------------
+    def cb_ui_request(self, msg: String):
+        cmd = msg.data.strip()
+
+        if cmd != "check":
+            self.get_logger().warn(f"[{get_timestamp()}] Ignored UI command: {cmd}")
+            return
+
+        out = String()
+        out.data = "check"
+        self.pub_esp.publish(out)
+
+        self.get_logger().info(f"[{get_timestamp()}] MANUAL soil check requested")
+
+    # ---------------------------------------------------------
+    # ESP32 RESPONSE
+    # ---------------------------------------------------------
+    def cb_esp_response(self, msg: Float32):
+        value = float(msg.data)
+
+        self.get_logger().info(f"[{get_timestamp()}] ESP32 → Soil moisture = {value:.1f}%")
+
+        # Forward to SensorNode
+        forward = Float32()
+        forward.data = value
+        self.pub_forward.publish(forward)
+
+        # Send dashboard event
+        event = {
+            "moisture": value
+        }
+        out = String()
+        out.data = json.dumps(event)
+        self.pub_dashboard.publish(out)
+
+        self.get_logger().info(f"[{get_timestamp()}] Sent soil_event → dashboard & UI")
+
+
+# ==================================================================
+# MAIN
+# ==================================================================
+def main():
+    rclpy.init()
+    node = SoilCheckNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()      
+
+/home/chandan/robot3_ws/src/robot3_soil_check/test
+/home/chandan/robot3_ws/src/robot3_soil_check/LICENSE
+/home/chandan/robot3_ws/src/robot3_soil_check/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+  <name>robot3_soil_check</name>
+  <version>0.0.1</version>
+  <description>Publishes soil moisture check request from UI to ESP32</description>
+
+  <maintainer email="chandan@example.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- Test (optional) -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
+
+/home/chandan/robot3_ws/src/robot3_soil_check/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_soil_check
+[install]
+install_scripts=$base/lib/robot3_soil_check
+
+/home/chandan/robot3_ws/src/robot3_soil_check/setup.py
+from setuptools import find_packages, setup
+import os
+
+package_name = 'robot3_soil_check'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=find_packages(),
+    data_files=[
+        # Register package with ament index
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+
+        # Install package.xml
+        ('share/' + package_name, ['package.xml']),
+
+        # Install launch file
+        (os.path.join('share', package_name, 'launch'),
+            ['launch/soil_check.launch.py']),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='chandan',
+    maintainer_email='chandan@example.com',
+    description='Publishes soil moisture check request to ESP32',
+    license='Apache-2.0',
+    entry_points={
+        'console_scripts': [
+            'soil_check_node = robot3_soil_check.soil_check_node:main',
+        ],
+    },
+)
+
+
+package: /home/chandan/robot3_ws/src/robot3_ui
+files:
+launch:
+
+/home/chandan/robot3_ws/src/robot3_ui
+/home/chandan/robot3_ws/src/robot3_ui/launch
+/home/chandan/robot3_ws/src/robot3_ui/launch/ui.launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+
+def generate_launch_description():
+
+    ui_node = Node(
+        package='robot3_ui',
+        executable='ui_server',
+        name='robot3_ui_server',
+        output='screen'
+    )
+
+    return LaunchDescription([
+        ui_node
+    ])
+
+/home/chandan/robot3_ws/src/robot3_ui/resource
+/home/chandan/robot3_ws/src/robot3_ui/resource/robot3_ui
+robot3_ui
+
+/home/chandan/robot3_ws/src/robot3_ui/robot3_ui
+/home/chandan/robot3_ws/src/robot3_ui/robot3_ui/__pycache__
+
+##### react ui build #####
+####  /home/chandan/robot3_ws/src/robot3_ui/robot3_ui/ui_build
+#### /home/chandan/robot3_ws/src/robot3_ui/robot3_ui/ui_build/assets
+#### /home/chandan/robot3_ws/src/robot3_ui/robot3_ui/ui_build/assets/index-CIxBpzUD.js
+#### /home/chandan/robot3_ws/src/robot3_ui/robot3_ui/ui_build/assets/index-SgKv0unW.css
+
+/home/chandan/robot3_ws/src/robot3_ui/robot3_ui/ui_build/index.html
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Robot Monitoring Dashboard</title>
+      <script type="module" crossorigin src="/assets/index-CIxBpzUD.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-SgKv0unW.css">
+    </head>
+
+    <body>
+      <div id="root"></div>
+    </body>
+  </html>
+  
+
+/home/chandan/robot3_ws/src/robot3_ui/robot3_ui/__init__.py
+# Required for ROS2 Python package
+
+/home/chandan/robot3_ws/src/robot3_ui/robot3_ui/index.html
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Robot Monitoring Dashboard</title>
+      <script type="module" crossorigin src="/assets/index-CX11AKVr.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-SgKv0unW.css">
+    </head>
+
+    <body>
+      <div id="root"></div>
+    </body>
+  </html>
+  
+
+/home/chandan/robot3_ws/src/robot3_ui/robot3_ui/ui_server.py
+#!/usr/bin/env python3
+"""
+COMPLETE FIXED ui_server.py - WebRTC camera streaming working
+All issues resolved:
+1. Proper asyncio event loop management
+2. Thread-safe WebRTC signaling with queue-based answer delivery
+3. Correct Flask-SocketIO thread communication
+4. Proper transceiver direction handling
+5. Single-threaded camera frame pushing
+6. Complete cleanup on shutdown
+7. Added seed and soil mode control
+"""
+
+import os
+import json
+import asyncio
+import logging
+import time
+from datetime import datetime
+from fractions import Fraction
+from threading import Thread, Lock
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from sensor_msgs.msg import CompressedImage
+from robot3_msgs.msg import BatteryStatus, DHT11, SoilMoisture
+
+from flask import Flask, send_from_directory
+from flask_socketio import SocketIO
+
+# WebRTC
+from aiortc import RTCPeerConnection, RTCSessionDescription, MediaStreamTrack
+from av import VideoFrame
+import cv2
+import numpy as np
+
+# Dashboard API
+from robot3_dashboard.dashboard_api import dashboard_api
+
+
+# ============================================================
+# LOGGING
+# ============================================================
+LOG_FILE = os.path.expanduser("~/robot3_ws/ui_log.txt")
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+
+handler = logging.FileHandler(LOG_FILE, mode='a')
+handler.setFormatter(logging.Formatter('[%(asctime)s] %(message)s'))
+
+ui_logger = logging.getLogger("ui_server")
+ui_logger.setLevel(logging.INFO)
+ui_logger.addHandler(handler)
+ui_logger.addHandler(logging.StreamHandler())
+
+
+# ============================================================
+# FLASK + SOCKET.IO
+# ============================================================
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+UI_BUILD_DIR = os.path.join(BASE_DIR, "ui_build")
+
+app = Flask(__name__, static_folder=UI_BUILD_DIR, static_url_path="")
+app.register_blueprint(dashboard_api)
+
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
+
+
+# ============================================================
+# WEBRTC VIDEO TRACK (Thread-Safe)
+# ============================================================
+class CameraVideoTrack(MediaStreamTrack):
+    """WebRTC video track with thread-safe frame pushing"""
+    kind = "video"
+    
+    def __init__(self):
+        super().__init__()
+        self._latest_frame = None
+        self._frame_lock = Lock()
+        self._pts = 0
+        self._frame_rate = 30  # FPS
+    
+    async def recv(self):
+        """Called by aiortc to get next frame"""
+        with self._frame_lock:
+            frame = self._latest_frame
+        
+        if frame is None:
+            # Return black frame if no data yet
+            black = np.zeros((480, 640, 3), dtype=np.uint8)
+            vf = VideoFrame.from_ndarray(black, format="bgr24")
+        else:
+            vf = VideoFrame.from_ndarray(frame, format="bgr24")
+        
+        # Proper timestamp
+        self._pts += 1
+        vf.pts = self._pts
+        vf.time_base = Fraction(1, self._frame_rate)
+        
+        return vf
+    
+    def push_frame(self, frame: np.ndarray):
+        """Thread-safe frame update from ROS callback"""
+        with self._frame_lock:
+            self._latest_frame = frame
+
+
+# ============================================================
+# WEBRTC GLOBALS
+# ============================================================
+camera_track = CameraVideoTrack()
+active_pcs = {}
+pc_lock = Lock()
+webrtc_loop = None
+webrtc_loop_thread = None
+
+
+def start_webrtc_loop():
+    """Start persistent event loop for WebRTC peer connections"""
+    global webrtc_loop
+    
+    webrtc_loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(webrtc_loop)
+    
+    try:
+        webrtc_loop.run_forever()
+    finally:
+        webrtc_loop.close()
+
+
+@socketio.on("webrtc_offer")
+def handle_webrtc_offer(offer):
+    """Handle WebRTC offer from React UI"""
+    ui_logger.info("📡 Received WebRTC offer")
+    
+    async def process_offer():
+        global active_pcs, camera_track
+        
+        try:
+            # Create peer connection
+            pc = RTCPeerConnection()
+            
+            # Store PC
+            with pc_lock:
+                if "main" in active_pcs:
+                    try:
+                        await active_pcs["main"].close()
+                    except:
+                        pass
+                active_pcs["main"] = pc
+            
+            # Set remote description FIRST
+            await pc.setRemoteDescription(
+                RTCSessionDescription(sdp=offer["sdp"], type=offer["type"])
+            )
+            ui_logger.info("✅ Remote description set")
+            
+            # Handle transceivers properly
+            transceivers = pc.getTransceivers()
+            video_transceiver = None
+            
+            for t in transceivers:
+                if t.kind == "video":
+                    video_transceiver = t
+                    break
+            
+            if video_transceiver:
+                # ⭐ FIX: Change direction to sendonly and replace track
+                video_transceiver.direction = "sendonly"
+                video_transceiver.sender.replaceTrack(camera_track)
+                ui_logger.info("📹 Camera track replaced, direction set to sendonly")
+            else:
+                # Add new track (creates new transceiver)
+                pc.addTrack(camera_track)
+                ui_logger.info("📹 Camera track added")
+            
+            # Create answer
+            answer = await pc.createAnswer()
+            await pc.setLocalDescription(answer)
+            
+            ui_logger.info("✅ Answer created")
+            
+            # Return answer to main thread
+            return {
+                "sdp": pc.localDescription.sdp,
+                "type": pc.localDescription.type
+            }
+            
+        except Exception as e:
+            ui_logger.error(f"❌ WebRTC error: {e}")
+            import traceback
+            ui_logger.error(traceback.format_exc())
+            return {"error": str(e)}
+    
+    # Schedule coroutine in persistent event loop
+    future = asyncio.run_coroutine_threadsafe(process_offer(), webrtc_loop)
+    
+    # Wait for result (with timeout)
+    try:
+        result = future.result(timeout=5.0)
+        
+        if "error" in result:
+            socketio.emit("webrtc_error", result)
+            ui_logger.error(f"❌ WebRTC negotiation failed: {result['error']}")
+        else:
+            socketio.emit("webrtc_answer", result)
+            ui_logger.info("✅ WebRTC answer sent to client")
+            
+    except Exception as e:
+        ui_logger.error(f"❌ WebRTC negotiation error: {e}")
+        socketio.emit("webrtc_error", {"error": str(e)})
+
+
+# ============================================================
+# ROS UI BRIDGE (Camera Subscription)
+# ============================================================
+class UIBridge(Node):
+    def __init__(self):
+        super().__init__("robot3_ui_server")
+        ui_logger.info("🤖 UIBridge started")
+        
+        # Camera subscription
+        self.create_subscription(
+            CompressedImage,
+            "/robot2/camera/image_raw/compressed",
+            self.cb_camera,
+            10
+        )
+        
+        # Battery subscriptions
+        self.create_subscription(BatteryStatus, "/robot1/battery_status", self.cb_batt_r1, 10)
+        self.create_subscription(BatteryStatus, "/robot2/battery_status", self.cb_batt_r2, 10)
+        
+        # Sensor subscriptions
+        self.create_subscription(DHT11, "/robot1/dht11_status", self.cb_dht, 10)
+        self.create_subscription(SoilMoisture, "/robot1/soil_status", self.cb_soil, 10)
+        
+        # Detection subscriptions
+        self.create_subscription(String, "/ui/plant_detection", self.cb_plant, 10)
+        self.create_subscription(String, "/ui/bird_detection", self.cb_bird, 10)
+        
+        # Dashboard events
+        self.create_subscription(String, "/dashboard/seed_event", self.cb_seed_event, 10)
+        self.create_subscription(String, "/dashboard/soil_event", self.cb_soil_event, 10)
+        
+        # Publishers
+        self.pub_move = self.create_publisher(String, "/ui/move_cmd", 10)
+        self.pub_seed = self.create_publisher(String, "/ui/seed_cmd", 10)
+        self.pub_soil_check = self.create_publisher(String, "/ui/check_soil_moisture", 10)
+        self.pub_detection_mode = self.create_publisher(String, "/ui/detection_mode", 10)
+        self.pub_seed_gap = self.create_publisher(String, "/ui/settings_seed_gap", 10)
+        self.pub_soil_interval = self.create_publisher(String, "/ui/settings_soil_interval", 10)
+        self.pub_wifi = self.create_publisher(String, "/ui/settings_wifi", 10)
+        
+        # ⭐ NEW: Mode control publishers
+        self.pub_soil_mode = self.create_publisher(String, "/ui/soil_mode", 10)
+        self.pub_seed_mode = self.create_publisher(String, "/ui/seed_cmd", 10)  # seed mode uses same topic as commands
+        
+        self.frame_count = 0
+        ui_logger.info("✅ All topics connected")
+    
+    def cb_camera(self, msg: CompressedImage):
+        """Receive camera frames and push to WebRTC"""
+        try:
+            # Decode JPEG
+            np_arr = np.frombuffer(msg.data, np.uint8)
+            frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
+            
+            if frame is not None:
+                camera_track.push_frame(frame)
+                
+                # Log every 30 frames
+                self.frame_count += 1
+                if self.frame_count % 30 == 0:
+                    self.get_logger().info(f"📹 Frames: {self.frame_count}")
+                    
+        except Exception as e:
+            self.get_logger().error(f"Camera error: {e}")
+    
+    # ROS → Socket.IO callbacks
+    def cb_batt_r1(self, msg):
+        socketio.emit("robot1_battery", {
+            "voltage": float(msg.voltage),
+            "percent": float(msg.percent),
+            "low_flag": bool(msg.low_flag)
+        })
+    
+    def cb_batt_r2(self, msg):
+        socketio.emit("robot2_battery", {
+            "voltage": float(msg.voltage),
+            "percent": float(msg.percent),
+            "low_flag": bool(msg.low_flag)
+        })
+    
+    def cb_dht(self, msg):
+        socketio.emit("robot1_dht", {
+            "temperature": float(msg.temperature),
+            "humidity": float(msg.humidity)
+        })
+    
+    def cb_soil(self, msg):
+        socketio.emit("robot1_soil", {"moisture": float(msg.moisture)})
+    
+    def cb_plant(self, msg):
+        socketio.emit("plant_detection", {"disease": msg.data})
+    
+    def cb_bird(self, msg):
+        socketio.emit("bird_detection", {"bird": msg.data})
+    
+    def cb_seed_event(self, msg):
+        try:
+            data = json.loads(msg.data)
+        except:
+            data = {"count": 1, "totalCount": 0}
+        socketio.emit("seed_event", data)
+    
+    def cb_soil_event(self, msg):
+        try:
+            data = json.loads(msg.data)
+        except:
+            data = {"moisture": 0}
+        socketio.emit("soil_event", data)
+    
+    def _pub_str(self, publisher, data):
+        msg = String()
+        msg.data = str(data)
+        publisher.publish(msg)
+    
+    def send_move_cmd(self, cmd):
+        self._pub_str(self.pub_move, cmd)
+    
+    def send_seed_cmd(self, cmd):
+        self._pub_str(self.pub_seed, cmd)
+    
+    def send_soil_check(self):
+        self._pub_str(self.pub_soil_check, "check")
+    
+    def send_detection_mode(self, mode):
+        self._pub_str(self.pub_detection_mode, mode)
+    
+    def send_seed_gap(self, gap):
+        self._pub_str(self.pub_seed_gap, gap)
+    
+    def send_soil_interval(self, interval):
+        self._pub_str(self.pub_soil_interval, interval)
+    
+    def send_wifi_settings(self, ssid, password):
+        payload = json.dumps({"ssid": ssid, "password": password})
+        self._pub_str(self.pub_wifi, payload)
+    
+    # ⭐ NEW: Mode control methods
+    def send_soil_mode(self, mode):
+        self._pub_str(self.pub_soil_mode, mode)
+    
+    def send_seed_mode(self, mode):
+        # Send seed_mode_auto or seed_mode_manual
+        self._pub_str(self.pub_seed_mode, f"seed_mode_{mode}")
+
+
+# ============================================================
+# SOCKET.IO HANDLERS (UI → ROS)
+# ============================================================
+@socketio.on("move_cmd")
+def handle_move(data):
+    node.send_move_cmd(data)
+
+@socketio.on("seed_cmd")
+def handle_seed(data):
+    node.send_seed_cmd(data)
+
+@socketio.on("soil_check")
+def handle_soil_check(data):
+    node.send_soil_check()
+
+@socketio.on("detection_mode")
+def handle_detection_mode(data):
+    node.send_detection_mode(data.get("mode", "plant"))
+
+@socketio.on("settings_seed_gap")
+def handle_seed_gap(data):
+    node.send_seed_gap(data.get("gap", 5))
+
+@socketio.on("settings_soil_interval")
+def handle_soil_interval(data):
+    node.send_soil_interval(data.get("interval", 5))
+
+@socketio.on("settings_wifi")
+def handle_wifi(data):
+    node.send_wifi_settings(data.get("ssid", ""), data.get("password", ""))
+
+# ⭐ NEW: Mode control handlers
+@socketio.on("soil_mode")
+def handle_soil_mode(data):
+    node.send_soil_mode(data)
+
+@socketio.on("seed_mode")
+def handle_seed_mode(data):
+    node.send_seed_mode(data)
+
+
+# ============================================================
+# SERVE REACT UI
+# ============================================================
+@app.route("/")
+def serve_index():
+    return send_from_directory(UI_BUILD_DIR, "index.html")
+
+@app.route("/<path:filename>")
+def serve_static(filename):
+    candidate = os.path.join(UI_BUILD_DIR, filename)
+    if os.path.exists(candidate):
+        return send_from_directory(UI_BUILD_DIR, filename)
+    
+    assets = os.path.join(UI_BUILD_DIR, "assets", filename)
+    if os.path.exists(assets):
+        return send_from_directory(os.path.join(UI_BUILD_DIR, "assets"), filename)
+    
+    return send_from_directory(UI_BUILD_DIR, "index.html")
+
+
+# ============================================================
+# MAIN
+# ============================================================
+def main(args=None):
+    global node, webrtc_loop, webrtc_loop_thread
+    
+    ui_logger.info("=" * 60)
+    ui_logger.info("🚀 Robot3 UI Server (WebRTC Fixed)")
+    ui_logger.info("=" * 60)
+    
+    rclpy.init(args=args)
+    node = UIBridge()
+    
+    # Start persistent WebRTC event loop in background thread
+    webrtc_loop_thread = Thread(target=start_webrtc_loop, daemon=True)
+    webrtc_loop_thread.start()
+    ui_logger.info("✅ WebRTC event loop started")
+    
+    # Wait for loop to initialize
+    time.sleep(0.5)
+    
+    # ROS in background thread
+    ros_thread = Thread(target=rclpy.spin, args=(node,), daemon=True)
+    ros_thread.start()
+    
+    ui_logger.info(f"📂 UI: {UI_BUILD_DIR}")
+    ui_logger.info("🌐 http://0.0.0.0:5000")
+    ui_logger.info(f"📝 Logs: {LOG_FILE}")
+    
+    try:
+        socketio.run(app, host="0.0.0.0", port=5000, allow_unsafe_werkzeug=True)
+    finally:
+        ui_logger.info("🛑 Shutting down")
+        
+        # Cleanup WebRTC
+        if webrtc_loop and webrtc_loop.is_running():
+            webrtc_loop.call_soon_threadsafe(webrtc_loop.stop)
+        
+        with pc_lock:
+            for pc in active_pcs.values():
+                try:
+                    if webrtc_loop:
+                        future = asyncio.run_coroutine_threadsafe(pc.close(), webrtc_loop)
+                        future.result(timeout=2.0)
+                except:
+                    pass
+        
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+
+
+/home/chandan/robot3_ws/src/robot3_ui/test
+/home/chandan/robot3_ws/src/robot3_ui/LICENSE
+/home/chandan/robot3_ws/src/robot3_ui/package.xml
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot3_ui</name>
+  <version>0.0.1</version>
+  <description>UI server and ROS2 bridge for Robot3 project</description>
+
+  <!-- Maintainer -->
+  <maintainer email="chandan@example.com">chandan</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime dependencies (Python + ROS msgs) -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>robot3_msgs</exec_depend>
+
+  <!-- Flask + SocketIO (Python dependencies) -->
+  <exec_depend>python3-flask</exec_depend>
+  <exec_depend>python3-flask-socketio</exec_depend>
+
+  <!-- For installation of the Python code -->
+  <exec_depend>python3-setuptools</exec_depend>
+
+  <!-- Other ROS tools -->
+  <exec_depend>ament_index_python</exec_depend>
+
+  <!-- Testing dependencies -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <!-- Export information -->
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
+
+/home/chandan/robot3_ws/src/robot3_ui/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_ui
+[install]
+install_scripts=$base/lib/robot3_ui
+
+/home/chandan/robot3_ws/src/robot3_ui/setup.py
+from setuptools import setup
+import os
+from glob import glob
+
+package_name = 'robot3_ui'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=[package_name],
+    package_dir={'': '.'},
+
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'),
+            glob('launch/*.py')),
+        (os.path.join('share', package_name, 'ui_build'),
+            glob('robot3_ui/ui_build/*.*')),
+        (os.path.join('share', package_name, 'ui_build/assets'),
+            glob('robot3_ui/ui_build/assets/*.*')),
+    ],
+
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='chandan',
+    maintainer_email='chandan@example.com',
+    description='UI Server and ROS2 Bridge',
+    license='Apache-2.0',
+
+    entry_points={
+        'console_scripts': [
+            'ui_server = robot3_ui.ui_server:main',
+        ],
+    },
+)
+
+
+
+
+
+package: /home/chandan/robot3_ws/src/robot3_dashboard
+
+/home/chandan/robot3_ws/src/robot3_dashboard/launch
+/home/chandan/robot3_ws/src/robot3_dashboard/launch/dashboard.launch.py
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+
+    return LaunchDescription([
+
+        # -----------------------------------------------------
+        # ROS2 Dashboard Storage Node (kept same)
+        # -----------------------------------------------------
+        Node(
+            package="robot3_dashboard",
+            executable="dashboard_node",
+            name="dashboard_node",
+            output="screen"
+        )
+    ])
+
+
+/home/chandan/robot3_ws/src/robot3_dashboard/resource
+/home/chandan/robot3_ws/src/robot3_dashboard/resource/robot3_dashboard
+robot3_dashboard
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/storage
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/storage/auto_seed.json
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/storage/auto_sensor.json
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/storage/auto_soil.json
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/storage/manual_seed.json
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/storage/manual_sensor.json
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/storage/manual_soil.json
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/__init__.py
+#this is for ros to work only
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/dashboard_api.py
+#!/usr/bin/env python3
+"""
+FILE: dashboard_api.py
+LOCATION: ~/robot3_ws/src/robot3_dashboard/robot3_dashboard/dashboard_api.py
+
+REST API endpoint for React UI dashboard charts.
+GET /api/dashboard?range=daily|monthly|yearly
+
+FIXED VERSION - Handles null values properly
+"""
+
+import os
+import json
+from flask import Blueprint, request, jsonify
+from datetime import datetime
+
+
+# ============================================================
+# FLASK BLUEPRINT
+# ============================================================
+dashboard_api = Blueprint("dashboard_api", __name__)
+
+
+# ============================================================
+# FILE PATHS
+# ============================================================
+BASE_DIR = os.path.dirname(__file__)
+STORAGE_DIR = os.path.join(BASE_DIR, "storage")
+
+SENSOR_FILE = os.path.join(STORAGE_DIR, "sensor_log.json")
+SEED_FILE = os.path.join(STORAGE_DIR, "seed_log.json")
+SOIL_FILE = os.path.join(STORAGE_DIR, "soil_log.json")
+
+
+# ============================================================
+# HELPERS
+# ============================================================
+def ensure_storage_exists():
+    """Create storage directory and initialize empty JSON files if needed"""
+    os.makedirs(STORAGE_DIR, exist_ok=True)
+    
+    for filepath in [SENSOR_FILE, SEED_FILE, SOIL_FILE]:
+        if not os.path.exists(filepath):
+            with open(filepath, "w") as f:
+                json.dump([], f)
+            print(f"✅ Created: {filepath}")
+
+
+def load_json(path):
+    """Load JSON array from file, return [] if error."""
+    try:
+        if not os.path.exists(path):
+            print(f"⚠️ File not found: {path}")
+            return []
+        
+        with open(path, "r") as f:
+            data = json.load(f)
+            
+        # Validate it's a list
+        if not isinstance(data, list):
+            print(f"⚠️ Invalid format in {path}, expected array")
+            return []
+            
+        return data
+        
+    except json.JSONDecodeError as e:
+        print(f"⚠️ JSON decode error in {path}: {e}")
+        return []
+    except Exception as e:
+        print(f"⚠️ Error loading {path}: {e}")
+        return []
+
+
+def filter_by_range(data, range_type):
+    """
+    Filter data array by time range.
+    
+    Args:
+        data: List of dicts with "timestamp" key (ISO format)
+        range_type: "daily", "monthly", or "yearly"
+    
+    Returns:
+        Filtered list
+    """
+    if not data:
+        return []
+    
+    now = datetime.now()
+    today = now.date()
+    
+    filtered = []
+    
+    for item in data:
+        # Skip if no timestamp
+        if "timestamp" not in item:
+            continue
+            
+        try:
+            # Handle both ISO format and other formats
+            ts_str = item["timestamp"]
+            
+            # Try parsing ISO format first
+            try:
+                ts = datetime.fromisoformat(ts_str.replace('Z', '+00:00'))
+            except:
+                # Fallback to other formats
+                ts = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%S.%f")
+                
+        except Exception as e:
+            print(f"⚠️ Invalid timestamp: {item.get('timestamp')} - {e}")
+            continue
+        
+        # Filter by range
+        if range_type == "daily":
+            if ts.date() == today:
+                filtered.append(item)
+        
+        elif range_type == "monthly":
+            if ts.year == now.year and ts.month == now.month:
+                filtered.append(item)
+        
+        elif range_type == "yearly":
+            if ts.year == now.year:
+                filtered.append(item)
+    
+    return filtered
+
+
+# ============================================================
+# API ENDPOINT
+# ============================================================
+@dashboard_api.route("/api/dashboard", methods=["GET"])
+def get_dashboard_data():
+    """
+    GET /api/dashboard?range=daily|monthly|yearly
+    
+    Returns:
+        JSON with sensorData, seedData, stats
+    """
+    
+    try:
+        # Ensure storage exists
+        ensure_storage_exists()
+        
+        # Parse range parameter
+        range_type = request.args.get("range", "daily")
+        
+        if range_type not in ["daily", "monthly", "yearly"]:
+            return jsonify({"error": "Invalid range parameter"}), 400
+        
+        print(f"📊 Dashboard API called: range={range_type}")
+        
+        # Load data from files
+        sensor_data = load_json(SENSOR_FILE)
+        seed_data = load_json(SEED_FILE)
+        
+        print(f"📂 Loaded {len(sensor_data)} sensor records, {len(seed_data)} seed records")
+        
+        # Apply time filters
+        sensor_filtered = filter_by_range(sensor_data, range_type)
+        seed_filtered = filter_by_range(seed_data, range_type)
+        
+        print(f"✅ Filtered to {len(sensor_filtered)} sensor, {len(seed_filtered)} seed records")
+        
+        # Calculate stats with safety checks
+        avg_temp = 0.0
+        avg_hum = 0.0
+        avg_moist = 0.0
+        total_seeds = 0
+        
+        # ============================================================
+        # CRITICAL FIX: Filter out null/None values
+        # ============================================================
+        # Sensor stats (only if data exists)
+        if sensor_filtered:
+            # Calculate averages safely - FILTER OUT NULL VALUES
+            # Changed from: if "temperature" in d
+            # To: if "temperature" in d and d["temperature"] is not None
+            temps = [d["temperature"] for d in sensor_filtered 
+                     if "temperature" in d and d["temperature"] is not None]
+            hums = [d["humidity"] for d in sensor_filtered 
+                    if "humidity" in d and d["humidity"] is not None]
+            moists = [d["moisture"] for d in sensor_filtered 
+                      if "moisture" in d and d["moisture"] is not None]
+            
+            if temps:
+                avg_temp = sum(temps) / len(temps)
+            if hums:
+                avg_hum = sum(hums) / len(hums)
+            if moists:
+                avg_moist = sum(moists) / len(moists)
+        
+        # Seed stats (only if data exists)
+        if seed_filtered:
+            # Sum all seed counts
+            counts = [d.get("count", 0) for d in seed_filtered if "count" in d]
+            total_seeds = sum(counts)
+        
+        stats = {
+            "avgTemp": round(avg_temp, 1),
+            "avgHumidity": round(avg_hum, 1),
+            "avgMoisture": round(avg_moist, 1),
+            "totalSeeds": total_seeds
+        }
+        
+        print(f"📈 Stats calculated: {stats}")
+        
+        # Return JSON response
+        return jsonify({
+            "range": range_type,
+            "sensorData": sensor_filtered,
+            "seedData": seed_filtered,
+            "stats": stats
+        })
+        
+    except Exception as e:
+        # Log error and return 500
+        print(f"❌ Dashboard API error: {e}")
+        import traceback
+        traceback.print_exc()
+        
+        return jsonify({
+            "error": "Internal server error",
+            "message": str(e)
+        }), 500
+
+
+# ============================================================
+# HEALTH CHECK ENDPOINT
+# ============================================================
+@dashboard_api.route("/api/dashboard/health", methods=["GET"])
+def health_check():
+    """Check if storage files are accessible"""
+    
+    ensure_storage_exists()
+    
+    status = {
+        "storage_dir": STORAGE_DIR,
+        "files": {
+            "sensor_log": os.path.exists(SENSOR_FILE),
+            "seed_log": os.path.exists(SEED_FILE),
+            "soil_log": os.path.exists(SOIL_FILE)
+        }
+    }
+    
+    return jsonify(status)
+
+/home/chandan/robot3_ws/src/robot3_dashboard/robot3_dashboard/dashboard_node.py
+#!/usr/bin/env python3
+"""
+FILE: dashboard_node.py
+LOCATION: ~/robot3_ws/src/robot3_dashboard/robot3_dashboard/dashboard_node.py
+
+Dashboard data logger - Subscribes to ROS events and saves to JSON files
+"""
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from robot3_msgs.msg import DHT11
+import json
+import os
+import logging
+from datetime import datetime
+
+
+# ============================================================
+# LOGGING SETUP
+# ============================================================
+LOG_FILE = os.path.expanduser("~/robot3_ws/dashboard_log.txt")
+
+log_handler = logging.FileHandler(LOG_FILE, mode='a')
+log_handler.setFormatter(
+    logging.Formatter('[%(asctime)s] [DASHBOARD] %(message)s')
+)
+
+dashboard_logger = logging.getLogger("dashboard_node")
+dashboard_logger.setLevel(logging.INFO)
+dashboard_logger.addHandler(log_handler)
+dashboard_logger.addHandler(logging.StreamHandler())
+
+
+# ============================================================
+# DASHBOARD NODE
+# ============================================================
+class DashboardNode(Node):
+    def __init__(self):
+        super().__init__("dashboard_node")
+        
+        # ----------------------------------------------------
+        # STORAGE PATHS (ONLY 3 FILES!)
+        # ----------------------------------------------------
+        storage_dir = os.path.join(os.path.dirname(__file__), "storage")
+        os.makedirs(storage_dir, exist_ok=True)
+        
+        self.sensor_log_path = os.path.join(storage_dir, "sensor_log.json")
+        self.seed_log_path = os.path.join(storage_dir, "seed_log.json")
+        self.soil_log_path = os.path.join(storage_dir, "soil_log.json")
+        
+        # Initialize files
+        self._ensure_file(self.sensor_log_path)
+        self._ensure_file(self.seed_log_path)
+        self._ensure_file(self.soil_log_path)
+        
+        # ----------------------------------------------------
+        # SUBSCRIPTIONS
+        # ----------------------------------------------------
+        
+        # Cache DHT11 readings (don't log continuously)
+        self.create_subscription(
+            DHT11, "/robot1/dht11_status", self.cb_dht_cache, 10
+        )
+        
+        # Log seed dispense events
+        self.create_subscription(
+            String, "/dashboard/seed_event", self.cb_seed_event, 10
+        )
+        
+        # Log soil check events
+        self.create_subscription(
+            String, "/dashboard/soil_event", self.cb_soil_event, 10
+        )
+        
+        # ----------------------------------------------------
+        # SENSOR CACHE
+        # ----------------------------------------------------
+        self.latest_temp = 0.0
+        self.latest_hum = 0.0
+        
+        dashboard_logger.info("✅ DashboardNode started")
+        dashboard_logger.info(f"📂 Storage: {storage_dir}")
+        dashboard_logger.info("📝 Logging to 3 files only:")
+        dashboard_logger.info(f"   - {os.path.basename(self.sensor_log_path)}")
+        dashboard_logger.info(f"   - {os.path.basename(self.seed_log_path)}")
+        dashboard_logger.info(f"   - {os.path.basename(self.soil_log_path)}")
+    
+    # --------------------------------------------------------
+    # FILE HELPERS
+    # --------------------------------------------------------
+    def _ensure_file(self, path):
+        """Create empty JSON array if file doesn't exist."""
+        if not os.path.exists(path):
+            with open(path, "w") as f:
+                json.dump([], f)
+            dashboard_logger.info(f"✅ Created: {os.path.basename(path)}")
+    
+    def _append_log(self, path, entry):
+        """
+        Append entry to JSON file (thread-safe).
+        
+        Format: Always an array of objects
+        """
+        try:
+            # Read existing data
+            with open(path, "r") as f:
+                data = json.load(f)
+            
+            # Validate it's a list
+            if not isinstance(data, list):
+                dashboard_logger.error(f"❌ Invalid format in {path}, resetting to []")
+                data = []
+            
+            # Append new entry
+            data.append(entry)
+            
+            # Keep only last 10,000 records to prevent file bloat
+            if len(data) > 10000:
+                data = data[-10000:]
+                dashboard_logger.info(f"🗑️ Trimmed {os.path.basename(path)} to 10k records")
+            
+            # Write back
+            with open(path, "w") as f:
+                json.dump(data, f, indent=2)
+            
+            return True
+            
+        except Exception as e:
+            dashboard_logger.error(f"❌ Failed to append to {path}: {e}")
+            return False
+    
+    # --------------------------------------------------------
+    # DHT11 CACHE (NO LOGGING - just store latest values)
+    # --------------------------------------------------------
+    def cb_dht_cache(self, msg: DHT11):
+        """
+        Cache latest sensor values.
+        These get saved ONLY when a soil check happens.
+        """
+        self.latest_temp = float(msg.temperature)
+        self.latest_hum = float(msg.humidity)
+        # No logging here - just cache
+    
+    # --------------------------------------------------------
+    # SEED EVENT (LOG ONCE PER DISPENSE)
+    # --------------------------------------------------------
+    def cb_seed_event(self, msg: String):
+        """
+        Log seed dispense events.
+        
+        Expected format from backend:
+        {
+            "count": 1,
+            "totalCount": 42,
+            "mode": "auto" or "manual"
+        }
+        """
+        try:
+            data = json.loads(msg.data)
+        except:
+            dashboard_logger.error("❌ Invalid seed event JSON")
+            return
+        
+        entry = {
+            "timestamp": datetime.now().isoformat(),
+            "count": data.get("count", 1),
+            "totalCount": data.get("totalCount", 0),
+            "mode": data.get("mode", "manual")
+        }
+        
+        success = self._append_log(self.seed_log_path, entry)
+        
+        if success:
+            dashboard_logger.info(
+                f"🌱 Seed logged: +{entry['count']} ({entry['mode']}) → total={entry['totalCount']}"
+            )
+    
+    # --------------------------------------------------------
+    # SOIL EVENT (LOG SENSOR SNAPSHOT + SOIL READING)
+    # --------------------------------------------------------
+    def cb_soil_event(self, msg: String):
+        """
+        Log soil check event.
+        
+        This saves TWO things:
+        1. Soil moisture reading → soil_log.json
+        2. Environmental snapshot (temp+hum+soil) → sensor_log.json
+        
+        Expected format from backend:
+        {
+            "moisture": 45.2
+        }
+        """
+        try:
+            data = json.loads(msg.data)
+            moisture = data.get("moisture", 0)
+        except:
+            dashboard_logger.error("❌ Invalid soil event JSON")
+            return
+        
+        timestamp = datetime.now().isoformat()
+        
+        # ✅ 1. Log soil check event
+        soil_entry = {
+            "timestamp": timestamp,
+            "moisture": float(moisture)
+        }
+        self._append_log(self.soil_log_path, soil_entry)
+        
+        # ✅ 2. Log environmental snapshot (temp + hum + soil combined)
+        sensor_entry = {
+            "timestamp": timestamp,
+            "temperature": self.latest_temp,
+            "humidity": self.latest_hum,
+            "moisture": float(moisture)
+        }
+        self._append_log(self.sensor_log_path, sensor_entry)
+        
+        dashboard_logger.info(
+            f"💧 Soil check: {moisture:.1f}% | Snapshot saved (T={self.latest_temp:.1f}°C, H={self.latest_hum:.1f}%)"
+        )
+
+
+# ============================================================
+# MAIN
+# ============================================================
+def main():
+    rclpy.init()
+    node = DashboardNode()
+    
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        dashboard_logger.info("🛑 DashboardNode shutting down")
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+
+
+/home/chandan/robot3_ws/src/robot3_dashboard/test
+/home/chandan/robot3_ws/src/robot3_dashboard/LICENSE
+/home/chandan/robot3_ws/src/robot3_dashboard/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+             schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>robot3_dashboard</name>
+  <version>0.0.1</version>
+  <description>Dashboard storage + analytics backend for Robot 3</description>
+
+  <maintainer email="chandan.m.reddy21@gmail.com">chandan</maintainer>
+  <license>Apache-2.0</license>
+
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- ROS2 Python Client Library -->
+  <exec_depend>rclpy</exec_depend>
+
+  <!-- Robot3 internal message types -->
+  <exec_depend>robot3_msgs</exec_depend>
+
+  <!-- Launch system -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <!-- Flask for /api/dashboard -->
+  <exec_depend>python3-flask</exec_depend>
+
+  <!-- General Python dependencies (json, datetime are builtin) -->
+  <exec_depend>python3</exec_depend>
+
+  <!-- TEST DEPENDENCIES                                         -->
+ 
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
+</package>
+
+/home/chandan/robot3_ws/src/robot3_dashboard/setup.cfg
+[develop]
+script_dir=$base/lib/robot3_dashboard
+[install]
+install_scripts=$base/lib/robot3_dashboard
+
+/home/chandan/robot3_ws/src/robot3_dashboard/setup.py
+from setuptools import find_packages, setup
+import os
+from glob import glob
+
+package_name = 'robot3_dashboard'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=find_packages(),
+    data_files=[
+        # Package index
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+
+        # Package manifest
+        ('share/' + package_name, ['package.xml']),
+
+        # Install launch files
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
+
+        # Install storage directory (empty JSON logs)
+        (os.path.join('share', package_name, 'storage'), glob('robot3_dashboard/storage/*.json')),
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='chandan',
+    maintainer_email='chandan.m.reddy21@gmail.com',
+    description='Robot3 Dashboard backend for logging and analytics.',
+    license='Apache-2.0',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            # ROS2 Executable: dashboard_node
+            'dashboard_node = robot3_dashboard.dashboard_node:main',
+        ],
+    },
+)
+
+
+
+extra files to check the working to test in laptop :
+/home/chandan/robot3_ws/test_laptop_cam.py
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+
+import cv2
+import numpy as np
+from sensor_msgs.msg import CompressedImage
+
+
+class LaptopCamPublisher(Node):
+    def __init__(self):
+        super().__init__("laptop_cam_test_pub")
+
+        # Publish to the topic camera_node.py expects
+        self.pub = self.create_publisher(
+            CompressedImage,
+            "/robot2/camera/image_raw/compressed",
+            10
+        )
+
+        # Open laptop webcam (0)
+        self.cap = cv2.VideoCapture(0)
+        if not self.cap.isOpened():
+            self.get_logger().error("Cannot open laptop webcam!")
+            raise RuntimeError("Camera not found")
+
+        self.get_logger().info("Laptop webcam streaming → /robot2/camera/...")
+
+        # Publish @ 20 FPS
+        self.timer = self.create_timer(1/20, self.publish_frame)
+
+    def publish_frame(self):
+        ret, frame = self.cap.read()
+        if not ret:
+            self.get_logger().warn("Frame capture failed")
+            return
+
+        # Resize to match your WebRTC pipeline (optional)
+        frame = cv2.resize(frame, (640, 480))
+
+        # Encode JPEG
+        ok, jpeg = cv2.imencode(".jpg", frame)
+        if not ok:
+            return
+
+        msg = CompressedImage()
+        msg.format = "jpeg"
+        msg.data = jpeg.tobytes()
+
+        self.pub.publish(msg)
+
+    def destroy_node(self):
+        self.cap.release()
+        super().destroy_node()
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = LaptopCamPublisher()
+
+    try:
+        rclpy.spin(node)
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

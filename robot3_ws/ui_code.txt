@@ -1,0 +1,300 @@
+import rclpy
+from rclpy.node import Node
+
+from robot3_msgs.msg import BatteryStatus
+from robot3_msgs.msg import DHT11
+from robot3_msgs.msg import SoilMoisture
+from std_msgs.msg import String
+
+from flask import Flask, render_template
+from flask_socketio import SocketIO
+import threading
+import os
+from datetime import datetime
+
+from ament_index_python.packages import get_package_share_directory
+
+
+LOG_FILE = os.path.expanduser("~/robot3_ui_log.txt")
+
+
+def save_log_once(text):
+    timestamped = f"{datetime.now()} - {text}"
+
+    if not os.path.exists(LOG_FILE):
+        open(LOG_FILE, "w").close()
+
+    with open(LOG_FILE, "r") as f:
+        if text in f.read():
+            return
+
+    with open(LOG_FILE, "a") as f:
+        f.write(timestamped + "\n")
+
+
+# =====================================================================
+# FLASK + SOCKETIO SETUP
+# =====================================================================
+share_dir = get_package_share_directory('robot3_ui')
+template_dir = os.path.join(share_dir, 'templates')
+static_dir = os.path.join(share_dir, 'static')
+
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+
+# =====================================================================
+# ROS2 UI NODE
+# =====================================================================
+class UINode(Node):
+    def __init__(self):
+        super().__init__("robot3_ui_node")
+
+        # Movement publisher
+        self.pub_move = self.create_publisher(String, "/ui/move_cmd", 10)
+
+        # Seed dispenser publisher
+        self.pub_seed = self.create_publisher(String, "/ui/seed_cmd", 10)
+
+        # NEW: Soil moisture check publisher
+        self.pub_check_soil = self.create_publisher(String, "/ui/check_soil_moisture", 10)
+
+        # Battery subscriptions
+        self.create_subscription(
+            BatteryStatus, "/robot1/battery_status", self.robot1_callback, 10)
+        self.create_subscription(
+            BatteryStatus, "/robot2/battery_status", self.robot2_callback, 10)
+
+        # Sensor subscriptions
+        self.create_subscription(
+            DHT11, "/robot1/dht11_status", self.sensor_dht11_callback, 10)
+        self.create_subscription(
+            SoilMoisture, "/robot1/soil_status", self.sensor_soil_callback, 10)
+
+        # State variables
+        self.last_step_r1 = None
+        self.first_msg_r1 = False
+        self.low_r1 = False
+        self.critical_r1 = False
+
+        self.last_step_r2 = None
+        self.first_msg_r2 = False
+        self.low_r2 = False
+        self.critical_r2 = False
+
+        self.last_temp = None
+        self.last_hum = None
+        self.last_soil = None
+
+        self.SENSOR_THRESHOLD = 0.2
+
+        # Socket.IO events
+        socketio.on_event("move_cmd", self.socket_move_cmd)
+        socketio.on_event("seed_cmd", self.socket_seed_cmd)
+
+        # NEW: Soil check event
+        socketio.on_event("check_soil_moisture", self.socket_check_soil)
+
+    # =====================================================================
+    # SOCKET.IO → Movement
+    # =====================================================================
+    def socket_move_cmd(self, data):
+        cmd = data.get("cmd", "")
+        if not cmd:
+            return
+
+        msg = String()
+        msg.data = cmd
+        self.pub_move.publish(msg)
+
+        self.get_logger().info(f"UI → Movement CMD: {cmd}")
+
+    # =====================================================================
+    # SOCKET.IO → Seed Commands
+    # =====================================================================
+    def socket_seed_cmd(self, data):
+        cmd = data.get("cmd", "")
+        if not cmd:
+            return
+
+        msg = String()
+        msg.data = cmd
+        self.pub_seed.publish(msg)
+
+        self.get_logger().info(f"UI → Seed CMD: {cmd}")
+
+    # =====================================================================
+    # NEW — SOCKET.IO → Soil Moisture Check
+    # =====================================================================
+    def socket_check_soil(self, data):
+        msg = String()
+        msg.data = "check"
+        self.pub_check_soil.publish(msg)
+
+        self.get_logger().info("UI → Soil Moisture CHECK Request Sent")
+
+    # =====================================================================
+    # BATTERY CALLBACKS
+    # =====================================================================
+    def robot1_callback(self, msg):
+        self.process_battery(1, int(msg.percent), msg.voltage)
+
+    def robot2_callback(self, msg):
+        self.process_battery(2, int(msg.percent), msg.voltage)
+
+    def process_battery(self, robot_id, percent, voltage):
+        if robot_id == 1:
+            last_step = self.last_step_r1
+            first = self.first_msg_r1
+            low_flag = self.low_r1
+            critical_flag = self.critical_r1
+        else:
+            last_step = self.last_step_r2
+            first = self.first_msg_r2
+            low_flag = self.low_r2
+            critical_flag = self.critical_r2
+
+        socketio.emit("battery_update", {
+            "robot": robot_id,
+            "percent": percent,
+            "voltage": voltage,
+            "low": percent <= 30
+        })
+
+        if not first:
+            msg = f"Robot_{robot_id} battery current charge: {percent}%"
+            socketio.emit("log_update",
+                {"robot": robot_id, "message": msg, "level": "info"})
+            save_log_once(msg)
+
+            if robot_id == 1:
+                self.first_msg_r1 = True
+            else:
+                self.first_msg_r2 = True
+
+        step = (percent // 10) * 10
+
+        if percent > 30 and step != last_step:
+            msg = f"Robot_{robot_id} battery now at {step}%"
+            socketio.emit("log_update",
+                {"robot": robot_id, "message": msg, "level": "info"})
+            save_log_once(msg)
+
+            if robot_id == 1:
+                self.last_step_r1 = step
+                self.low_r1 = False
+                self.critical_r1 = False
+            else:
+                self.last_step_r2 = step
+                self.low_r2 = False
+                self.critical_r2 = False
+
+        if percent <= 30 and not low_flag:
+            msg = f"ALERT: Robot_{robot_id} LOW battery — {percent}%"
+            socketio.emit("log_update",
+                {"robot": robot_id, "message": msg, "level": "err"})
+            save_log_once(msg)
+
+            if robot_id == 1:
+                self.low_r1 = True
+            else:
+                self.low_r2 = True
+
+        if percent <= 20 and not critical_flag:
+            msg = f"CRITICAL: Robot_{robot_id} battery extremely low — {percent}%"
+            socketio.emit("log_update",
+                {"robot": robot_id, "message": msg, "level": "err"})
+            save_log_once(msg)
+
+            if robot_id == 1:
+                self.critical_r1 = True
+            else:
+                self.critical_r2 = True
+
+    # =====================================================================
+    # SENSOR CALLBACKS
+    # =====================================================================
+    def sensor_dht11_callback(self, msg: DHT11):
+
+        temp = msg.temperature
+        hum = msg.humidity
+
+        changed_temp = (self.last_temp is None or abs(temp - self.last_temp) >= self.SENSOR_THRESHOLD)
+        changed_hum  = (self.last_hum is None or abs(hum - self.last_hum) >= self.SENSOR_THRESHOLD)
+
+        self.last_temp = temp
+        self.last_hum = hum
+
+        if changed_temp or changed_hum:
+            socketio.emit("sensor_update", {
+                "robot": 1,
+                "temperature": temp,
+                "humidity": hum,
+                "soil": self.last_soil if self.last_soil is not None else 0.0
+            })
+
+        if changed_temp:
+            tmsg = f"Robot_1 temperature updated: {temp:.1f}°C"
+            socketio.emit("log_update", {"robot": 1, "message": tmsg, "level": "info"})
+            save_log_once(tmsg)
+
+        if changed_hum:
+            hmsg = f"Robot_1 humidity updated: {hum:.1f}%"
+            socketio.emit("log_update", {"robot": 1, "message": hmsg, "level": "info"})
+            save_log_once(hmsg)
+
+    def sensor_soil_callback(self, msg: SoilMoisture):
+
+        soil = msg.moisture
+        changed_soil = (self.last_soil is None or abs(soil - self.last_soil) >= self.SENSOR_THRESHOLD)
+
+        self.last_soil = soil
+
+        if changed_soil:
+            socketio.emit("sensor_update", {
+                "robot": 1,
+                "temperature": self.last_temp if self.last_temp is not None else 0.0,
+                "humidity": self.last_hum if self.last_hum is not None else 0.0,
+                "soil": soil
+            })
+
+            smsg = f"Robot_1 soil moisture updated: {soil:.1f}%"
+            socketio.emit("log_update", {"robot": 1, "message": smsg, "level": "info"})
+            save_log_once(smsg)
+
+
+# =====================================================================
+# ROUTES
+# =====================================================================
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
+@socketio.on("clear_log_file")
+def clear_log_file_event():
+    open(LOG_FILE, "w").close()
+
+
+# =====================================================================
+# ROS SPIN THREAD
+# =====================================================================
+def ros_spin():
+    rclpy.spin(ui_node)
+
+
+# =====================================================================
+# MAIN
+# =====================================================================
+def main():
+    global ui_node
+    rclpy.init()
+    ui_node = UINode()
+
+    threading.Thread(target=ros_spin, daemon=True).start()
+
+    socketio.run(app, host="0.0.0.0", port=5000, allow_unsafe_werkzeug=True)
+
+
+if __name__ == "__main__":
+    main()

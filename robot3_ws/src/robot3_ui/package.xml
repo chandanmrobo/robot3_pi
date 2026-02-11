@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robot3_ui</name>
+  <version>0.0.1</version>
+  <description>UI server and ROS2 bridge for Robot3 project</description>
+
+  <!-- Maintainer -->
+  <maintainer email="chandan@example.com">chandan</maintainer>
+
+  <!-- License -->
+  <license>MIT</license>
+
+  <!-- Build system -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime dependencies (Python + ROS msgs) -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>robot3_msgs</exec_depend>
+
+  <!-- Flask + SocketIO (Python dependencies) -->
+  <exec_depend>python3-flask</exec_depend>
+  <exec_depend>python3-flask-socketio</exec_depend>
+
+  <!-- For installation of the Python code -->
+  <exec_depend>python3-setuptools</exec_depend>
+
+  <!-- Other ROS tools -->
+  <exec_depend>ament_index_python</exec_depend>
+
+  <!-- Testing dependencies -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <!-- Export information -->
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

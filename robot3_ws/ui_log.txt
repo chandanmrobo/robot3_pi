@@ -1,0 +1,1812 @@
+[2025-12-13 20:14:49,512] 🛑 Shutting down
+[2025-12-13 20:49:16,071] ============================================================
+[2025-12-13 20:49:16,071] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-13 20:49:16,071] ============================================================
+[2025-12-13 20:49:16,119] 🤖 UIBridge started
+[2025-12-13 20:49:16,132] ✅ All topics connected
+[2025-12-13 20:49:16,133] ✅ WebRTC event loop started
+[2025-12-13 20:49:16,634] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-13 20:49:16,635] 🌐 http://0.0.0.0:5000
+[2025-12-13 20:49:16,635] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-13 20:49:19,387] 📡 Received WebRTC offer
+[2025-12-13 20:49:20,055] ✅ Remote description set
+[2025-12-13 20:49:20,055] 📹 Camera track replaced, direction set to sendonly
+[2025-12-13 20:49:20,072] ✅ Answer created
+[2025-12-13 20:49:20,073] ✅ WebRTC answer sent to client
+[2025-12-13 20:52:33,949] 🛑 Shutting down
+[2025-12-14 06:52:14,267] ============================================================
+[2025-12-14 06:52:14,267] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-14 06:52:14,267] ============================================================
+[2025-12-14 06:52:14,319] 🤖 UIBridge started
+[2025-12-14 06:52:14,337] ✅ All topics connected
+[2025-12-14 06:52:14,337] ✅ WebRTC event loop started
+[2025-12-14 06:52:14,839] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-14 06:52:14,839] 🌐 http://0.0.0.0:5000
+[2025-12-14 06:52:14,839] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-14 07:59:06,947] ============================================================
+[2025-12-14 07:59:06,947] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-14 07:59:06,947] ============================================================
+[2025-12-14 07:59:07,021] 🤖 UIBridge started
+[2025-12-14 07:59:07,042] ✅ All topics connected
+[2025-12-14 07:59:07,043] ✅ WebRTC event loop started
+[2025-12-14 07:59:07,545] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-14 07:59:07,546] 🌐 http://0.0.0.0:5000
+[2025-12-14 07:59:07,546] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-14 07:59:10,066] 📡 Received WebRTC offer
+[2025-12-14 07:59:11,090] ✅ Remote description set
+[2025-12-14 07:59:11,091] 📹 Camera track replaced, direction set to sendonly
+[2025-12-14 07:59:11,112] ✅ Answer created
+[2025-12-14 07:59:11,113] ✅ WebRTC answer sent to client
+[2025-12-14 10:09:32,854] ============================================================
+[2025-12-14 10:09:32,854] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-14 10:09:32,854] ============================================================
+[2025-12-14 10:09:32,890] 🤖 UIBridge started
+[2025-12-14 10:09:32,901] ✅ All topics connected
+[2025-12-14 10:09:32,902] ✅ WebRTC event loop started
+[2025-12-14 10:09:33,404] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-14 10:09:33,404] 🌐 http://0.0.0.0:5000
+[2025-12-14 10:09:33,404] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-14 10:10:36,115] 📡 Received WebRTC offer
+[2025-12-14 10:10:37,135] ✅ Remote description set
+[2025-12-14 10:10:37,135] 📹 Camera track replaced, direction set to sendonly
+[2025-12-14 10:10:37,155] ✅ Answer created
+[2025-12-14 10:10:37,156] ✅ WebRTC answer sent to client
+[2025-12-14 10:22:56,254] ============================================================
+[2025-12-14 10:22:56,254] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-14 10:22:56,254] ============================================================
+[2025-12-14 10:22:56,311] 🤖 UIBridge started
+[2025-12-14 10:22:56,322] ✅ All topics connected
+[2025-12-14 10:22:56,322] ✅ WebRTC event loop started
+[2025-12-14 10:22:56,823] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-14 10:22:56,824] 🌐 http://0.0.0.0:5000
+[2025-12-14 10:22:56,824] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-14 10:22:56,828] 🛑 Shutting down
+[2025-12-14 10:23:41,271] ============================================================
+[2025-12-14 10:23:41,271] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-14 10:23:41,272] ============================================================
+[2025-12-14 10:23:41,318] 🤖 UIBridge started
+[2025-12-14 10:23:41,331] ✅ All topics connected
+[2025-12-14 10:23:41,331] ✅ WebRTC event loop started
+[2025-12-14 10:23:41,833] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-14 10:23:41,833] 🌐 http://0.0.0.0:5000
+[2025-12-14 10:23:41,833] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-14 10:23:48,366] 📡 Received WebRTC offer
+[2025-12-14 10:23:49,377] ✅ Remote description set
+[2025-12-14 10:23:49,377] 📹 Camera track replaced, direction set to sendonly
+[2025-12-14 10:23:49,411] ✅ Answer created
+[2025-12-14 10:23:49,412] ✅ WebRTC answer sent to client
+[2025-12-14 10:27:45,856] 🛑 Shutting down
+[2025-12-14 11:07:00,069] [DASHBOARD] ✅ DashboardNode started - logging to JSON files
+[2025-12-14 11:07:00,069] [DASHBOARD] 📂 Storage: /home/chandan/robot3_ws/build/robot3_dashboard/robot3_dashboard/storage
+[2025-12-14 11:07:00,458] ============================================================
+[2025-12-14 11:07:00,459] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-14 11:07:00,459] ============================================================
+[2025-12-14 11:07:00,507] 🤖 UIBridge started
+[2025-12-14 11:07:00,520] ✅ All topics connected
+[2025-12-14 11:07:00,520] ✅ WebRTC event loop started
+[2025-12-14 11:07:01,022] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-14 11:07:01,023] 🌐 http://0.0.0.0:5000
+[2025-12-14 11:07:01,023] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-14 11:07:04,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=495
+[2025-12-14 11:07:07,495] 📡 Received WebRTC offer
+[2025-12-14 11:07:08,504] ✅ Remote description set
+[2025-12-14 11:07:08,504] 📹 Camera track replaced, direction set to sendonly
+[2025-12-14 11:07:09,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=496
+[2025-12-14 11:07:11,620] ✅ Answer created
+[2025-12-14 11:07:11,621] ✅ WebRTC answer sent to client
+[2025-12-14 11:07:14,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=497
+[2025-12-14 11:07:19,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=498
+[2025-12-14 11:07:24,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=499
+[2025-12-14 11:07:29,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=500
+[2025-12-14 11:07:34,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=501
+[2025-12-14 11:07:39,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=502
+[2025-12-14 11:07:44,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=503
+[2025-12-14 11:07:49,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=504
+[2025-12-14 11:07:54,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=505
+[2025-12-14 11:07:59,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=506
+[2025-12-14 11:08:04,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=507
+[2025-12-14 11:08:09,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=508
+[2025-12-14 11:08:14,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=509
+[2025-12-14 11:08:19,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=510
+[2025-12-14 11:08:24,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=511
+[2025-12-14 11:08:29,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=512
+[2025-12-14 11:08:34,247] [DASHBOARD] 🌱 Seed event: +1 (auto) → total=513
+[2025-12-14 11:10:41,828] [DASHBOARD] 🛑 DashboardNode shutting down
+[2025-12-14 11:10:41,828] 🛑 Shutting down
+[2025-12-14 13:35:08,900] ============================================================
+[2025-12-14 13:35:08,900] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-14 13:35:08,900] ============================================================
+[2025-12-14 13:35:08,949] 🤖 UIBridge started
+[2025-12-14 13:35:08,962] ✅ All topics connected
+[2025-12-14 13:35:08,963] ✅ WebRTC event loop started
+[2025-12-14 13:35:09,464] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-14 13:35:09,465] 🌐 http://0.0.0.0:5000
+[2025-12-14 13:35:09,465] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-14 13:35:12,336] 📡 Received WebRTC offer
+[2025-12-14 13:35:12,992] ✅ Remote description set
+[2025-12-14 13:35:12,992] 📹 Camera track replaced, direction set to sendonly
+[2025-12-14 13:35:13,012] ✅ Answer created
+[2025-12-14 13:35:13,013] ✅ WebRTC answer sent to client
+[2025-12-14 13:36:25,527] 🛑 Shutting down
+[2025-12-14 16:09:56,915] ============================================================
+[2025-12-14 16:09:56,915] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-14 16:09:56,915] ============================================================
+[2025-12-14 16:09:56,985] 🤖 UIBridge started
+[2025-12-14 16:09:56,999] ✅ All topics connected
+[2025-12-14 16:09:57,000] ✅ WebRTC event loop started
+[2025-12-14 16:09:57,502] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-14 16:09:57,503] 🌐 http://0.0.0.0:5000
+[2025-12-14 16:09:57,503] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-14 16:09:59,522] 📡 Received WebRTC offer
+[2025-12-14 16:10:00,534] ✅ Remote description set
+[2025-12-14 16:10:00,534] 📹 Camera track replaced, direction set to sendonly
+[2025-12-14 16:10:00,555] ✅ Answer created
+[2025-12-14 16:10:00,556] ✅ WebRTC answer sent to client
+[2025-12-14 16:18:16,007] 📡 Received WebRTC offer
+[2025-12-14 16:18:17,014] ✅ Remote description set
+[2025-12-14 16:18:17,014] 📹 Camera track replaced, direction set to sendonly
+[2025-12-14 16:18:17,033] ✅ Answer created
+[2025-12-14 16:18:17,034] ✅ WebRTC answer sent to client
+[2025-12-14 16:24:42,400] 🛑 Shutting down
+[2025-12-15 11:14:40,362] ============================================================
+[2025-12-15 11:14:40,363] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-15 11:14:40,363] ============================================================
+[2025-12-15 11:14:40,402] 🤖 UIBridge started
+[2025-12-15 11:14:40,417] ✅ All topics connected
+[2025-12-15 11:14:40,417] ✅ WebRTC event loop started
+[2025-12-15 11:14:40,918] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-15 11:14:40,919] 🌐 http://0.0.0.0:5000
+[2025-12-15 11:14:40,919] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-15 16:17:36,657] ============================================================
+[2025-12-15 16:17:36,658] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-15 16:17:36,658] ============================================================
+[2025-12-15 16:17:37,046] 🤖 UIBridge started
+[2025-12-15 16:17:37,063] ✅ All topics connected
+[2025-12-15 16:17:37,064] ✅ WebRTC event loop started
+[2025-12-15 16:17:37,565] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-15 16:17:37,566] 🌐 http://0.0.0.0:5000
+[2025-12-15 16:17:37,566] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-15 16:23:46,363] ============================================================
+[2025-12-15 16:23:46,363] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-15 16:23:46,363] ============================================================
+[2025-12-15 16:23:46,443] 🤖 UIBridge started
+[2025-12-15 16:23:46,464] ✅ All topics connected
+[2025-12-15 16:23:46,465] ✅ WebRTC event loop started
+[2025-12-15 16:23:46,967] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-15 16:23:46,967] 🌐 http://0.0.0.0:5000
+[2025-12-15 16:23:46,968] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-15 16:23:46,973] 🛑 Shutting down
+[2025-12-15 16:24:11,027] ============================================================
+[2025-12-15 16:24:11,027] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-15 16:24:11,027] ============================================================
+[2025-12-15 16:24:11,106] 🤖 UIBridge started
+[2025-12-15 16:24:11,124] ✅ All topics connected
+[2025-12-15 16:24:11,125] ✅ WebRTC event loop started
+[2025-12-15 16:24:11,627] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-15 16:24:11,628] 🌐 http://0.0.0.0:5000
+[2025-12-15 16:24:11,628] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-15 16:24:17,951] 📡 Received WebRTC offer
+[2025-12-15 16:24:17,974] ✅ Remote description set
+[2025-12-15 16:24:17,974] 📹 Camera track replaced, direction set to sendonly
+[2025-12-15 16:24:22,952] ❌ WebRTC negotiation error: 
+[2025-12-15 16:24:22,977] ✅ Answer created
+[2025-12-15 19:15:03,871] ============================================================
+[2025-12-15 19:15:03,871] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-15 19:15:03,871] ============================================================
+[2025-12-15 19:15:03,909] 🤖 UIBridge started
+[2025-12-15 19:15:03,922] ✅ All topics connected
+[2025-12-15 19:15:03,922] ✅ WebRTC event loop started
+[2025-12-15 19:15:04,424] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-15 19:15:04,425] 🌐 http://0.0.0.0:5000
+[2025-12-15 19:15:04,425] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-15 19:15:47,691] 📡 Received WebRTC offer
+[2025-12-15 19:15:48,702] ✅ Remote description set
+[2025-12-15 19:15:48,702] 📹 Camera track replaced, direction set to sendonly
+[2025-12-15 19:15:48,761] ✅ Answer created
+[2025-12-15 19:15:48,762] ✅ WebRTC answer sent to client
+[2025-12-15 23:08:57,592] ============================================================
+[2025-12-15 23:08:57,593] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-15 23:08:57,593] ============================================================
+[2025-12-15 23:08:57,646] 🤖 UIBridge started
+[2025-12-15 23:08:57,665] ✅ All topics connected
+[2025-12-15 23:08:57,665] ✅ WebRTC event loop started
+[2025-12-15 23:08:58,167] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-15 23:08:58,167] 🌐 http://0.0.0.0:5000
+[2025-12-15 23:08:58,168] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-16 08:22:13,551] ============================================================
+[2025-12-16 08:22:13,551] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-16 08:22:13,552] ============================================================
+[2025-12-16 08:22:13,605] 🤖 UIBridge started
+[2025-12-16 08:22:13,624] ✅ All topics connected
+[2025-12-16 08:22:13,624] ✅ WebRTC event loop started
+[2025-12-16 08:22:14,127] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-16 08:22:14,127] 🌐 http://0.0.0.0:5000
+[2025-12-16 08:22:14,127] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-16 13:39:54,806] ============================================================
+[2025-12-16 13:39:54,807] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-16 13:39:54,807] ============================================================
+[2025-12-16 13:39:54,859] 🤖 UIBridge started
+[2025-12-16 13:39:54,877] ✅ All topics connected
+[2025-12-16 13:39:54,878] ✅ WebRTC event loop started
+[2025-12-16 13:39:55,379] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-16 13:39:55,380] 🌐 http://0.0.0.0:5000
+[2025-12-16 13:39:55,380] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-16 13:53:58,449] ============================================================
+[2025-12-16 13:53:58,450] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-16 13:53:58,450] ============================================================
+[2025-12-16 13:53:58,507] 🤖 UIBridge started
+[2025-12-16 13:53:58,525] ✅ All topics connected
+[2025-12-16 13:53:58,525] ✅ WebRTC event loop started
+[2025-12-16 13:53:59,027] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-16 13:53:59,027] 🌐 http://0.0.0.0:5000
+[2025-12-16 13:53:59,027] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-16 15:42:22,564] ============================================================
+[2025-12-16 15:42:22,564] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-16 15:42:22,564] ============================================================
+[2025-12-16 15:42:22,617] 🤖 UIBridge started
+[2025-12-16 15:42:22,635] ✅ All topics connected
+[2025-12-16 15:42:22,636] ✅ WebRTC event loop started
+[2025-12-16 15:42:23,137] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-16 15:42:23,138] 🌐 http://0.0.0.0:5000
+[2025-12-16 15:42:23,138] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-16 17:45:21,897] ============================================================
+[2025-12-16 17:45:21,897] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-16 17:45:21,897] ============================================================
+[2025-12-16 17:45:22,013] 🤖 UIBridge started
+[2025-12-16 17:45:22,030] ✅ All topics connected
+[2025-12-16 17:45:22,031] ✅ WebRTC event loop started
+[2025-12-16 17:45:22,532] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-16 17:45:22,533] 🌐 http://0.0.0.0:5000
+[2025-12-16 17:45:22,533] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-17 08:25:19,666] ============================================================
+[2025-12-17 08:25:19,666] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-17 08:25:19,666] ============================================================
+[2025-12-17 08:25:19,704] 🤖 UIBridge started
+[2025-12-17 08:25:19,717] ✅ All topics connected
+[2025-12-17 08:25:19,717] ✅ WebRTC event loop started
+[2025-12-17 08:25:20,219] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-17 08:25:20,219] 🌐 http://0.0.0.0:5000
+[2025-12-17 08:25:20,219] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-17 17:55:03,307] ============================================================
+[2025-12-17 17:55:03,308] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-17 17:55:03,308] ============================================================
+[2025-12-17 17:55:03,999] 🤖 UIBridge started
+[2025-12-17 17:55:04,017] ✅ All topics connected
+[2025-12-17 17:55:04,018] ✅ WebRTC event loop started
+[2025-12-17 17:55:04,519] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-17 17:55:04,520] 🌐 http://0.0.0.0:5000
+[2025-12-17 17:55:04,520] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-18 08:26:30,645] ============================================================
+[2025-12-18 08:26:30,646] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-18 08:26:30,646] ============================================================
+[2025-12-18 08:26:30,682] 🤖 UIBridge started
+[2025-12-18 08:26:30,695] ✅ All topics connected
+[2025-12-18 08:26:30,695] ✅ WebRTC event loop started
+[2025-12-18 08:26:31,197] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-18 08:26:31,197] 🌐 http://0.0.0.0:5000
+[2025-12-18 08:26:31,197] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-18 21:34:04,849] ============================================================
+[2025-12-18 21:34:04,850] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-18 21:34:04,850] ============================================================
+[2025-12-18 21:34:04,902] 🤖 UIBridge started
+[2025-12-18 21:34:04,921] ✅ All topics connected
+[2025-12-18 21:34:04,921] ✅ WebRTC event loop started
+[2025-12-18 21:34:05,423] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-18 21:34:05,424] 🌐 http://0.0.0.0:5000
+[2025-12-18 21:34:05,424] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-18 16:17:59,136] ============================================================
+[2025-12-18 16:17:59,136] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-18 16:17:59,136] ============================================================
+[2025-12-18 16:17:59,495] 🤖 UIBridge started
+[2025-12-18 16:17:59,514] ✅ All topics connected
+[2025-12-18 16:17:59,514] ✅ WebRTC event loop started
+[2025-12-18 16:18:00,016] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-18 16:18:00,016] 🌐 http://0.0.0.0:5000
+[2025-12-18 16:18:00,016] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-18 18:19:56,255] ============================================================
+[2025-12-18 18:19:56,255] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-18 18:19:56,255] ============================================================
+[2025-12-18 18:19:56,307] 🤖 UIBridge started
+[2025-12-18 18:19:56,325] ✅ All topics connected
+[2025-12-18 18:19:56,325] ✅ WebRTC event loop started
+[2025-12-18 18:19:56,826] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-18 18:19:56,827] 🌐 http://0.0.0.0:5000
+[2025-12-18 18:19:56,827] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-19 10:51:23,340] ============================================================
+[2025-12-19 10:51:23,340] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-19 10:51:23,340] ============================================================
+[2025-12-19 10:51:23,392] 🤖 UIBridge started
+[2025-12-19 10:51:23,409] ✅ All topics connected
+[2025-12-19 10:51:23,409] ✅ WebRTC event loop started
+[2025-12-19 10:51:23,911] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-19 10:51:23,911] 🌐 http://0.0.0.0:5000
+[2025-12-19 10:51:23,912] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-19 14:55:24,250] ============================================================
+[2025-12-19 14:55:24,250] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-19 14:55:24,250] ============================================================
+[2025-12-19 14:55:24,304] 🤖 UIBridge started
+[2025-12-19 14:55:24,322] ✅ All topics connected
+[2025-12-19 14:55:24,323] ✅ WebRTC event loop started
+[2025-12-19 14:55:24,824] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-19 14:55:24,824] 🌐 http://0.0.0.0:5000
+[2025-12-19 14:55:24,824] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-19 16:06:35,123] ============================================================
+[2025-12-19 16:06:35,124] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-19 16:06:35,124] ============================================================
+[2025-12-19 16:06:35,178] 🤖 UIBridge started
+[2025-12-19 16:06:35,196] ✅ All topics connected
+[2025-12-19 16:06:35,197] ✅ WebRTC event loop started
+[2025-12-19 16:06:35,699] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-19 16:06:35,700] 🌐 http://0.0.0.0:5000
+[2025-12-19 16:06:35,700] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-20 03:34:46,235] ============================================================
+[2025-12-20 03:34:46,236] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-20 03:34:46,236] ============================================================
+[2025-12-20 03:34:46,288] 🤖 UIBridge started
+[2025-12-20 03:34:46,306] ✅ All topics connected
+[2025-12-20 03:34:46,307] ✅ WebRTC event loop started
+[2025-12-20 03:34:46,808] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-20 03:34:46,809] 🌐 http://0.0.0.0:5000
+[2025-12-20 03:34:46,809] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-21 08:03:47,734] ============================================================
+[2025-12-21 08:03:47,735] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-21 08:03:47,735] ============================================================
+[2025-12-21 08:03:47,771] 🤖 UIBridge started
+[2025-12-21 08:03:47,784] ✅ All topics connected
+[2025-12-21 08:03:47,784] ✅ WebRTC event loop started
+[2025-12-21 08:03:48,286] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-21 08:03:48,286] 🌐 http://0.0.0.0:5000
+[2025-12-21 08:03:48,286] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-22 16:28:59,976] ============================================================
+[2025-12-22 16:28:59,977] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-22 16:28:59,977] ============================================================
+[2025-12-22 16:29:00,014] 🤖 UIBridge started
+[2025-12-22 16:29:00,028] ✅ All topics connected
+[2025-12-22 16:29:00,028] ✅ WebRTC event loop started
+[2025-12-22 16:29:00,530] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-22 16:29:00,530] 🌐 http://0.0.0.0:5000
+[2025-12-22 16:29:00,530] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-23 22:06:55,023] ============================================================
+[2025-12-23 22:06:55,024] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-23 22:06:55,024] ============================================================
+[2025-12-23 22:06:55,060] 🤖 UIBridge started
+[2025-12-23 22:06:55,072] ✅ All topics connected
+[2025-12-23 22:06:55,072] ✅ WebRTC event loop started
+[2025-12-23 22:06:55,574] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-23 22:06:55,574] 🌐 http://0.0.0.0:5000
+[2025-12-23 22:06:55,574] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-24 06:35:30,763] ============================================================
+[2025-12-24 06:35:30,763] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-24 06:35:30,763] ============================================================
+[2025-12-24 06:35:30,798] 🤖 UIBridge started
+[2025-12-24 06:35:30,811] ✅ All topics connected
+[2025-12-24 06:35:30,811] ✅ WebRTC event loop started
+[2025-12-24 06:35:31,313] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-24 06:35:31,314] 🌐 http://0.0.0.0:5000
+[2025-12-24 06:35:31,314] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-24 19:19:24,273] ============================================================
+[2025-12-24 19:19:24,273] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-24 19:19:24,273] ============================================================
+[2025-12-24 19:19:24,309] 🤖 UIBridge started
+[2025-12-24 19:19:24,322] ✅ All topics connected
+[2025-12-24 19:19:24,323] ✅ WebRTC event loop started
+[2025-12-24 19:19:24,824] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-24 19:19:24,824] 🌐 http://0.0.0.0:5000
+[2025-12-24 19:19:24,824] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-25 07:23:24,535] ============================================================
+[2025-12-25 07:23:24,536] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-25 07:23:24,536] ============================================================
+[2025-12-25 07:23:24,588] 🤖 UIBridge started
+[2025-12-25 07:23:24,606] ✅ All topics connected
+[2025-12-25 07:23:24,607] ✅ WebRTC event loop started
+[2025-12-25 07:23:25,109] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-25 07:23:25,109] 🌐 http://0.0.0.0:5000
+[2025-12-25 07:23:25,109] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-27 07:15:47,621] ============================================================
+[2025-12-27 07:15:47,621] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-27 07:15:47,621] ============================================================
+[2025-12-27 07:15:47,659] 🤖 UIBridge started
+[2025-12-27 07:15:47,672] ✅ All topics connected
+[2025-12-27 07:15:47,673] ✅ WebRTC event loop started
+[2025-12-27 07:15:48,174] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-27 07:15:48,175] 🌐 http://0.0.0.0:5000
+[2025-12-27 07:15:48,175] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-27 11:59:06,771] ============================================================
+[2025-12-27 11:59:06,771] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-27 11:59:06,771] ============================================================
+[2025-12-27 11:59:06,811] 🤖 UIBridge started
+[2025-12-27 11:59:06,824] ✅ All topics connected
+[2025-12-27 11:59:06,825] ✅ WebRTC event loop started
+[2025-12-27 11:59:07,326] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-27 11:59:07,327] 🌐 http://0.0.0.0:5000
+[2025-12-27 11:59:07,327] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-27 14:25:45,805] ============================================================
+[2025-12-27 14:25:45,805] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-27 14:25:45,805] ============================================================
+[2025-12-27 14:25:45,846] 🤖 UIBridge started
+[2025-12-27 14:25:45,860] ✅ All topics connected
+[2025-12-27 14:25:45,860] ✅ WebRTC event loop started
+[2025-12-27 14:25:46,362] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-27 14:25:46,362] 🌐 http://0.0.0.0:5000
+[2025-12-27 14:25:46,362] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 07:24:14,995] ============================================================
+[2025-12-28 07:24:14,995] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 07:24:14,995] ============================================================
+[2025-12-28 07:24:15,035] 🤖 UIBridge started
+[2025-12-28 07:24:15,048] ✅ All topics connected
+[2025-12-28 07:24:15,049] ✅ WebRTC event loop started
+[2025-12-28 07:24:15,550] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-28 07:24:15,551] 🌐 http://0.0.0.0:5000
+[2025-12-28 07:24:15,551] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 09:07:10,700] ============================================================
+[2025-12-28 09:07:10,700] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 09:07:10,700] ============================================================
+[2025-12-28 09:07:10,763] 🤖 UIBridge started
+[2025-12-28 09:07:10,779] ✅ All topics connected
+[2025-12-28 09:07:10,780] ✅ WebRTC event loop started
+[2025-12-28 09:07:11,282] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-28 09:07:11,282] 🌐 http://0.0.0.0:5000
+[2025-12-28 09:07:11,282] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 09:07:11,286] 🛑 Shutting down
+[2025-12-28 09:08:39,311] ============================================================
+[2025-12-28 09:08:39,311] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 09:08:39,311] ============================================================
+[2025-12-28 09:08:39,389] 🤖 UIBridge started
+[2025-12-28 09:08:39,408] ✅ All topics connected
+[2025-12-28 09:08:39,409] ✅ WebRTC event loop started
+[2025-12-28 09:08:39,912] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-28 09:08:39,912] 🌐 http://0.0.0.0:5000
+[2025-12-28 09:08:39,912] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 09:09:03,386] 🛑 Shutting down
+[2025-12-28 09:10:39,148] ============================================================
+[2025-12-28 09:10:39,149] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 09:10:39,149] ============================================================
+[2025-12-28 09:10:39,209] 🤖 UIBridge started
+[2025-12-28 09:10:39,225] ✅ All topics connected
+[2025-12-28 09:10:39,226] ✅ WebRTC event loop started
+[2025-12-28 09:10:39,728] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-28 09:10:39,729] 🌐 http://0.0.0.0:5000
+[2025-12-28 09:10:39,729] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 10:08:49,591] 🛑 Shutting down
+[2025-12-28 10:09:23,901] ============================================================
+[2025-12-28 10:09:23,901] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 10:09:23,901] ============================================================
+[2025-12-28 10:09:23,963] 🤖 UIBridge started
+[2025-12-28 10:09:23,980] ✅ All topics connected
+[2025-12-28 10:09:23,981] ✅ WebRTC event loop started
+[2025-12-28 10:09:24,483] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-28 10:09:24,484] 🌐 http://0.0.0.0:5000
+[2025-12-28 10:09:24,484] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 10:09:26,460] 📡 Received WebRTC offer
+[2025-12-28 10:09:27,483] ✅ Remote description set
+[2025-12-28 10:09:27,483] 📹 Camera track replaced, direction set to sendonly
+[2025-12-28 10:09:27,524] ✅ Answer created
+[2025-12-28 10:09:27,525] ✅ WebRTC answer sent to client
+[2025-12-28 10:09:55,086] 🛑 Shutting down
+[2025-12-28 10:10:15,122] ============================================================
+[2025-12-28 10:10:15,122] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 10:10:15,122] ============================================================
+[2025-12-28 10:10:15,189] 🤖 UIBridge started
+[2025-12-28 10:10:15,208] ✅ All topics connected
+[2025-12-28 10:10:15,208] ✅ WebRTC event loop started
+[2025-12-28 10:10:15,710] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-28 10:10:15,711] 🌐 http://0.0.0.0:5000
+[2025-12-28 10:10:15,711] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 10:10:18,637] 📡 Received WebRTC offer
+[2025-12-28 10:10:19,090] ✅ Remote description set
+[2025-12-28 10:10:19,090] 📹 Camera track replaced, direction set to sendonly
+[2025-12-28 10:10:19,109] ✅ Answer created
+[2025-12-28 10:10:19,111] ✅ WebRTC answer sent to client
+[2025-12-28 10:11:14,452] 🛑 Shutting down
+[2025-12-28 14:07:18,141] ============================================================
+[2025-12-28 14:07:18,142] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 14:07:18,142] ============================================================
+[2025-12-28 14:07:18,193] 🤖 UIBridge started
+[2025-12-28 14:07:18,205] ✅ All topics connected
+[2025-12-28 14:07:18,205] ✅ WebRTC event loop started
+[2025-12-28 14:07:18,706] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-28 14:07:18,707] 🌐 http://0.0.0.0:5000
+[2025-12-28 14:07:18,707] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 14:07:21,486] 📡 Received WebRTC offer
+[2025-12-28 14:07:22,006] ✅ Remote description set
+[2025-12-28 14:07:22,007] 📹 Camera track replaced, direction set to sendonly
+[2025-12-28 14:07:22,027] ✅ Answer created
+[2025-12-28 14:07:22,028] ✅ WebRTC answer sent to client
+[2025-12-28 14:11:07,260] 🛑 Shutting down
+[2025-12-28 14:12:01,304] ============================================================
+[2025-12-28 14:12:01,304] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 14:12:01,305] ============================================================
+[2025-12-28 14:12:01,356] 🤖 UIBridge started
+[2025-12-28 14:12:01,370] ✅ All topics connected
+[2025-12-28 14:12:01,370] ✅ WebRTC event loop started
+[2025-12-28 14:12:01,872] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-28 14:12:01,872] 🌐 http://0.0.0.0:5000
+[2025-12-28 14:12:01,872] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-28 14:12:03,898] 📡 Received WebRTC offer
+[2025-12-28 14:12:04,905] ✅ Remote description set
+[2025-12-28 14:12:04,905] 📹 Camera track replaced, direction set to sendonly
+[2025-12-28 14:12:04,924] ✅ Answer created
+[2025-12-28 14:12:04,925] ✅ WebRTC answer sent to client
+[2025-12-28 14:14:08,303] 🛑 Shutting down
+[2025-12-28 15:54:47,392] ============================================================
+[2025-12-28 15:54:47,393] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-28 15:54:47,393] ============================================================
+[2025-12-28 15:54:47,431] 🤖 UIBridge started
+[2025-12-28 15:54:47,444] ✅ All topics connected
+[2025-12-28 15:54:47,444] ✅ WebRTC event loop started
+[2025-12-28 15:54:47,946] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-28 15:54:47,946] 🌐 http://0.0.0.0:5000
+[2025-12-28 15:54:47,946] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-29 05:54:47,424] ============================================================
+[2025-12-29 05:54:47,425] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-29 05:54:47,425] ============================================================
+[2025-12-29 05:54:47,478] 🤖 UIBridge started
+[2025-12-29 05:54:47,496] ✅ All topics connected
+[2025-12-29 05:54:47,496] ✅ WebRTC event loop started
+[2025-12-29 05:54:47,998] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-29 05:54:47,998] 🌐 http://0.0.0.0:5000
+[2025-12-29 05:54:47,998] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-29 07:50:06,025] ============================================================
+[2025-12-29 07:50:06,025] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-29 07:50:06,025] ============================================================
+[2025-12-29 07:50:06,064] 🤖 UIBridge started
+[2025-12-29 07:50:06,077] ✅ All topics connected
+[2025-12-29 07:50:06,078] ✅ WebRTC event loop started
+[2025-12-29 07:50:06,579] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-29 07:50:06,579] 🌐 http://0.0.0.0:5000
+[2025-12-29 07:50:06,579] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-29 09:13:56,238] ============================================================
+[2025-12-29 09:13:56,238] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-29 09:13:56,238] ============================================================
+[2025-12-29 09:13:56,292] 🤖 UIBridge started
+[2025-12-29 09:13:56,311] ✅ All topics connected
+[2025-12-29 09:13:56,311] ✅ WebRTC event loop started
+[2025-12-29 09:13:56,813] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-29 09:13:56,813] 🌐 http://0.0.0.0:5000
+[2025-12-29 09:13:56,813] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-29 11:59:25,322] ============================================================
+[2025-12-29 11:59:25,322] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-29 11:59:25,322] ============================================================
+[2025-12-29 11:59:26,016] 🤖 UIBridge started
+[2025-12-29 11:59:26,035] ✅ All topics connected
+[2025-12-29 11:59:26,035] ✅ WebRTC event loop started
+[2025-12-29 11:59:26,537] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-29 11:59:26,537] 🌐 http://0.0.0.0:5000
+[2025-12-29 11:59:26,538] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-29 14:51:34,390] ============================================================
+[2025-12-29 14:51:34,390] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-29 14:51:34,390] ============================================================
+[2025-12-29 14:51:34,467] 🤖 UIBridge started
+[2025-12-29 14:51:34,487] ✅ All topics connected
+[2025-12-29 14:51:34,487] ✅ WebRTC event loop started
+[2025-12-29 14:51:34,990] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-29 14:51:34,991] 🌐 http://0.0.0.0:5000
+[2025-12-29 14:51:34,991] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-29 14:51:35,005] 🛑 Shutting down
+[2025-12-29 14:52:01,205] ============================================================
+[2025-12-29 14:52:01,205] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-29 14:52:01,206] ============================================================
+[2025-12-29 14:52:01,271] 🤖 UIBridge started
+[2025-12-29 14:52:01,287] ✅ All topics connected
+[2025-12-29 14:52:01,288] ✅ WebRTC event loop started
+[2025-12-29 14:52:01,790] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2025-12-29 14:52:01,790] 🌐 http://0.0.0.0:5000
+[2025-12-29 14:52:01,790] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-29 14:52:08,259] 📡 Received WebRTC offer
+[2025-12-29 14:52:08,283] ✅ Remote description set
+[2025-12-29 14:52:08,283] 📹 Camera track replaced, direction set to sendonly
+[2025-12-29 14:52:08,296] ✅ Answer created
+[2025-12-29 14:52:08,297] ✅ WebRTC answer sent to client
+[2025-12-31 11:30:50,224] ============================================================
+[2025-12-31 11:30:50,224] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-31 11:30:50,224] ============================================================
+[2025-12-31 11:30:50,260] 🤖 UIBridge started
+[2025-12-31 11:30:50,273] ✅ All topics connected
+[2025-12-31 11:30:50,273] ✅ WebRTC event loop started
+[2025-12-31 11:30:50,775] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-31 11:30:50,775] 🌐 http://0.0.0.0:5000
+[2025-12-31 11:30:50,775] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2025-12-31 14:40:07,553] ============================================================
+[2025-12-31 14:40:07,553] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2025-12-31 14:40:07,553] ============================================================
+[2025-12-31 14:40:07,588] 🤖 UIBridge started
+[2025-12-31 14:40:07,600] ✅ All topics connected
+[2025-12-31 14:40:07,600] ✅ WebRTC event loop started
+[2025-12-31 14:40:08,101] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2025-12-31 14:40:08,102] 🌐 http://0.0.0.0:5000
+[2025-12-31 14:40:08,102] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-01 11:36:23,289] ============================================================
+[2026-01-01 11:36:23,290] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-01 11:36:23,290] ============================================================
+[2026-01-01 11:36:23,327] 🤖 UIBridge started
+[2026-01-01 11:36:23,340] ✅ All topics connected
+[2026-01-01 11:36:23,340] ✅ WebRTC event loop started
+[2026-01-01 11:36:23,842] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-01 11:36:23,843] 🌐 http://0.0.0.0:5000
+[2026-01-01 11:36:23,843] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-01 15:44:48,997] ============================================================
+[2026-01-01 15:44:48,997] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-01 15:44:48,997] ============================================================
+[2026-01-01 15:44:49,035] 🤖 UIBridge started
+[2026-01-01 15:44:49,048] ✅ All topics connected
+[2026-01-01 15:44:49,049] ✅ WebRTC event loop started
+[2026-01-01 15:44:49,551] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-01 15:44:49,551] 🌐 http://0.0.0.0:5000
+[2026-01-01 15:44:49,551] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-03 06:42:03,997] ============================================================
+[2026-01-03 06:42:03,997] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-03 06:42:03,997] ============================================================
+[2026-01-03 06:42:04,035] 🤖 UIBridge started
+[2026-01-03 06:42:04,049] ✅ All topics connected
+[2026-01-03 06:42:04,049] ✅ WebRTC event loop started
+[2026-01-03 06:42:04,551] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-03 06:42:04,551] 🌐 http://0.0.0.0:5000
+[2026-01-03 06:42:04,551] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-04 07:34:34,231] ============================================================
+[2026-01-04 07:34:34,232] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-04 07:34:34,232] ============================================================
+[2026-01-04 07:34:34,285] 🤖 UIBridge started
+[2026-01-04 07:34:34,303] ✅ All topics connected
+[2026-01-04 07:34:34,304] ✅ WebRTC event loop started
+[2026-01-04 07:34:34,806] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-04 07:34:34,806] 🌐 http://0.0.0.0:5000
+[2026-01-04 07:34:34,806] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-05 19:02:48,075] ============================================================
+[2026-01-05 19:02:48,075] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-05 19:02:48,075] ============================================================
+[2026-01-05 19:02:48,111] 🤖 UIBridge started
+[2026-01-05 19:02:48,125] ✅ All topics connected
+[2026-01-05 19:02:48,125] ✅ WebRTC event loop started
+[2026-01-05 19:02:48,627] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-05 19:02:48,627] 🌐 http://0.0.0.0:5000
+[2026-01-05 19:02:48,627] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-06 21:23:11,033] ============================================================
+[2026-01-06 21:23:11,034] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-06 21:23:11,034] ============================================================
+[2026-01-06 21:23:11,422] 🤖 UIBridge started
+[2026-01-06 21:23:11,449] ✅ All topics connected
+[2026-01-06 21:23:11,450] ✅ WebRTC event loop started
+[2026-01-06 21:23:11,951] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-06 21:23:11,951] 🌐 http://0.0.0.0:5000
+[2026-01-06 21:23:11,951] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-08 16:29:14,415] ============================================================
+[2026-01-08 16:29:14,415] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-08 16:29:14,415] ============================================================
+[2026-01-08 16:29:14,775] 🤖 UIBridge started
+[2026-01-08 16:29:14,794] ✅ All topics connected
+[2026-01-08 16:29:14,794] ✅ WebRTC event loop started
+[2026-01-08 16:29:15,296] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-08 16:29:15,296] 🌐 http://0.0.0.0:5000
+[2026-01-08 16:29:15,296] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-13 15:09:24,918] ============================================================
+[2026-01-13 15:09:24,919] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-13 15:09:24,919] ============================================================
+[2026-01-13 15:09:24,956] 🤖 UIBridge started
+[2026-01-13 15:09:24,970] ✅ All topics connected
+[2026-01-13 15:09:24,970] ✅ WebRTC event loop started
+[2026-01-13 15:09:25,471] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-13 15:09:25,472] 🌐 http://0.0.0.0:5000
+[2026-01-13 15:09:25,472] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-14 21:29:43,713] ============================================================
+[2026-01-14 21:29:43,713] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-14 21:29:43,713] ============================================================
+[2026-01-14 21:29:44,435] 🤖 UIBridge started
+[2026-01-14 21:29:44,455] ✅ All topics connected
+[2026-01-14 21:29:44,456] ✅ WebRTC event loop started
+[2026-01-14 21:29:44,957] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-14 21:29:44,957] 🌐 http://0.0.0.0:5000
+[2026-01-14 21:29:44,957] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-15 12:24:09,144] ============================================================
+[2026-01-15 12:24:09,144] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-15 12:24:09,144] ============================================================
+[2026-01-15 12:24:09,186] 🤖 UIBridge started
+[2026-01-15 12:24:09,194] ✅ All topics connected
+[2026-01-15 12:24:09,194] ✅ WebRTC event loop started
+[2026-01-15 12:24:09,696] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-15 12:24:09,697] 🌐 http://0.0.0.0:5000
+[2026-01-15 12:24:09,697] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-15 12:24:14,927] 📡 Received WebRTC offer
+[2026-01-15 12:24:15,936] ✅ Remote description set
+[2026-01-15 12:24:15,937] 📹 Camera track replaced, direction set to sendonly
+[2026-01-15 12:24:18,843] ✅ Answer created
+[2026-01-15 12:24:18,844] ✅ WebRTC answer sent to client
+[2026-01-15 12:37:50,483] 🛑 Shutting down
+[2026-01-15 13:03:25,594] ============================================================
+[2026-01-15 13:03:25,595] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-15 13:03:25,595] ============================================================
+[2026-01-15 13:03:25,642] 🤖 UIBridge started
+[2026-01-15 13:03:25,654] ✅ All topics connected
+[2026-01-15 13:03:25,655] ✅ WebRTC event loop started
+[2026-01-15 13:03:26,157] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-15 13:03:26,157] 🌐 http://0.0.0.0:5000
+[2026-01-15 13:03:26,165] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-15 13:03:34,771] 📡 Received WebRTC offer
+[2026-01-15 13:03:35,787] ✅ Remote description set
+[2026-01-15 13:03:35,787] 📹 Camera track replaced, direction set to sendonly
+[2026-01-15 13:03:35,856] ✅ Answer created
+[2026-01-15 13:03:35,857] ✅ WebRTC answer sent to client
+[2026-01-15 13:52:01,829] 🛑 Shutting down
+[2026-01-16 08:11:38,950] ============================================================
+[2026-01-16 08:11:38,951] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-16 08:11:38,951] ============================================================
+[2026-01-16 08:11:38,990] 🤖 UIBridge started
+[2026-01-16 08:11:39,003] ✅ All topics connected
+[2026-01-16 08:11:39,004] ✅ WebRTC event loop started
+[2026-01-16 08:11:39,504] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-16 08:11:39,505] 🌐 http://0.0.0.0:5000
+[2026-01-16 08:11:39,505] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-18 17:37:23,493] 📡 Received WebRTC offer
+[2026-01-18 17:37:24,516] ✅ Remote description set
+[2026-01-18 17:37:24,516] 📹 Camera track replaced, direction set to sendonly
+[2026-01-18 17:37:24,589] ✅ Answer created
+[2026-01-18 17:37:24,591] ✅ WebRTC answer sent to client
+[2026-01-19 09:24:54,172] ============================================================
+[2026-01-19 09:24:54,173] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-19 09:24:54,173] ============================================================
+[2026-01-19 09:24:54,210] 🤖 UIBridge started
+[2026-01-19 09:24:54,223] ✅ All topics connected
+[2026-01-19 09:24:54,224] ✅ WebRTC event loop started
+[2026-01-19 09:24:54,725] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-19 09:24:54,725] 🌐 http://0.0.0.0:5000
+[2026-01-19 09:24:54,725] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-19 10:38:28,216] ============================================================
+[2026-01-19 10:38:28,216] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-19 10:38:28,216] ============================================================
+[2026-01-19 10:38:28,257] 🤖 UIBridge started
+[2026-01-19 10:38:28,272] ✅ All topics connected
+[2026-01-19 10:38:28,272] ✅ WebRTC event loop started
+[2026-01-19 10:38:28,773] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-19 10:38:28,773] 🌐 http://0.0.0.0:5000
+[2026-01-19 10:38:28,774] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-19 14:44:05,603] ============================================================
+[2026-01-19 14:44:05,604] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-19 14:44:05,604] ============================================================
+[2026-01-19 14:44:05,634] 🤖 UIBridge started
+[2026-01-19 14:44:05,641] ✅ All topics connected
+[2026-01-19 14:44:05,641] ✅ WebRTC event loop started
+[2026-01-19 14:44:06,143] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-19 14:44:06,143] 🌐 http://0.0.0.0:5000
+[2026-01-19 14:44:06,143] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-19 14:44:06,157] 🛑 Shutting down
+[2026-01-19 14:53:53,579] ============================================================
+[2026-01-19 14:53:53,579] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-19 14:53:53,579] ============================================================
+[2026-01-19 14:53:53,609] 🤖 UIBridge started
+[2026-01-19 14:53:53,616] ✅ All topics connected
+[2026-01-19 14:53:53,617] ✅ WebRTC event loop started
+[2026-01-19 14:53:54,118] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-19 14:53:54,119] 🌐 http://0.0.0.0:5000
+[2026-01-19 14:53:54,119] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-19 14:53:55,689] 📡 Received WebRTC offer
+[2026-01-19 14:53:56,709] ✅ Remote description set
+[2026-01-19 14:53:56,709] 📹 Camera track replaced, direction set to sendonly
+[2026-01-19 14:53:56,833] ✅ Answer created
+[2026-01-19 14:53:56,834] ✅ WebRTC answer sent to client
+[2026-01-19 15:38:24,782] 🛑 Shutting down
+[2026-01-20 09:26:40,693] ============================================================
+[2026-01-20 09:26:40,693] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-20 09:26:40,693] ============================================================
+[2026-01-20 09:26:40,748] 🤖 UIBridge started
+[2026-01-20 09:26:40,767] ✅ All topics connected
+[2026-01-20 09:26:40,767] ✅ WebRTC event loop started
+[2026-01-20 09:26:41,268] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-20 09:26:41,269] 🌐 http://0.0.0.0:5000
+[2026-01-20 09:26:41,269] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-20 10:13:25,567] ============================================================
+[2026-01-20 10:13:25,568] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-20 10:13:25,568] ============================================================
+[2026-01-20 10:13:25,606] 🤖 UIBridge started
+[2026-01-20 10:13:25,613] ✅ All topics connected
+[2026-01-20 10:13:25,613] ✅ WebRTC event loop started
+[2026-01-20 10:13:26,114] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-20 10:13:26,115] 🌐 http://0.0.0.0:5000
+[2026-01-20 10:13:26,115] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-20 10:13:26,121] 🛑 Shutting down
+[2026-01-20 10:14:01,658] ============================================================
+[2026-01-20 10:14:01,659] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-20 10:14:01,659] ============================================================
+[2026-01-20 10:14:01,702] 🤖 UIBridge started
+[2026-01-20 10:14:01,709] ✅ All topics connected
+[2026-01-20 10:14:01,709] ✅ WebRTC event loop started
+[2026-01-20 10:14:02,211] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-20 10:14:02,212] 🌐 http://0.0.0.0:5000
+[2026-01-20 10:14:02,212] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-20 10:14:04,880] 📡 Received WebRTC offer
+[2026-01-20 10:14:05,891] ✅ Remote description set
+[2026-01-20 10:14:05,891] 📹 Camera track replaced, direction set to sendonly
+[2026-01-20 10:14:06,032] ✅ Answer created
+[2026-01-20 10:14:06,033] ✅ WebRTC answer sent to client
+[2026-01-20 11:06:58,814] 🛑 Shutting down
+[2026-01-20 16:31:07,868] ============================================================
+[2026-01-20 16:31:07,869] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-20 16:31:07,869] ============================================================
+[2026-01-20 16:31:07,914] 🤖 UIBridge started
+[2026-01-20 16:31:07,924] ✅ All topics connected
+[2026-01-20 16:31:07,925] ✅ WebRTC event loop started
+[2026-01-20 16:31:08,427] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-20 16:31:08,428] 🌐 http://0.0.0.0:5000
+[2026-01-20 16:31:08,428] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-20 16:31:21,980] 📡 Received WebRTC offer
+[2026-01-20 16:31:23,000] ✅ Remote description set
+[2026-01-20 16:31:23,000] 📹 Camera track replaced, direction set to sendonly
+[2026-01-20 16:31:23,082] ✅ Answer created
+[2026-01-20 16:31:23,084] ✅ WebRTC answer sent to client
+[2026-01-21 09:40:38,155] ============================================================
+[2026-01-21 09:40:38,156] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-21 09:40:38,156] ============================================================
+[2026-01-21 09:40:38,514] 🤖 UIBridge started
+[2026-01-21 09:40:38,533] ✅ All topics connected
+[2026-01-21 09:40:38,534] ✅ WebRTC event loop started
+[2026-01-21 09:40:39,035] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-21 09:40:39,036] 🌐 http://0.0.0.0:5000
+[2026-01-21 09:40:39,036] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-21 14:18:37,985] ============================================================
+[2026-01-21 14:18:37,986] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-21 14:18:37,986] ============================================================
+[2026-01-21 14:18:38,034] 🤖 UIBridge started
+[2026-01-21 14:18:38,050] ✅ All topics connected
+[2026-01-21 14:18:38,051] ✅ WebRTC event loop started
+[2026-01-21 14:18:38,553] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-21 14:18:38,554] 🌐 http://0.0.0.0:5000
+[2026-01-21 14:18:38,554] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-21 14:18:38,559] 🛑 Shutting down
+[2026-01-21 14:19:06,276] ============================================================
+[2026-01-21 14:19:06,276] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-21 14:19:06,276] ============================================================
+[2026-01-21 14:19:06,330] 🤖 UIBridge started
+[2026-01-21 14:19:06,340] ✅ All topics connected
+[2026-01-21 14:19:06,341] ✅ WebRTC event loop started
+[2026-01-21 14:19:06,843] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-21 14:19:06,844] 🌐 http://0.0.0.0:5000
+[2026-01-21 14:19:06,844] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-21 14:19:13,162] 📡 Received WebRTC offer
+[2026-01-21 14:19:14,224] ✅ Remote description set
+[2026-01-21 14:19:14,224] 📹 Camera track replaced, direction set to sendonly
+[2026-01-21 14:19:14,410] ✅ Answer created
+[2026-01-21 14:19:14,411] ✅ WebRTC answer sent to client
+[2026-01-21 14:22:58,376] 🛑 Shutting down
+[2026-01-22 09:20:04,287] ============================================================
+[2026-01-22 09:20:04,288] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-22 09:20:04,288] ============================================================
+[2026-01-22 09:20:04,677] 🤖 UIBridge started
+[2026-01-22 09:20:04,701] ✅ All topics connected
+[2026-01-22 09:20:04,702] ✅ WebRTC event loop started
+[2026-01-22 09:20:05,203] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-22 09:20:05,203] 🌐 http://0.0.0.0:5000
+[2026-01-22 09:20:05,203] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-22 10:11:15,456] ============================================================
+[2026-01-22 10:11:15,456] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-22 10:11:15,457] ============================================================
+[2026-01-22 10:11:15,507] 🤖 UIBridge started
+[2026-01-22 10:11:15,524] ✅ All topics connected
+[2026-01-22 10:11:15,525] ✅ WebRTC event loop started
+[2026-01-22 10:11:16,026] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-22 10:11:16,027] 🌐 http://0.0.0.0:5000
+[2026-01-22 10:11:16,027] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-22 18:07:26,261] ============================================================
+[2026-01-22 18:07:26,262] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-22 18:07:26,262] ============================================================
+[2026-01-22 18:07:26,300] 🤖 UIBridge started
+[2026-01-22 18:07:26,312] ✅ All topics connected
+[2026-01-22 18:07:26,312] ✅ WebRTC event loop started
+[2026-01-22 18:07:26,813] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-22 18:07:26,814] 🌐 http://0.0.0.0:5000
+[2026-01-22 18:07:26,814] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-22 18:13:36,898] ============================================================
+[2026-01-22 18:13:36,898] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-22 18:13:36,899] ============================================================
+[2026-01-22 18:13:36,936] 🤖 UIBridge started
+[2026-01-22 18:13:36,948] ✅ All topics connected
+[2026-01-22 18:13:36,948] ✅ WebRTC event loop started
+[2026-01-22 18:13:37,450] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-22 18:13:37,450] 🌐 http://0.0.0.0:5000
+[2026-01-22 18:13:37,450] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-24 13:15:41,805] ============================================================
+[2026-01-24 13:15:41,805] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-24 13:15:41,805] ============================================================
+[2026-01-24 13:15:41,843] 🤖 UIBridge started
+[2026-01-24 13:15:41,853] ✅ All topics connected
+[2026-01-24 13:15:41,854] ✅ WebRTC event loop started
+[2026-01-24 13:15:42,355] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-24 13:15:42,356] 🌐 http://0.0.0.0:5000
+[2026-01-24 13:15:42,356] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-25 11:56:08,799] ============================================================
+[2026-01-25 11:56:08,800] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-25 11:56:08,800] ============================================================
+[2026-01-25 11:56:08,837] 🤖 UIBridge started
+[2026-01-25 11:56:08,849] ✅ All topics connected
+[2026-01-25 11:56:08,849] ✅ WebRTC event loop started
+[2026-01-25 11:56:09,350] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-25 11:56:09,350] 🌐 http://0.0.0.0:5000
+[2026-01-25 11:56:09,350] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-27 09:36:03,892] ============================================================
+[2026-01-27 09:36:03,892] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-27 09:36:03,892] ============================================================
+[2026-01-27 09:36:03,930] 🤖 UIBridge started
+[2026-01-27 09:36:03,942] ✅ All topics connected
+[2026-01-27 09:36:03,943] ✅ WebRTC event loop started
+[2026-01-27 09:36:04,444] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-27 09:36:04,444] 🌐 http://0.0.0.0:5000
+[2026-01-27 09:36:04,444] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-27 16:27:58,523] ============================================================
+[2026-01-27 16:27:58,523] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-27 16:27:58,523] ============================================================
+[2026-01-27 16:27:58,574] 🤖 UIBridge started
+[2026-01-27 16:27:58,591] ✅ All topics connected
+[2026-01-27 16:27:58,592] ✅ WebRTC event loop started
+[2026-01-27 16:27:59,093] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-27 16:27:59,094] 🌐 http://0.0.0.0:5000
+[2026-01-27 16:27:59,094] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-28 10:34:04,233] ============================================================
+[2026-01-28 10:34:04,234] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-28 10:34:04,234] ============================================================
+[2026-01-28 10:34:04,271] 🤖 UIBridge started
+[2026-01-28 10:34:04,284] ✅ All topics connected
+[2026-01-28 10:34:04,285] ✅ WebRTC event loop started
+[2026-01-28 10:34:04,786] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-28 10:34:04,787] 🌐 http://0.0.0.0:5000
+[2026-01-28 10:34:04,787] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-28 14:43:20,312] ============================================================
+[2026-01-28 14:43:20,312] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-28 14:43:20,312] ============================================================
+[2026-01-28 14:43:21,004] 🤖 UIBridge started
+[2026-01-28 14:43:21,024] ✅ All topics connected
+[2026-01-28 14:43:21,024] ✅ WebRTC event loop started
+[2026-01-28 14:43:21,526] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-28 14:43:21,527] 🌐 http://0.0.0.0:5000
+[2026-01-28 14:43:21,527] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 01:24:22,857] ============================================================
+[2026-01-29 01:24:22,858] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 01:24:22,858] ============================================================
+[2026-01-29 01:24:22,893] 🤖 UIBridge started
+[2026-01-29 01:24:22,904] ✅ All topics connected
+[2026-01-29 01:24:22,905] ✅ WebRTC event loop started
+[2026-01-29 01:24:23,406] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 01:24:23,407] 🌐 http://0.0.0.0:5000
+[2026-01-29 01:24:23,407] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-28 20:38:11,407] ============================================================
+[2026-01-28 20:38:11,408] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-28 20:38:11,408] ============================================================
+[2026-01-28 20:38:11,449] 🤖 UIBridge started
+[2026-01-28 20:38:11,457] ✅ All topics connected
+[2026-01-28 20:38:11,457] ✅ WebRTC event loop started
+[2026-01-28 20:38:11,959] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-28 20:38:11,959] 🌐 http://0.0.0.0:5000
+[2026-01-28 20:38:11,959] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-28 20:38:13,750] 📡 Received WebRTC offer
+[2026-01-28 20:38:14,794] ✅ Remote description set
+[2026-01-28 20:38:14,794] 📹 Camera track replaced, direction set to sendonly
+[2026-01-28 20:38:14,840] ✅ Answer created
+[2026-01-28 20:38:14,841] ✅ WebRTC answer sent to client
+[2026-01-28 20:52:18,044] 🛑 Shutting down
+[2026-01-28 20:57:12,336] ============================================================
+[2026-01-28 20:57:12,337] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-28 20:57:12,337] ============================================================
+[2026-01-28 20:57:12,376] 🤖 UIBridge started
+[2026-01-28 20:57:12,383] ✅ All topics connected
+[2026-01-28 20:57:12,384] ✅ WebRTC event loop started
+[2026-01-28 20:57:12,885] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-28 20:57:12,886] 🌐 http://0.0.0.0:5000
+[2026-01-28 20:57:12,886] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-28 20:57:18,565] 📡 Received WebRTC offer
+[2026-01-28 20:57:19,613] ✅ Remote description set
+[2026-01-28 20:57:19,613] 📹 Camera track replaced, direction set to sendonly
+[2026-01-28 20:57:23,565] ❌ WebRTC negotiation error: 
+[2026-01-28 20:57:24,617] ✅ Answer created
+[2026-01-28 21:01:34,126] 🛑 Shutting down
+[2026-01-28 21:01:56,478] ============================================================
+[2026-01-28 21:01:56,478] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-28 21:01:56,478] ============================================================
+[2026-01-28 21:01:56,523] 🤖 UIBridge started
+[2026-01-28 21:01:56,531] ✅ All topics connected
+[2026-01-28 21:01:56,531] ✅ WebRTC event loop started
+[2026-01-28 21:01:57,032] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-28 21:01:57,033] 🌐 http://0.0.0.0:5000
+[2026-01-28 21:01:57,033] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-28 21:01:58,291] 📡 Received WebRTC offer
+[2026-01-28 21:01:59,330] ✅ Remote description set
+[2026-01-28 21:01:59,330] 📹 Camera track replaced, direction set to sendonly
+[2026-01-28 21:01:59,390] ✅ Answer created
+[2026-01-28 21:01:59,391] ✅ WebRTC answer sent to client
+[2026-01-28 21:15:44,747] 🛑 Shutting down
+[2026-01-29 09:51:24,461] ============================================================
+[2026-01-29 09:51:24,462] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 09:51:24,462] ============================================================
+[2026-01-29 09:51:24,515] 🤖 UIBridge started
+[2026-01-29 09:51:24,532] ✅ All topics connected
+[2026-01-29 09:51:24,533] ✅ WebRTC event loop started
+[2026-01-29 09:51:25,034] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 09:51:25,034] 🌐 http://0.0.0.0:5000
+[2026-01-29 09:51:25,035] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 10:11:57,022] ============================================================
+[2026-01-29 10:11:57,023] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 10:11:57,024] ============================================================
+[2026-01-29 10:11:57,070] 🤖 UIBridge started
+[2026-01-29 10:11:57,080] ✅ All topics connected
+[2026-01-29 10:11:57,081] ✅ WebRTC event loop started
+[2026-01-29 10:11:57,582] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 10:11:57,583] 🌐 http://0.0.0.0:5000
+[2026-01-29 10:11:57,583] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 10:12:04,026] 📡 Received WebRTC offer
+[2026-01-29 10:12:04,101] ✅ Remote description set
+[2026-01-29 10:12:04,101] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 10:12:04,128] ✅ Answer created
+[2026-01-29 10:12:04,129] ✅ WebRTC answer sent to client
+[2026-01-29 10:12:25,048] 🛑 Shutting down
+[2026-01-29 11:01:50,157] ============================================================
+[2026-01-29 11:01:50,157] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 11:01:50,157] ============================================================
+[2026-01-29 11:01:50,189] 🤖 UIBridge started
+[2026-01-29 11:01:50,197] ✅ All topics connected
+[2026-01-29 11:01:50,197] ✅ WebRTC event loop started
+[2026-01-29 11:01:50,699] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-29 11:01:50,700] 🌐 http://0.0.0.0:5000
+[2026-01-29 11:01:50,700] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 11:11:47,761] 🛑 Shutting down
+[2026-01-29 11:13:25,961] ============================================================
+[2026-01-29 11:13:25,961] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 11:13:25,961] ============================================================
+[2026-01-29 11:13:26,004] 🤖 UIBridge started
+[2026-01-29 11:13:26,011] ✅ All topics connected
+[2026-01-29 11:13:26,012] ✅ WebRTC event loop started
+[2026-01-29 11:13:26,513] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-29 11:13:26,513] 🌐 http://0.0.0.0:5000
+[2026-01-29 11:13:26,514] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 11:13:45,473] 🛑 Shutting down
+[2026-01-29 11:19:20,085] ============================================================
+[2026-01-29 11:19:20,085] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 11:19:20,086] ============================================================
+[2026-01-29 11:19:20,140] 🤖 UIBridge started
+[2026-01-29 11:19:20,150] ✅ All topics connected
+[2026-01-29 11:19:20,151] ✅ WebRTC event loop started
+[2026-01-29 11:19:20,653] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-29 11:19:20,654] 🌐 http://0.0.0.0:5000
+[2026-01-29 11:19:20,654] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 11:20:51,738] 🛑 Shutting down
+[2026-01-29 11:22:56,137] ============================================================
+[2026-01-29 11:22:56,137] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 11:22:56,144] ============================================================
+[2026-01-29 11:22:56,191] 🤖 UIBridge started
+[2026-01-29 11:22:56,201] ✅ All topics connected
+[2026-01-29 11:22:56,201] ✅ WebRTC event loop started
+[2026-01-29 11:22:56,703] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 11:22:56,704] 🌐 http://0.0.0.0:5000
+[2026-01-29 11:22:56,704] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 11:22:59,166] 📡 Received WebRTC offer
+[2026-01-29 11:23:00,250] ✅ Remote description set
+[2026-01-29 11:23:00,250] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 11:23:00,271] ✅ Answer created
+[2026-01-29 11:23:00,273] ✅ WebRTC answer sent to client
+[2026-01-29 11:28:24,194] 🛑 Shutting down
+[2026-01-29 11:59:31,482] ============================================================
+[2026-01-29 11:59:31,482] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 11:59:31,482] ============================================================
+[2026-01-29 11:59:31,533] 🤖 UIBridge started
+[2026-01-29 11:59:31,544] ✅ All topics connected
+[2026-01-29 11:59:31,545] ✅ WebRTC event loop started
+[2026-01-29 11:59:32,047] 📂 UI: /home/chandan/robot3_ws/install/robot3_ui/lib/python3.10/site-packages/robot3_ui/ui_build
+[2026-01-29 11:59:32,048] 🌐 http://0.0.0.0:5000
+[2026-01-29 11:59:32,048] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 11:59:37,683] 🛑 Shutting down
+[2026-01-29 12:08:17,977] ============================================================
+[2026-01-29 12:08:17,977] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 12:08:17,977] ============================================================
+[2026-01-29 12:10:44,500] ============================================================
+[2026-01-29 12:10:44,500] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 12:10:44,500] ============================================================
+[2026-01-29 12:10:44,548] 🤖 UIBridge started
+[2026-01-29 12:10:44,557] ✅ All topics connected
+[2026-01-29 12:10:44,558] ✅ WebRTC event loop started
+[2026-01-29 12:10:45,060] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 12:10:45,061] 🌐 http://0.0.0.0:5000
+[2026-01-29 12:10:45,061] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 12:10:46,276] 📡 Received WebRTC offer
+[2026-01-29 12:10:47,347] ✅ Remote description set
+[2026-01-29 12:10:47,347] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 12:10:47,367] ✅ Answer created
+[2026-01-29 12:10:47,368] ✅ WebRTC answer sent to client
+[2026-01-29 12:15:18,614] 🛑 Shutting down
+[2026-01-29 12:18:42,291] ============================================================
+[2026-01-29 12:18:42,292] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 12:18:42,293] ============================================================
+[2026-01-29 12:21:03,206] ============================================================
+[2026-01-29 12:21:03,207] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 12:21:03,207] ============================================================
+[2026-01-29 12:22:34,863] ============================================================
+[2026-01-29 12:22:34,864] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 12:22:34,864] ============================================================
+[2026-01-29 12:27:02,616] ============================================================
+[2026-01-29 12:27:02,616] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 12:27:02,618] ============================================================
+[2026-01-29 12:27:02,683] 🤖 UIBridge started
+[2026-01-29 12:27:02,698] ✅ All topics connected
+[2026-01-29 12:27:02,698] ✅ WebRTC event loop started
+[2026-01-29 12:27:03,201] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 12:27:03,201] 🌐 http://0.0.0.0:5000
+[2026-01-29 12:27:03,201] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 12:31:22,995] ============================================================
+[2026-01-29 12:31:22,996] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 12:31:22,997] ============================================================
+[2026-01-29 12:31:23,061] 🤖 UIBridge started
+[2026-01-29 12:31:23,077] ✅ All topics connected
+[2026-01-29 12:31:23,078] ✅ WebRTC event loop started
+[2026-01-29 12:31:23,580] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 12:31:23,580] 🌐 http://0.0.0.0:5000
+[2026-01-29 12:31:23,580] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 12:32:38,155] 📡 Received WebRTC offer
+[2026-01-29 12:32:39,232] ✅ Remote description set
+[2026-01-29 12:32:39,234] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 12:32:39,285] ✅ Answer created
+[2026-01-29 12:32:39,287] ✅ WebRTC answer sent to client
+[2026-01-29 12:33:43,260] ============================================================
+[2026-01-29 12:33:43,260] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 12:33:43,260] ============================================================
+[2026-01-29 12:33:56,765] 📡 Received WebRTC offer
+[2026-01-29 12:33:57,792] ✅ Remote description set
+[2026-01-29 12:33:57,793] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 12:33:57,847] ✅ Answer created
+[2026-01-29 12:33:57,849] ✅ WebRTC answer sent to client
+[2026-01-29 15:46:11,298] ============================================================
+[2026-01-29 15:46:11,299] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 15:46:11,299] ============================================================
+[2026-01-29 15:46:11,340] 🤖 UIBridge started
+[2026-01-29 15:46:11,354] ✅ All topics connected
+[2026-01-29 15:46:11,354] ✅ WebRTC event loop started
+[2026-01-29 15:46:11,855] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 15:46:11,856] 🌐 http://0.0.0.0:5000
+[2026-01-29 15:46:11,856] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 16:22:09,670] ============================================================
+[2026-01-29 16:22:09,670] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 16:22:09,671] ============================================================
+[2026-01-29 16:22:09,713] 🤖 UIBridge started
+[2026-01-29 16:22:09,721] ✅ All topics connected
+[2026-01-29 16:22:09,721] ✅ WebRTC event loop started
+[2026-01-29 16:22:10,222] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 16:22:10,223] 🌐 http://0.0.0.0:5000
+[2026-01-29 16:22:10,223] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 16:22:10,226] 🛑 Shutting down
+[2026-01-29 16:22:15,633] 📡 Received WebRTC offer
+[2026-01-29 16:22:16,683] ✅ Remote description set
+[2026-01-29 16:22:16,683] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 16:22:16,702] ✅ Answer created
+[2026-01-29 16:22:16,703] ✅ WebRTC answer sent to client
+[2026-01-29 16:34:28,680] 📡 Received WebRTC offer
+[2026-01-29 16:34:29,686] ✅ Remote description set
+[2026-01-29 16:34:29,686] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 16:34:29,703] ✅ Answer created
+[2026-01-29 16:34:29,705] ✅ WebRTC answer sent to client
+[2026-01-29 16:35:24,540] 📡 Received WebRTC offer
+[2026-01-29 16:35:25,546] ✅ Remote description set
+[2026-01-29 16:35:25,546] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 16:35:25,594] ✅ Answer created
+[2026-01-29 16:35:25,595] ✅ WebRTC answer sent to client
+[2026-01-29 17:17:03,266] 📡 Received WebRTC offer
+[2026-01-29 17:17:04,272] ✅ Remote description set
+[2026-01-29 17:17:04,272] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 17:17:04,331] ✅ Answer created
+[2026-01-29 17:17:04,332] ✅ WebRTC answer sent to client
+[2026-01-29 17:17:22,831] ============================================================
+[2026-01-29 17:17:22,831] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 17:17:22,831] ============================================================
+[2026-01-29 17:17:22,873] 🤖 UIBridge started
+[2026-01-29 17:17:22,885] ✅ All topics connected
+[2026-01-29 17:17:22,885] ✅ WebRTC event loop started
+[2026-01-29 17:17:23,387] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 17:17:23,387] 🌐 http://0.0.0.0:5000
+[2026-01-29 17:17:23,387] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 17:17:23,401] 🛑 Shutting down
+[2026-01-29 17:17:30,285] 📡 Received WebRTC offer
+[2026-01-29 17:17:31,323] ✅ Remote description set
+[2026-01-29 17:17:31,323] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 17:17:31,361] ✅ Answer created
+[2026-01-29 17:17:31,362] ✅ WebRTC answer sent to client
+[2026-01-29 17:51:17,816] ============================================================
+[2026-01-29 17:51:17,817] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 17:51:17,817] ============================================================
+[2026-01-29 17:51:17,869] 🤖 UIBridge started
+[2026-01-29 17:51:17,880] ✅ All topics connected
+[2026-01-29 17:51:17,881] ✅ WebRTC event loop started
+[2026-01-29 17:51:18,383] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 17:51:18,384] 🌐 http://0.0.0.0:5000
+[2026-01-29 17:51:18,384] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-29 17:51:18,389] 🛑 Shutting down
+[2026-01-29 17:51:21,995] 📡 Received WebRTC offer
+[2026-01-29 17:51:23,002] ✅ Remote description set
+[2026-01-29 17:51:23,002] 📹 Camera track replaced, direction set to sendonly
+[2026-01-29 17:51:23,070] ✅ Answer created
+[2026-01-29 17:51:23,072] ✅ WebRTC answer sent to client
+[2026-01-29 20:25:12,504] ============================================================
+[2026-01-29 20:25:12,505] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-29 20:25:12,505] ============================================================
+[2026-01-29 20:25:12,556] 🤖 UIBridge started
+[2026-01-29 20:25:12,574] ✅ All topics connected
+[2026-01-29 20:25:12,574] ✅ WebRTC event loop started
+[2026-01-29 20:25:13,075] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-29 20:25:13,075] 🌐 http://0.0.0.0:5000
+[2026-01-29 20:25:13,076] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-30 05:22:44,024] ============================================================
+[2026-01-30 05:22:44,024] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-30 05:22:44,024] ============================================================
+[2026-01-30 05:22:44,060] 🤖 UIBridge started
+[2026-01-30 05:22:44,073] ✅ All topics connected
+[2026-01-30 05:22:44,073] ✅ WebRTC event loop started
+[2026-01-30 05:22:44,575] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-30 05:22:44,576] 🌐 http://0.0.0.0:5000
+[2026-01-30 05:22:44,576] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-30 05:46:24,745] ============================================================
+[2026-01-30 05:46:24,745] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-30 05:46:24,745] ============================================================
+[2026-01-30 05:46:24,784] 🤖 UIBridge started
+[2026-01-30 05:46:24,791] ✅ All topics connected
+[2026-01-30 05:46:24,791] ✅ WebRTC event loop started
+[2026-01-30 05:46:25,293] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-30 05:46:25,293] 🌐 http://0.0.0.0:5000
+[2026-01-30 05:46:25,293] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-30 05:46:25,298] 🛑 Shutting down
+[2026-01-30 05:46:28,685] 📡 Received WebRTC offer
+[2026-01-30 05:46:29,733] ✅ Remote description set
+[2026-01-30 05:46:29,733] 📹 Camera track replaced, direction set to sendonly
+[2026-01-30 05:46:29,756] ✅ Answer created
+[2026-01-30 05:46:29,757] ✅ WebRTC answer sent to client
+[2026-01-30 05:48:03,799] 📡 Received WebRTC offer
+[2026-01-30 05:48:04,804] ✅ Remote description set
+[2026-01-30 05:48:04,804] 📹 Camera track replaced, direction set to sendonly
+[2026-01-30 05:48:04,824] ✅ Answer created
+[2026-01-30 05:48:04,825] ✅ WebRTC answer sent to client
+[2026-01-30 05:54:44,862] 📡 Received WebRTC offer
+[2026-01-30 05:54:45,867] ✅ Remote description set
+[2026-01-30 05:54:45,867] 📹 Camera track replaced, direction set to sendonly
+[2026-01-30 05:54:45,909] ✅ Answer created
+[2026-01-30 05:54:45,910] ✅ WebRTC answer sent to client
+[2026-01-30 05:55:04,624] ============================================================
+[2026-01-30 05:55:04,624] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-30 05:55:04,624] ============================================================
+[2026-01-30 05:55:04,668] 🤖 UIBridge started
+[2026-01-30 05:55:04,677] ✅ All topics connected
+[2026-01-30 05:55:04,677] ✅ WebRTC event loop started
+[2026-01-30 05:55:05,178] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-30 05:55:05,178] 🌐 http://0.0.0.0:5000
+[2026-01-30 05:55:05,178] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-30 05:55:05,182] 🛑 Shutting down
+[2026-01-30 05:55:09,502] 📡 Received WebRTC offer
+[2026-01-30 05:55:10,507] ✅ Remote description set
+[2026-01-30 05:55:10,508] 📹 Camera track replaced, direction set to sendonly
+[2026-01-30 05:55:10,568] ✅ Answer created
+[2026-01-30 05:55:10,569] ✅ WebRTC answer sent to client
+[2026-01-30 05:59:25,049] 📡 Received WebRTC offer
+[2026-01-30 05:59:26,055] ✅ Remote description set
+[2026-01-30 05:59:26,055] 📹 Camera track replaced, direction set to sendonly
+[2026-01-30 05:59:26,115] ✅ Answer created
+[2026-01-30 05:59:26,116] ✅ WebRTC answer sent to client
+[2026-01-30 06:05:30,581] 📡 Received WebRTC offer
+[2026-01-30 06:05:31,585] ✅ Remote description set
+[2026-01-30 06:05:31,586] 📹 Camera track replaced, direction set to sendonly
+[2026-01-30 06:05:31,642] ✅ Answer created
+[2026-01-30 06:05:31,643] ✅ WebRTC answer sent to client
+[2026-01-30 06:08:10,405] ============================================================
+[2026-01-30 06:08:10,406] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-30 06:08:10,406] ============================================================
+[2026-01-30 06:08:10,447] 🤖 UIBridge started
+[2026-01-30 06:08:10,455] ✅ All topics connected
+[2026-01-30 06:08:10,455] ✅ WebRTC event loop started
+[2026-01-30 06:08:10,957] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-30 06:08:10,957] 🌐 http://0.0.0.0:5000
+[2026-01-30 06:08:10,957] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-30 06:08:12,955] 📡 Received WebRTC offer
+[2026-01-30 06:08:13,992] ✅ Remote description set
+[2026-01-30 06:08:13,992] 📹 Camera track replaced, direction set to sendonly
+[2026-01-30 06:08:14,043] ✅ Answer created
+[2026-01-30 06:08:14,044] ✅ WebRTC answer sent to client
+[2026-01-30 06:10:04,495] 📡 Received WebRTC offer
+[2026-01-30 06:10:05,528] ✅ Remote description set
+[2026-01-30 06:10:05,528] 📹 Camera track replaced, direction set to sendonly
+[2026-01-30 06:10:05,585] ✅ Answer created
+[2026-01-30 06:10:05,587] ✅ WebRTC answer sent to client
+[2026-01-30 06:11:09,833] 🛑 Shutting down
+[2026-01-30 09:28:15,476] ============================================================
+[2026-01-30 09:28:15,476] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-30 09:28:15,476] ============================================================
+[2026-01-30 09:28:15,836] 🤖 UIBridge started
+[2026-01-30 09:28:15,854] ✅ All topics connected
+[2026-01-30 09:28:15,855] ✅ WebRTC event loop started
+[2026-01-30 09:28:16,356] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-30 09:28:16,357] 🌐 http://0.0.0.0:5000
+[2026-01-30 09:28:16,357] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-01-30 12:11:46,367] ============================================================
+[2026-01-30 12:11:46,367] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-01-30 12:11:46,367] ============================================================
+[2026-01-30 12:11:46,405] 🤖 UIBridge started
+[2026-01-30 12:11:46,419] ✅ All topics connected
+[2026-01-30 12:11:46,419] ✅ WebRTC event loop started
+[2026-01-30 12:11:46,921] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-01-30 12:11:46,921] 🌐 http://0.0.0.0:5000
+[2026-01-30 12:11:46,921] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-02 12:09:50,703] ============================================================
+[2026-02-02 12:09:50,703] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-02 12:09:50,703] ============================================================
+[2026-02-02 12:09:50,733] 🤖 UIBridge started
+[2026-02-02 12:09:50,742] ✅ All topics connected
+[2026-02-02 12:09:50,743] ✅ WebRTC event loop started
+[2026-02-02 12:09:51,245] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-02 12:09:51,246] 🌐 http://0.0.0.0:5000
+[2026-02-02 12:09:51,246] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-02 12:09:52,938] 📡 Received WebRTC offer
+[2026-02-02 12:09:53,982] ✅ Remote description set
+[2026-02-02 12:09:53,983] 📹 Camera track replaced, direction set to sendonly
+[2026-02-02 12:09:54,202] ✅ Answer created
+[2026-02-02 12:09:54,203] ✅ WebRTC answer sent to client
+[2026-02-02 12:12:44,381] 🛑 Shutting down
+[2026-02-03 09:34:57,584] ============================================================
+[2026-02-03 09:34:57,584] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-03 09:34:57,584] ============================================================
+[2026-02-03 09:34:57,621] 🤖 UIBridge started
+[2026-02-03 09:34:57,634] ✅ All topics connected
+[2026-02-03 09:34:57,634] ✅ WebRTC event loop started
+[2026-02-03 09:34:58,135] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-03 09:34:58,135] 🌐 http://0.0.0.0:5000
+[2026-02-03 09:34:58,135] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-03 10:15:43,902] ============================================================
+[2026-02-03 10:15:43,903] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-03 10:15:43,903] ============================================================
+[2026-02-03 10:15:43,949] 🤖 UIBridge started
+[2026-02-03 10:15:43,957] ✅ All topics connected
+[2026-02-03 10:15:43,957] ✅ WebRTC event loop started
+[2026-02-03 10:15:44,458] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-03 10:15:44,459] 🌐 http://0.0.0.0:5000
+[2026-02-03 10:15:44,459] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-03 10:15:44,463] 🛑 Shutting down
+[2026-02-03 10:15:52,331] 📡 Received WebRTC offer
+[2026-02-03 10:15:53,377] ✅ Remote description set
+[2026-02-03 10:15:53,377] 📹 Camera track replaced, direction set to sendonly
+[2026-02-03 10:15:53,509] ✅ Answer created
+[2026-02-03 10:15:53,510] ✅ WebRTC answer sent to client
+[2026-02-03 15:57:42,418] ============================================================
+[2026-02-03 15:57:42,419] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-03 15:57:42,419] ============================================================
+[2026-02-03 15:57:42,470] 🤖 UIBridge started
+[2026-02-03 15:57:42,489] ✅ All topics connected
+[2026-02-03 15:57:42,490] ✅ WebRTC event loop started
+[2026-02-03 15:57:42,991] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-03 15:57:42,992] 🌐 http://0.0.0.0:5000
+[2026-02-03 15:57:42,992] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-04 13:45:51,142] ============================================================
+[2026-02-04 13:45:51,142] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-04 13:45:51,142] ============================================================
+[2026-02-04 13:45:51,177] 🤖 UIBridge started
+[2026-02-04 13:45:51,189] ✅ All topics connected
+[2026-02-04 13:45:51,189] ✅ WebRTC event loop started
+[2026-02-04 13:45:51,692] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-04 13:45:51,692] 🌐 http://0.0.0.0:5000
+[2026-02-04 13:45:51,692] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-05 00:59:30,538] ============================================================
+[2026-02-05 00:59:30,539] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-05 00:59:30,539] ============================================================
+[2026-02-05 00:59:31,231] 🤖 UIBridge started
+[2026-02-05 00:59:31,250] ✅ All topics connected
+[2026-02-05 00:59:31,251] ✅ WebRTC event loop started
+[2026-02-05 00:59:31,752] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-05 00:59:31,753] 🌐 http://0.0.0.0:5000
+[2026-02-05 00:59:31,753] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-05 08:46:25,679] ============================================================
+[2026-02-05 08:46:25,680] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-05 08:46:25,680] ============================================================
+[2026-02-05 08:46:25,715] 🤖 UIBridge started
+[2026-02-05 08:46:25,728] ✅ All topics connected
+[2026-02-05 08:46:25,728] ✅ WebRTC event loop started
+[2026-02-05 08:46:26,229] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-05 08:46:26,230] 🌐 http://0.0.0.0:5000
+[2026-02-05 08:46:26,230] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-05 15:53:05,741] ============================================================
+[2026-02-05 15:53:05,742] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-05 15:53:05,742] ============================================================
+[2026-02-05 15:53:05,781] 🤖 UIBridge started
+[2026-02-05 15:53:05,795] ✅ All topics connected
+[2026-02-05 15:53:05,796] ✅ WebRTC event loop started
+[2026-02-05 15:53:06,297] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-05 15:53:06,297] 🌐 http://0.0.0.0:5000
+[2026-02-05 15:53:06,297] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-05 21:33:57,858] ============================================================
+[2026-02-05 21:33:57,858] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-05 21:33:57,858] ============================================================
+[2026-02-05 21:33:57,895] 🤖 UIBridge started
+[2026-02-05 21:33:57,908] ✅ All topics connected
+[2026-02-05 21:33:57,908] ✅ WebRTC event loop started
+[2026-02-05 21:33:58,410] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-05 21:33:58,410] 🌐 http://0.0.0.0:5000
+[2026-02-05 21:33:58,410] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-06 07:20:59,069] ============================================================
+[2026-02-06 07:20:59,069] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-06 07:20:59,070] ============================================================
+[2026-02-06 07:20:59,106] 🤖 UIBridge started
+[2026-02-06 07:20:59,120] ✅ All topics connected
+[2026-02-06 07:20:59,120] ✅ WebRTC event loop started
+[2026-02-06 07:20:59,622] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-06 07:20:59,622] 🌐 http://0.0.0.0:5000
+[2026-02-06 07:20:59,622] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-06 10:36:21,509] ============================================================
+[2026-02-06 10:36:21,509] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-06 10:36:21,510] ============================================================
+[2026-02-06 10:36:21,896] 🤖 UIBridge started
+[2026-02-06 10:36:21,915] ✅ All topics connected
+[2026-02-06 10:36:21,915] ✅ WebRTC event loop started
+[2026-02-06 10:36:22,417] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-06 10:36:22,417] 🌐 http://0.0.0.0:5000
+[2026-02-06 10:36:22,418] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-06 20:51:48,201] ============================================================
+[2026-02-06 20:51:48,202] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-06 20:51:48,202] ============================================================
+[2026-02-06 20:51:48,589] 🤖 UIBridge started
+[2026-02-06 20:51:48,607] ✅ All topics connected
+[2026-02-06 20:51:48,608] ✅ WebRTC event loop started
+[2026-02-06 20:51:49,109] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-06 20:51:49,109] 🌐 http://0.0.0.0:5000
+[2026-02-06 20:51:49,109] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-06 19:50:25,110] ============================================================
+[2026-02-06 19:50:25,110] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-06 19:50:25,110] ============================================================
+[2026-02-06 19:50:25,469] 🤖 UIBridge started
+[2026-02-06 19:50:25,496] ✅ All topics connected
+[2026-02-06 19:50:25,496] ✅ WebRTC event loop started
+[2026-02-06 19:50:25,998] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-06 19:50:25,998] 🌐 http://0.0.0.0:5000
+[2026-02-06 19:50:25,998] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-07 08:37:16,657] ============================================================
+[2026-02-07 08:37:16,658] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-07 08:37:16,658] ============================================================
+[2026-02-07 08:37:16,695] 🤖 UIBridge started
+[2026-02-07 08:37:16,708] ✅ All topics connected
+[2026-02-07 08:37:16,708] ✅ WebRTC event loop started
+[2026-02-07 08:37:17,209] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-07 08:37:17,209] 🌐 http://0.0.0.0:5000
+[2026-02-07 08:37:17,209] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-07 11:11:03,836] ============================================================
+[2026-02-07 11:11:03,837] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-07 11:11:03,837] ============================================================
+[2026-02-07 11:11:03,874] 🤖 UIBridge started
+[2026-02-07 11:11:03,888] ✅ All topics connected
+[2026-02-07 11:11:03,888] ✅ WebRTC event loop started
+[2026-02-07 11:11:04,390] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-07 11:11:04,390] 🌐 http://0.0.0.0:5000
+[2026-02-07 11:11:04,390] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-08 18:32:14,429] ============================================================
+[2026-02-08 18:32:14,430] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-08 18:32:14,430] ============================================================
+[2026-02-08 18:32:14,469] 🤖 UIBridge started
+[2026-02-08 18:32:14,483] ✅ All topics connected
+[2026-02-08 18:32:14,483] ✅ WebRTC event loop started
+[2026-02-08 18:32:14,984] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-08 18:32:14,984] 🌐 http://0.0.0.0:5000
+[2026-02-08 18:32:14,984] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-08 23:56:02,541] ============================================================
+[2026-02-08 23:56:02,541] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-08 23:56:02,541] ============================================================
+[2026-02-08 23:56:02,592] 🤖 UIBridge started
+[2026-02-08 23:56:02,611] ✅ All topics connected
+[2026-02-08 23:56:02,611] ✅ WebRTC event loop started
+[2026-02-08 23:56:03,112] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-08 23:56:03,112] 🌐 http://0.0.0.0:5000
+[2026-02-08 23:56:03,113] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-09 09:24:32,516] ============================================================
+[2026-02-09 09:24:32,517] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-09 09:24:32,517] ============================================================
+[2026-02-09 09:24:32,568] 🤖 UIBridge started
+[2026-02-09 09:24:32,586] ✅ All topics connected
+[2026-02-09 09:24:32,586] ✅ WebRTC event loop started
+[2026-02-09 09:24:33,087] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-09 09:24:33,088] 🌐 http://0.0.0.0:5000
+[2026-02-09 09:24:33,088] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-09 10:02:23,922] ============================================================
+[2026-02-09 10:02:23,923] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-09 10:02:23,923] ============================================================
+[2026-02-09 10:02:23,960] 🤖 UIBridge started
+[2026-02-09 10:02:23,973] ✅ All topics connected
+[2026-02-09 10:02:23,974] ✅ WebRTC event loop started
+[2026-02-09 10:02:24,475] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-09 10:02:24,475] 🌐 http://0.0.0.0:5000
+[2026-02-09 10:02:24,476] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-09 11:49:52,497] ============================================================
+[2026-02-09 11:49:52,497] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-09 11:49:52,497] ============================================================
+[2026-02-09 11:49:52,548] 🤖 UIBridge started
+[2026-02-09 11:49:52,565] ✅ All topics connected
+[2026-02-09 11:49:52,566] ✅ WebRTC event loop started
+[2026-02-09 11:49:53,067] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-09 11:49:53,067] 🌐 http://0.0.0.0:5000
+[2026-02-09 11:49:53,067] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-09 14:21:25,680] ============================================================
+[2026-02-09 14:21:25,680] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-09 14:21:25,680] ============================================================
+[2026-02-09 14:21:26,068] 🤖 UIBridge started
+[2026-02-09 14:21:26,087] ✅ All topics connected
+[2026-02-09 14:21:26,088] ✅ WebRTC event loop started
+[2026-02-09 14:21:26,590] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-09 14:21:26,590] 🌐 http://0.0.0.0:5000
+[2026-02-09 14:21:26,590] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-10 09:38:50,357] ============================================================
+[2026-02-10 09:38:50,357] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-10 09:38:50,357] ============================================================
+[2026-02-10 09:38:50,411] 🤖 UIBridge started
+[2026-02-10 09:38:50,430] ✅ All topics connected
+[2026-02-10 09:38:50,430] ✅ WebRTC event loop started
+[2026-02-10 09:38:50,932] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-10 09:38:50,932] 🌐 http://0.0.0.0:5000
+[2026-02-10 09:38:50,932] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-10 13:38:19,098] ============================================================
+[2026-02-10 13:38:19,099] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-10 13:38:19,099] ============================================================
+[2026-02-10 13:38:19,487] 🤖 UIBridge started
+[2026-02-10 13:38:19,505] ✅ All topics connected
+[2026-02-10 13:38:19,506] ✅ WebRTC event loop started
+[2026-02-10 13:38:20,008] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-10 13:38:20,009] 🌐 http://0.0.0.0:5000
+[2026-02-10 13:38:20,009] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-10 14:19:51,918] 📡 Received WebRTC offer
+[2026-02-10 14:19:52,938] ✅ Remote description set
+[2026-02-10 14:19:52,938] 📹 Camera track replaced, direction set to sendonly
+[2026-02-10 14:19:53,009] ✅ Answer created
+[2026-02-10 14:19:53,010] ✅ WebRTC answer sent to client
+[2026-02-10 14:30:46,065] 📡 Received WebRTC offer
+[2026-02-10 14:30:47,072] ✅ Remote description set
+[2026-02-10 14:30:47,072] 📹 Camera track replaced, direction set to sendonly
+[2026-02-10 14:30:47,152] ✅ Answer created
+[2026-02-10 14:30:47,153] ✅ WebRTC answer sent to client
+[2026-02-10 14:35:52,289] 📡 Received WebRTC offer
+[2026-02-10 14:35:53,294] ✅ Remote description set
+[2026-02-10 14:35:53,294] 📹 Camera track replaced, direction set to sendonly
+[2026-02-10 14:35:53,386] ✅ Answer created
+[2026-02-10 14:35:53,387] ✅ WebRTC answer sent to client
+[2026-02-10 14:51:04,918] 📡 Received WebRTC offer
+[2026-02-10 14:51:05,925] ✅ Remote description set
+[2026-02-10 14:51:05,925] 📹 Camera track replaced, direction set to sendonly
+[2026-02-10 14:51:05,966] ✅ Answer created
+[2026-02-10 14:51:05,967] ✅ WebRTC answer sent to client
+[2026-02-10 14:58:45,546] 📡 Received WebRTC offer
+[2026-02-10 14:58:46,551] ✅ Remote description set
+[2026-02-10 14:58:46,552] 📹 Camera track replaced, direction set to sendonly
+[2026-02-10 14:58:46,753] ✅ Answer created
+[2026-02-10 14:58:46,754] ✅ WebRTC answer sent to client
+[2026-02-10 15:54:55,932] 📡 Received WebRTC offer
+[2026-02-10 15:54:56,938] ✅ Remote description set
+[2026-02-10 15:54:56,938] 📹 Camera track replaced, direction set to sendonly
+[2026-02-10 15:54:56,992] ✅ Answer created
+[2026-02-10 15:54:56,993] ✅ WebRTC answer sent to client
+[2026-02-10 18:39:16,798] ============================================================
+[2026-02-10 18:39:16,799] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-10 18:39:16,799] ============================================================
+[2026-02-10 18:39:16,851] 🤖 UIBridge started
+[2026-02-10 18:39:16,869] ✅ All topics connected
+[2026-02-10 18:39:16,869] ✅ WebRTC event loop started
+[2026-02-10 18:39:17,371] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-10 18:39:17,371] 🌐 http://0.0.0.0:5000
+[2026-02-10 18:39:17,371] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-10 19:18:33,162] 📡 Received WebRTC offer
+[2026-02-10 19:18:34,182] ✅ Remote description set
+[2026-02-10 19:18:34,182] 📹 Camera track replaced, direction set to sendonly
+[2026-02-10 19:18:34,231] ✅ Answer created
+[2026-02-10 19:18:34,232] ✅ WebRTC answer sent to client
+[2026-02-10 20:47:01,212] 📡 Received WebRTC offer
+[2026-02-10 20:47:02,226] ✅ Remote description set
+[2026-02-10 20:47:02,226] 📹 Camera track replaced, direction set to sendonly
+[2026-02-10 20:47:02,279] ✅ Answer created
+[2026-02-10 20:47:02,280] ✅ WebRTC answer sent to client
+[2026-02-11 07:25:37,575] ============================================================
+[2026-02-11 07:25:37,575] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 07:25:37,575] ============================================================
+[2026-02-11 07:25:37,935] 🤖 UIBridge started
+[2026-02-11 07:25:37,954] ✅ All topics connected
+[2026-02-11 07:25:37,954] ✅ WebRTC event loop started
+[2026-02-11 07:25:38,456] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 07:25:38,456] 🌐 http://0.0.0.0:5000
+[2026-02-11 07:25:38,456] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-11 08:03:16,435] ============================================================
+[2026-02-11 08:03:16,436] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 08:03:16,436] ============================================================
+[2026-02-11 08:03:16,514] 🤖 UIBridge started
+[2026-02-11 08:03:16,535] ✅ All topics connected
+[2026-02-11 08:03:16,536] ✅ WebRTC event loop started
+[2026-02-11 08:03:17,038] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 08:03:17,039] 🌐 http://0.0.0.0:5000
+[2026-02-11 08:03:17,039] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-11 08:03:17,058] 🛑 Shutting down
+[2026-02-11 08:07:30,843] 📡 Received WebRTC offer
+[2026-02-11 08:07:31,881] ✅ Remote description set
+[2026-02-11 08:07:31,881] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 08:07:31,957] ✅ Answer created
+[2026-02-11 08:07:31,958] ✅ WebRTC answer sent to client
+[2026-02-11 10:08:11,741] ============================================================
+[2026-02-11 10:08:11,741] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 10:08:11,741] ============================================================
+[2026-02-11 10:08:11,797] 🤖 UIBridge started
+[2026-02-11 10:08:11,816] ✅ All topics connected
+[2026-02-11 10:08:11,817] ✅ WebRTC event loop started
+[2026-02-11 10:08:12,318] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 10:08:12,318] 🌐 http://0.0.0.0:5000
+[2026-02-11 10:08:12,319] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-11 10:46:09,775] 📡 Received WebRTC offer
+[2026-02-11 10:46:10,794] ✅ Remote description set
+[2026-02-11 10:46:10,794] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 10:46:10,995] ✅ Answer created
+[2026-02-11 10:46:10,997] ✅ WebRTC answer sent to client
+[2026-02-11 10:57:21,919] 📡 Received WebRTC offer
+[2026-02-11 10:57:22,926] ✅ Remote description set
+[2026-02-11 10:57:22,926] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 10:57:23,065] ✅ Answer created
+[2026-02-11 10:57:23,066] ✅ WebRTC answer sent to client
+[2026-02-11 11:47:15,594] 📡 Received WebRTC offer
+[2026-02-11 11:47:16,601] ✅ Remote description set
+[2026-02-11 11:47:16,601] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 11:47:16,813] ✅ Answer created
+[2026-02-11 11:47:16,815] ✅ WebRTC answer sent to client
+[2026-02-11 11:48:09,030] 📡 Received WebRTC offer
+[2026-02-11 11:48:10,039] ✅ Remote description set
+[2026-02-11 11:48:10,040] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 11:48:10,120] ✅ Answer created
+[2026-02-11 11:48:10,122] ✅ WebRTC answer sent to client
+[2026-02-11 11:52:06,037] 📡 Received WebRTC offer
+[2026-02-11 11:52:07,046] ✅ Remote description set
+[2026-02-11 11:52:07,046] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 11:52:11,037] ❌ WebRTC negotiation error: 
+[2026-02-11 11:52:12,051] ✅ Answer created
+[2026-02-11 11:56:25,666] 📡 Received WebRTC offer
+[2026-02-11 11:56:26,672] ✅ Remote description set
+[2026-02-11 11:56:26,673] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 11:56:27,974] ✅ Answer created
+[2026-02-11 11:56:27,975] ✅ WebRTC answer sent to client
+[2026-02-11 12:07:45,639] 📡 Received WebRTC offer
+[2026-02-11 12:07:46,646] ✅ Remote description set
+[2026-02-11 12:07:46,646] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 12:07:46,750] ✅ Answer created
+[2026-02-11 12:07:46,751] ✅ WebRTC answer sent to client
+[2026-02-11 16:12:29,028] 📡 Received WebRTC offer
+[2026-02-11 16:12:30,034] ✅ Remote description set
+[2026-02-11 16:12:30,034] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:12:30,243] ✅ Answer created
+[2026-02-11 16:12:30,244] ✅ WebRTC answer sent to client
+[2026-02-11 16:13:49,185] 📡 Received WebRTC offer
+[2026-02-11 16:13:50,189] ✅ Remote description set
+[2026-02-11 16:13:50,190] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:13:50,314] ✅ Answer created
+[2026-02-11 16:13:50,315] ✅ WebRTC answer sent to client
+[2026-02-11 16:15:44,607] 📡 Received WebRTC offer
+[2026-02-11 16:15:45,611] ✅ Remote description set
+[2026-02-11 16:15:45,612] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:15:45,815] ✅ Answer created
+[2026-02-11 16:15:45,816] ✅ WebRTC answer sent to client
+[2026-02-11 16:16:30,666] 📡 Received WebRTC offer
+[2026-02-11 16:16:31,671] ✅ Remote description set
+[2026-02-11 16:16:31,671] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:16:31,800] ✅ Answer created
+[2026-02-11 16:16:31,801] ✅ WebRTC answer sent to client
+[2026-02-11 16:28:04,132] 📡 Received WebRTC offer
+[2026-02-11 16:28:05,136] ✅ Remote description set
+[2026-02-11 16:28:05,137] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:28:05,259] ✅ Answer created
+[2026-02-11 16:28:05,260] ✅ WebRTC answer sent to client
+[2026-02-11 16:29:19,107] 📡 Received WebRTC offer
+[2026-02-11 16:29:20,111] ✅ Remote description set
+[2026-02-11 16:29:20,111] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:29:20,159] ✅ Answer created
+[2026-02-11 16:29:20,160] ✅ WebRTC answer sent to client
+[2026-02-11 16:38:39,039] 📡 Received WebRTC offer
+[2026-02-11 16:38:40,045] ✅ Remote description set
+[2026-02-11 16:38:40,046] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:38:40,183] ✅ Answer created
+[2026-02-11 16:38:40,184] ✅ WebRTC answer sent to client
+[2026-02-11 16:38:58,420] 📡 Received WebRTC offer
+[2026-02-11 16:38:59,426] ✅ Remote description set
+[2026-02-11 16:38:59,426] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:38:59,483] ✅ Answer created
+[2026-02-11 16:38:59,484] ✅ WebRTC answer sent to client
+[2026-02-11 16:50:07,178] 📡 Received WebRTC offer
+[2026-02-11 16:50:08,184] ✅ Remote description set
+[2026-02-11 16:50:08,184] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:50:08,247] ✅ Answer created
+[2026-02-11 16:50:08,248] ✅ WebRTC answer sent to client
+[2026-02-11 16:52:31,559] 📡 Received WebRTC offer
+[2026-02-11 16:52:32,563] ✅ Remote description set
+[2026-02-11 16:52:32,563] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:52:32,612] ✅ Answer created
+[2026-02-11 16:52:32,613] ✅ WebRTC answer sent to client
+[2026-02-11 16:53:09,966] 📡 Received WebRTC offer
+[2026-02-11 16:53:10,972] ✅ Remote description set
+[2026-02-11 16:53:10,972] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:53:11,166] ✅ Answer created
+[2026-02-11 16:53:11,167] ✅ WebRTC answer sent to client
+[2026-02-11 16:55:24,953] 📡 Received WebRTC offer
+[2026-02-11 16:55:25,959] ✅ Remote description set
+[2026-02-11 16:55:25,959] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:55:26,164] ✅ Answer created
+[2026-02-11 16:55:26,165] ✅ WebRTC answer sent to client
+[2026-02-11 16:58:59,435] 📡 Received WebRTC offer
+[2026-02-11 16:59:00,441] ✅ Remote description set
+[2026-02-11 16:59:00,441] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:59:00,484] ✅ Answer created
+[2026-02-11 16:59:00,485] ✅ WebRTC answer sent to client
+[2026-02-11 16:59:29,677] 📡 Received WebRTC offer
+[2026-02-11 16:59:30,682] ✅ Remote description set
+[2026-02-11 16:59:30,682] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 16:59:30,740] ✅ Answer created
+[2026-02-11 16:59:30,741] ✅ WebRTC answer sent to client
+[2026-02-11 17:06:28,740] ============================================================
+[2026-02-11 17:06:28,741] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 17:06:28,741] ============================================================
+[2026-02-11 17:06:29,131] 🤖 UIBridge started
+[2026-02-11 17:06:29,151] ✅ All topics connected
+[2026-02-11 17:06:29,151] ✅ WebRTC event loop started
+[2026-02-11 17:06:29,653] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 17:06:29,653] 🌐 http://0.0.0.0:5000
+[2026-02-11 17:06:29,653] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-11 17:07:21,352] ============================================================
+[2026-02-11 17:07:21,352] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 17:07:21,353] ============================================================
+[2026-02-11 17:07:21,396] 🤖 UIBridge started
+[2026-02-11 17:07:21,405] ✅ All topics connected
+[2026-02-11 17:07:21,405] ✅ WebRTC event loop started
+[2026-02-11 17:07:21,907] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 17:07:21,907] 🌐 http://0.0.0.0:5000
+[2026-02-11 17:07:21,907] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-11 17:07:21,911] 🛑 Shutting down
+[2026-02-11 17:07:56,482] 📡 Received WebRTC offer
+[2026-02-11 17:07:57,527] ✅ Remote description set
+[2026-02-11 17:07:57,527] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 17:07:59,645] ✅ Answer created
+[2026-02-11 17:07:59,647] ✅ WebRTC answer sent to client
+[2026-02-11 17:17:05,910] ============================================================
+[2026-02-11 17:17:05,910] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 17:17:05,910] ============================================================
+[2026-02-11 17:17:05,971] 🤖 UIBridge started
+[2026-02-11 17:17:05,984] ✅ All topics connected
+[2026-02-11 17:17:05,985] ✅ WebRTC event loop started
+[2026-02-11 17:17:06,488] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 17:17:06,488] 🌐 http://0.0.0.0:5000
+[2026-02-11 17:17:06,488] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-11 17:17:09,703] 📡 Received WebRTC offer
+[2026-02-11 17:17:10,298] ✅ Remote description set
+[2026-02-11 17:17:10,298] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 17:17:10,340] ✅ Answer created
+[2026-02-11 17:17:10,341] ✅ WebRTC answer sent to client
+[2026-02-11 17:24:43,132] 🛑 Shutting down
+[2026-02-11 17:27:14,671] ============================================================
+[2026-02-11 17:27:14,671] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 17:27:14,671] ============================================================
+[2026-02-11 17:27:14,725] 🤖 UIBridge started
+[2026-02-11 17:27:14,738] ✅ All topics connected
+[2026-02-11 17:27:14,739] ✅ WebRTC event loop started
+[2026-02-11 17:27:15,241] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 17:27:15,241] 🌐 http://0.0.0.0:5000
+[2026-02-11 17:27:15,241] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-11 17:27:15,247] 🛑 Shutting down
+[2026-02-11 17:28:45,423] ============================================================
+[2026-02-11 17:28:45,425] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 17:28:45,425] ============================================================
+[2026-02-11 17:28:45,470] 🤖 UIBridge started
+[2026-02-11 17:28:45,480] ✅ All topics connected
+[2026-02-11 17:28:45,481] ✅ WebRTC event loop started
+[2026-02-11 17:28:45,983] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 17:28:45,984] 🌐 http://0.0.0.0:5000
+[2026-02-11 17:28:45,984] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
+[2026-02-11 17:28:48,531] 📡 Received WebRTC offer
+[2026-02-11 17:28:49,575] ✅ Remote description set
+[2026-02-11 17:28:49,576] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 17:28:52,573] ✅ Answer created
+[2026-02-11 17:28:52,574] ✅ WebRTC answer sent to client
+[2026-02-11 17:33:27,096] 📡 Received WebRTC offer
+[2026-02-11 17:33:28,102] ✅ Remote description set
+[2026-02-11 17:33:28,102] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 17:33:30,562] 📡 Received WebRTC offer
+[2026-02-11 17:33:31,568] ✅ Remote description set
+[2026-02-11 17:33:31,568] 📹 Camera track replaced, direction set to sendonly
+[2026-02-11 17:33:32,097] ❌ WebRTC negotiation error: 
+[2026-02-11 17:33:33,105] ✅ Answer created
+[2026-02-11 17:33:35,562] ❌ WebRTC negotiation error: 
+[2026-02-11 17:33:35,565] ✅ Answer created
+[2026-02-11 17:34:04,359] 🛑 Shutting down
+[2026-02-11 18:44:44,009] ============================================================
+[2026-02-11 18:44:44,009] 🚀 Robot3 UI Server (WebRTC Fixed)
+[2026-02-11 18:44:44,009] ============================================================
+[2026-02-11 18:44:44,060] 🤖 UIBridge started
+[2026-02-11 18:44:44,080] ✅ All topics connected
+[2026-02-11 18:44:44,080] ✅ WebRTC event loop started
+[2026-02-11 18:44:44,582] 📂 UI: /home/chandan/robot3_ws/build/robot3_ui/robot3_ui/ui_build
+[2026-02-11 18:44:44,582] 🌐 http://0.0.0.0:5000
+[2026-02-11 18:44:44,582] 📝 Logs: /home/chandan/robot3_ws/ui_log.txt
